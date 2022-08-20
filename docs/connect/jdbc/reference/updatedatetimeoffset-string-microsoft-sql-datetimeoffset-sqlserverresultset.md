@@ -10,12 +10,12 @@ ms.technology: connectivity
 ms.topic: reference
 ms.assetid: 952947ce-7c6e-4364-b035-46cb7fe621b2
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # updateDateTimeOffset(string, microsoft.sql.DateTimeOffset) (SQLServerResultSet)
 [!INCLUDE[Driver_JDBC_Download](../../../includes/driver_jdbc_download.md)]
 
-  This method was added in [!INCLUDE[msCoName](../../../includes/msconame_md.md)][!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] JDBC Driver 3.0.  
+  This method was added in [!INCLUDE[msCoName](../../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] JDBC Driver 3.0.  
   
  Updates the value of the column specified to the [DateTimeOffset Class](../../../connect/jdbc/reference/datetimeoffset-class.md) value, given a column name.  
   

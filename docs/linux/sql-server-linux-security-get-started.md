@@ -1,13 +1,15 @@
 ---
-title: Get started with SQL Server security on Linux 
-description: Walk through the security features of SQL Server on Linux to get an idea of areas to investigate further.  
-author: VanMSFT 
+title: Get started with SQL Server security on Linux
+description: Walk through the security features of SQL Server on Linux to get an idea of areas to investigate further.
+author: VanMSFT
 ms.author: vanto
 ms.date: 10/02/2017
-ms.topic: conceptual  
+ms.topic: conceptual
 ms.prod: sql
-ms.technology: linux  
-ms.assetid: ecc72850-8b01-492e-9a27-ec817648f0e0  
+ms.technology: linux
+ms.assetid: ecc72850-8b01-492e-9a27-ec817648f0e0
+ms.custom:
+  - intro-get-started
 ---
 # Walkthrough for the security features of SQL Server on Linux
 
@@ -30,7 +32,7 @@ CREATE LOGIN Larry WITH PASSWORD = '************';
 > [!NOTE]
 >  Always use a strong password in place of the asterisks in the previous command.
 
-Logins can connect to SQL Server and have access (with limited permissions) to the master database. To connect to a user-database, a login needs a corresponding identity at the database level, called a database user. Users are specific to each database and must be separately created in each database to grant them access. The following example moves you into the AdventureWorks2014 database, and then uses the [CREATE USER](../t-sql/statements/create-user-transact-sql.md) statement to create a user named Larry that is associated with the login named Larry. Though the login and the user are related (mapped to each other), they are different objects. The login is a server-level principle. The user is a database-level principal.
+Logins can connect to SQL Server and have access (with limited permissions) to the master database. To connect to a user-database, a login needs a corresponding identity at the database level, called a database user. Users are specific to each database and must be separately created in each database to grant them access. The following example moves you into the AdventureWorks2014 database, and then uses the [CREATE USER](../t-sql/statements/create-user-transact-sql.md) statement to create a user named Larry that is associated with the login named Larry. Though the login and the user are related (mapped to each other), they are different objects. The login is a server-level principal. The user is a database-level principal.
 
 ```
 USE AdventureWorks2014;

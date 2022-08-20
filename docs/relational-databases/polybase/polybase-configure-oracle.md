@@ -30,7 +30,8 @@ To query the data from an Oracle data source, you must create external tables to
 The following Transact-SQL commands are used in this section:
 
 - [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](../../t-sql/statements/create-database-scoped-credential-transact-sql.md)
-- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](../../t-sql/statements/create-external-data-source-transact-sql.md) 
+- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](../../t-sql/statements/create-external-data-source-transact-sql.md)
+- [CREATE EXTERNAL TABLE (Transact-SQL)](../../t-sql/statements/create-external-table-transact-sql.md)
 - [CREATE STATISTICS (Transact-SQL)](../../t-sql/statements/create-statistics-transact-sql.md)
 
 
@@ -62,6 +63,22 @@ The following Transact-SQL commands are used in this section:
     CREDENTIAL = credential_name)
     ```
 
+1. Create an external table with [CREATE EXTERNAL TABLE](../../t-sql/statements/create-external-table-transact-sql.md).
+
+    ```sql
+    /*
+    * LOCATION: Three-part identifier indicating database & domain or only database, schema, and table name.
+    * DATA_SOURCE: The data source created above.
+    */
+    CREATE EXTERNAL TABLE [T1] (
+      [KEY] DECIMAL(38) NOT NULL,
+      [RANDOM_INT] DECIMAL(38),
+      [RANDOM_FLOAT] FLOAT(53))
+    WITH (
+      LOCATION = '[ORCLCDB.localdomain].SYS.T1',
+      DATA_SOURCE = external_data_source_name)
+    ```
+
 1. **Optional:** Create statistics on an external table.
 
     We recommend creating statistics on external table columns especially the ones used for joins, filters and aggregates,for optimal query performance.
@@ -72,6 +89,10 @@ The following Transact-SQL commands are used in this section:
 
 >[!IMPORTANT] 
 >Once you have created an external data source, you can use the [CREATE EXTERNAL TABLE](../../t-sql/statements/create-external-table-transact-sql.md) command to create a queryable table over that source. 
+
+## Next steps
+
+For more tutorials on creating external data sources and external tables to a variety of data sources, see [PolyBase Transact-SQL reference](polybase-t-sql-objects.md).
 
 For more information and examples, see the following articles:
 

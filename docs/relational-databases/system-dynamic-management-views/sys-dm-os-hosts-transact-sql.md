@@ -1,25 +1,23 @@
 ---
-description: "sys.dm_os_hosts (Transact-SQL)"
-title: "sys.dm_os_hosts (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "sys.dm_os_hosts (Transact-SQL)"
+description: sys.dm_os_hosts (Transact-SQL)
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: "08/18/2017"
 ms.prod: sql
-ms.reviewer: ""
 ms.technology: system-objects
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "sys.dm_os_hosts_TSQL"
   - "dm_os_hosts"
   - "dm_os_hosts_TSQL"
   - "sys.dm_os_hosts"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sys.dm_os_hosts dynamic management view"
+dev_langs:
+  - "TSQL"
 ms.assetid: a313ff3b-1fe9-421e-b94b-cea19c43b0e5
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-monikerRange: ">= sql-server-2016 || >= sql-server-linux-2017|| >= aps-pdw-2016 || = azure-sqldw-latest"
+monikerRange: ">=sql-server-2016||>=sql-server-linux-2017||>=aps-pdw-2016||=azure-sqldw-latest"
 ---
 # sys.dm_os_hosts (Transact-SQL)
 [!INCLUDE [sql-asa-pdw](../../includes/applies-to-version/sql-asa-pdw.md)]
@@ -44,8 +42,9 @@ monikerRange: ">= sql-server-2016 || >= sql-server-linux-2017|| >= aps-pdw-2016 
   
 ## Permissions
 
-On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.   
-On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account or the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account is required. On all other SQL Database service objectives, the `VIEW DATABASE STATE` permission is required in the database.   
+On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.
+
+On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account, the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account, or membership in the `##MS_ServerStateReader##` [server role](/azure/azure-sql/database/security-server-roles) is required. On all other SQL Database service objectives, either the `VIEW DATABASE STATE` permission on the database, or membership in the `##MS_ServerStateReader##` server role is required.   
 
 ## Remarks  
  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] allows components, such as an OLE DB provider, that are not part of the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] executable to allocate memory and participate in non-preemptive scheduling. These components are hosted by [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], and all resources allocated by these components are tracked. Hosting allows [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] to better account for resources used by components external to the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] executable.  

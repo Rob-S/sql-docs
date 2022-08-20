@@ -8,8 +8,8 @@ ms.reviewer: ""
 ms.technology: availability-groups
 ms.topic: how-to
 ms.assetid:
-author: cawrites
-ms.author: chadam
+author: MashaMSFT
+ms.author: mathoma
 ---
 # Mechanics and guidelines of lease, cluster, and health check timeouts for Always On availability groups 
 
@@ -63,7 +63,7 @@ When the cluster fails over, the instance of SQL Server that hosts the previous 
 
 ### Health check timeout operation 
 
-The health check timeout is more flexible because no other failover mechanism depends on it directly. The default value of 30 seconds sets the `sp_server_diagnostics` interval at 10 seconds, with a minimum value for 15 seconds for timeout and a 5 second interval. More generally, the `sp_server_diagnositcs` update interval is always 1/3 \* `HealthCheckTimeout`. When the resource DLL does not receive a new set of health data at an interval, it will continue to use the health data from the previous interval to determine the current AG and instance health. Increasing the health check timeout value will make the primary more tolerant of CPU pressure, which can prevent `sp_server_diagnostics` from providing new data at each interval, however, it will rely on outdated data health checks for longer. Regardless of the timeout value, once data is received indicating the replica is not healthy, the next `IsAlive` call will return that the instance is unhealthy and the cluster service will initiate a failover. 
+The health check timeout is more flexible because no other failover mechanism depends on it directly. The default value of 30 seconds sets the `sp_server_diagnostics` interval at 10 seconds, with a minimum value for 15 seconds for timeout and a 5 second interval. More generally, the `sp_server_diagnostics` update interval is always 1/3 \* `HealthCheckTimeout`. When the resource DLL does not receive a new set of health data at an interval, it will continue to use the health data from the previous interval to determine the current AG and instance health. Increasing the health check timeout value will make the primary more tolerant of CPU pressure, which can prevent `sp_server_diagnostics` from providing new data at each interval, however, it will rely on outdated data health checks for longer. Regardless of the timeout value, once data is received indicating the replica is not healthy, the next `IsAlive` call will return that the instance is unhealthy and the cluster service will initiate a failover. 
 
 The failure condition level of the AG changes the failure conditions for the health check. For any failure level, if the AG element is reported unhealthy by `sp_server_diagnostics` then the health check will fail. Each level inherits all the failure conditions from the levels below it. 
 
@@ -117,7 +117,7 @@ A connection timeout has occurred on a previously established connection to avai
 To modify the lease time out value, use the Failover Cluster Manager and follow these steps: 
 
 
-1. In the roles tab, find the target AG role. Click on the target AG role. 
+1. In the roles tab, find the target AG role. Select the target AG role. 
 2. Right-click the AG resource at the bottom of the window and select **Properties**. 
 
    ![Failover cluster manager](media/availability-group-lease-healthcheck-timeout/image2.png) 
@@ -163,7 +163,7 @@ ALTER AVAILABILITY GROUP AG1 SET (HEALTH_CHECK_TIMEOUT =60000);
  | :-------------- | :------ | :------ | :--- | :------------------- | :----- | :------ |
  | Lease timeout </br> **Default: 20000** | Prevent splitbrain | Primary to Cluster </br> (HADR) | [Windows event objects](/windows/desktop/Sync/event-objects)| Used in both | OS not responding, low virtual memory, working set paging, generating dump, pegged CPU, WSFC down (loss of quorum) | AG resource offline-online, failover |  
  | Session timeout </br> **Default: 10000** | Inform of communication issue between Primary and Secondary | Secondary to Primary </br> (HADR) | [TCP Sockets (messages sent via DBM endpoint)](/windows/desktop/WinSock/windows-sockets-start-page-2) | Used in neither | Network communication, </br> Issues on secondary - down, OS not responding, resource contention | Secondary - DISCONNECTED | 
- |HealthCheck timeout  </br> **Default: 30000** | Indicate timeout while trying to determine health of the Primary replica | Cluster to Primary </br> (FCI & HADR) | T-SQL [sp_server_diagnostics](../../../relational-databases/system-stored-procedures/sp-server-diagnostics-transact-sql.md) | Used in both | Failure conditions met, OS not responding, low virtual memory, working set trim, generating dump, WSFC (loss of quroum), scheduler issues (dead locked schedulers)| AG resouce Offline-online or Failover, FCI restart/failover |  
+ |HealthCheck timeout  </br> **Default: 30000** | Indicate timeout while trying to determine health of the Primary replica | Cluster to Primary </br> (FCI & HADR) | T-SQL [sp_server_diagnostics](../../../relational-databases/system-stored-procedures/sp-server-diagnostics-transact-sql.md) | Used in both | Failure conditions met, OS not responding, low virtual memory, working set trim, generating dump, WSFC (loss of quorum), scheduler issues (dead locked schedulers)| AG resource Offline-online or Failover, FCI restart/failover |  
 
 ## See Also    
 

@@ -15,12 +15,12 @@ author: "markingmyname"
 ms.author: "maghan"
 ---
 # Select Objects (Object Explorer)
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 Use the **Select Objects** dialog box to add an object to a list in another dialog box. The dialog box title and the options available in the dialog box depend upon how it was opened. Only available options appear; for instance, only logins are available when you are selecting an owner for a new object.  
   
 ## Options  
 **Select these object types**  
-Displays a list of the types of which the objects to be selected belong. The types include [!INCLUDE[msCoName](../../includes/msconame_md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] level and database level principals and securables. This box is populated from the selections made from the **Select Object Types** dialog box, accessed from the **Objects Type** button.  
+Displays a list of the types of which the objects to be selected belong. The types include [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] level and database level principals and securables. This box is populated from the selections made from the **Select Object Types** dialog box, accessed from the **Objects Type** button.  
   
 **Enter the object names to select**  
 Enter a semicolon-separated list of names of the objects to be selected. Objects to be selected must be of a type listed in the **Select these object types** box. Objects can be selected from a list accessed by clicking the **Browse** button.  

@@ -1,27 +1,26 @@
 ---
+title: "GROUPING_ID (Transact-SQL)"
 description: "GROUPING_ID (Transact-SQL)"
-title: "GROUPING_ID (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: ""
 ms.date: "03/03/2017"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "GROUPING_ID_TSQL"
   - "GROUPING_ID"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "GROUP BY clause, GROUPING_ID"
   - "GROUPING_ID function"
-ms.assetid: c1050658-b19f-42ee-9a05-ecd6a73b896c
-author: VanMSFT
-ms.author: vanto
+dev_langs:
+  - "TSQL"
 ---
 # GROUPING_ID (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
   Is a function that computes the level of grouping. GROUPING_ID can be used only in the SELECT \<select> list, HAVING, or ORDER BY clauses when GROUP BY is specified.  
   

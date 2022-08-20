@@ -1,31 +1,29 @@
 ---
-description: "RESTORE Statements - FILELISTONLY (Transact-SQL)"
-title: "RESTORE FILELISTONLY (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "RESTORE FILELISTONLY (Transact-SQL)"
+description: RESTORE Statements - FILELISTONLY (Transact-SQL)
+author: MikeRayMSFT
+ms.author: mikeray
 ms.date: "03/30/2018"
 ms.prod: sql
 ms.prod_service: "sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+f1_keywords:
   - "RESTORE FILELISTONLY"
   - "RESTORE_FILELISTONLY_TSQL"
   - "FILELISTONLY"
   - "FILELISTONLY_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "backups [SQL Server], file lists"
   - "RESTORE FILELISTONLY statement"
   - "listing backed up files"
+dev_langs:
+  - "TSQL"
 ms.assetid: 0b4b4d11-eb9d-4f3e-9629-6c79cec7a81a
-author: MikeRayMSFT
-ms.author: mikeray
 monikerRange: "=azuresqldb-mi-current||>=sql-server-2016||>=sql-server-linux-2017"
 ---
 # RESTORE Statements - FILELISTONLY (Transact-SQL)
-[!INCLUDE[tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md](../../includes/tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md.md )]
+[!INCLUDE[tsql-appliesto-ss2008-asdbmi-xxxx-xxx-md](../../includes/tsql-appliesto-ss2012-asdbmi-xxxx-xxx-md.md )]
 
 
   Returns a result set containing a list of the database and log files contained in the backup set in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
@@ -83,7 +81,7 @@ FROM <backup_device>
 |-|-|-|  
 |LogicalName|**nvarchar(128)**|Logical name of the file.|  
 |PhysicalName|**nvarchar(260)**|Physical or operating-system name of the file.|  
-|Type|**char(1)**|The type of file, one of:<br /><br /> **L** = Microsoft [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] log file<br /><br /> **D** = [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] data file<br /><br /> **F** = Full Text Catalog<br /><br /> **S** = FileStream, FileTable, or [!INCLUDE[hek_2](../../includes/hek-2-md.md)] container|  
+|Type|**char(1)**|The type of file, one of:<br /><br /> **L** = Microsoft [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] log file<br /><br /> **D** = [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] data file<br /><br /> **F** = Full Text Catalog<br /><br /> **S** = FileStream, FileTable, or [!INCLUDE[inmemory](../../includes/inmemory-md.md)] container|  
 |FileGroupName|**nvarchar(128)** NULL|Name of the filegroup that contains the file.|  
 |Size|**numeric(20,0)**|Current size in bytes.|  
 |MaxSize|**numeric(20,0)**|Maximum allowed size in bytes.|  
@@ -102,7 +100,7 @@ FROM <backup_device>
 |IsReadOnly|**bit**|**1** = The file is read-only.|  
 |IsPresent|**bit**|**1** = The file is present in the backup.|  
 |TDEThumbprint|**varbinary(32)** NULL|Shows the thumbprint of the Database Encryption Key. The encryptor thumbprint is a SHA-1 hash of the certificate with which the key is encrypted. For information about database encryption, see [Transparent Data Encryption &#40;TDE&#41;](../../relational-databases/security/encryption/transparent-data-encryption.md).|  
-|SnapshotURL|**nvarchar(360)** NULL|The URL for the Azure snapshot of the database file contained in the FILE_SNAPSHOT backup. Returns NULL if no FILE_SNAPSHOT backup.|  
+|SnapshotURL|**nvarchar(360)** NULL|**Applies to**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL16](../../includes/sssql16-md.md)] (CU1) through current version.<br /><br /> The URL for the Azure snapshot of the database file contained in the FILE_SNAPSHOT backup. Returns NULL if no FILE_SNAPSHOT backup.|  
   
 ## Security  
  A backup operation may optionally specify passwords for a media set, a backup set, or both. When a password has been defined on a media set or backup set, you must specify the correct password or passwords in the RESTORE statement. These passwords prevent unauthorized restore operations and unauthorized appends of backup sets to media using [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] tools. However, a password does not prevent overwrite of media using the BACKUP statement's FORMAT option.  

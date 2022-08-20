@@ -1,26 +1,24 @@
 ---
-description: "sys.dm_os_sys_info (Transact-SQL)"
 title: "sys.dm_os_sys_info (Transact-SQL)"
-ms.custom: ""
-ms.date: "03/12/2021"
+description: sys.dm_os_sys_info (Transact-SQL)
+author: rwestMSFT
+ms.author: randolphwest
+ms.date: "04/27/2022"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database, synapse-analytics, pdw"
-ms.reviewer: ""
 ms.technology: system-objects
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "sys.dm_os_sys_info_TSQL"
   - "dm_os_sys_info"
   - "dm_os_sys_info_TSQL"
   - "sys.dm_os_sys_info"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sys.dm_os_sys_info dynamic management view"
   - "time [SQL Server], instance started"
   - "starting time"
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+dev_langs:
+  - "TSQL"
 monikerRange: ">=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # sys.dm_os_sys_info (Transact-SQL)
@@ -35,10 +33,10 @@ monikerRange: ">=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-ser
 |-----------------|---------------|-----------------|  
 |**cpu_ticks**|**bigint**|Specifies the current CPU tick count. CPU ticks are obtained from the processor's RDTSC counter. It is a monotonically increasing number. Not nullable.|  
 |**ms_ticks**|**bigint**|Specifies the number of milliseconds since the computer started. Not nullable.|  
-|**cpu_count**|**int**|Specifies the number of logical CPUs on the system. Not nullable.|  
+|**cpu_count**|**int**|Specifies the number of logical CPUs on the system. Not nullable.<br /><br />In Azure SQL Database, may return the number of logical CPUs on the machine hosting the database or elastic pool. To determine the number of logical CPUs available to the database or elastic pool, use the `cpu_limit` column in [sys.dm_user_db_resource_governance](sys-dm-user-db-resource-governor-azure-sql-database.md).|  
 |**hyperthread_ratio**|**int**|Specifies the ratio of the number of logical or physical cores that are exposed by one physical processor package. Not nullable.|  
 |**physical_memory_in_bytes**|**bigint**|**Applies to:** [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] through [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)].<br /><br /> Specifies the total amount of physical memory on the machine. Not nullable.|  
-|**physical_memory_kb**|**bigint**|**Applies to:** [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] and later.<br /><br /> Specifies the total amount of physical memory on the machine. Not nullable.|  
+|**physical_memory_kb**|**bigint**|**Applies to:** [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] and later.<br /><br /> Specifies the total amount of physical memory on the machine. Not nullable.<br /><br />In Azure SQL Database, returns the total amount of physical memory on the machine hosting the database or elastic pool. To determine the amount of physical memory available to the database or elastic pool, use the `process_memory_limit_mb` column in [sys.dm_os_job_object](sys-dm-os-job-object-transact-sql.md).|  
 |**virtual_memory_in_bytes**|**bigint**|**Applies to:** [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] through [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)].<br /><br /> Amount of virtual memory available to the process in user mode. This can be used to determine whether SQL Server was started by using a 3-GB switch.|  
 |**virtual_memory_kb**|**bigint**|**Applies to:** [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] and later.<br /><br /> Specifies the total amount of virtual address space available to the process in user mode. Not nullable.|  
 |**bpool_committed**|**int**|**Applies to:** [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)] through [!INCLUDE[ssKilimanjaro](../../includes/sskilimanjaro-md.md)].<br /><br /> Represents the committed memory in kilobytes (KB) in the memory manager. Does not include reserved memory in the memory manager. Not nullable.|  
@@ -77,8 +75,9 @@ monikerRange: ">=aps-pdw-2016||=azure-sqldw-latest||>=sql-server-2016||>=sql-ser
 
 ## Permissions
 
-On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.   
-On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account or the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account is required. On all other SQL Database service objectives, the `VIEW DATABASE STATE` permission is required in the database.   
+On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.
+
+On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account, the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account, or membership in the `##MS_ServerStateReader##` [server role](/azure/azure-sql/database/security-server-roles) is required. On all other SQL Database service objectives, either the `VIEW DATABASE STATE` permission on the database, or membership in the `##MS_ServerStateReader##` server role is required.   
 
 ## See Also  
  [Dynamic Management Views and Functions &#40;Transact-SQL&#41;](~/relational-databases/system-dynamic-management-views/system-dynamic-management-views.md)   

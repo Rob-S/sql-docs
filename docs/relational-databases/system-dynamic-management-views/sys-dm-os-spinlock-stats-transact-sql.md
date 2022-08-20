@@ -1,32 +1,29 @@
 ---
-description: "sys.dm_os_spinlock_stats (Transact-SQL)"
 title: "sys.dm_os_spinlock_stats (Transact-SQL)"
-ms.custom: ""
+description: sys.dm_os_spinlock_stats (Transact-SQL)
+author: "bluefooted"
+ms.author: "pamela"
+manager: amitban
+ms.reviewer: "wiassaf"
 ms.date: "02/10/2021"
 ms.prod: "sql-non-specified"
+ms.service:
 ms.prod_service: "database-engine"
-ms.service: ""
-ms.suite: "sql"
 ms.technology: "database-engine"
-ms.tgt_pltfrm: ""
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "sys.dm_os_spinlock_stats_TSQL"
   - "dm_os_spinlock_stats_TSQL"
   - "dm_os_spinlock_stats"
   - "sys.dm_os_spinlock_stats"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sys.dm_os_spinlock_stats dynamic management view"
-author: "bluefooted"
-ms.author: "pamela"
-ms.reviewer: "wiassaf"
-manager: amitban
+dev_langs:
+  - "TSQL"
 ---
 # sys.dm_os_spinlock_stats (Transact-SQL)
 
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
 Returns information about all spinlock waits organized by type.  
   
@@ -42,8 +39,9 @@ Returns information about all spinlock waits organized by type.
 
 
 ## Permissions  
-On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.   
-On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account or the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account is required. On all other SQL Database service objectives, the `VIEW DATABASE STATE` permission is required in the database.    
+On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.
+
+On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account, the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account, or membership in the `##MS_ServerStateReader##` [server role](/azure/azure-sql/database/security-server-roles) is required. On all other SQL Database service objectives, either the `VIEW DATABASE STATE` permission on the database, or membership in the `##MS_ServerStateReader##` server role is required.    
   
 ## Remarks  
  

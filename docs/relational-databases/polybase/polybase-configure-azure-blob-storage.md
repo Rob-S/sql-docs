@@ -1,16 +1,18 @@
 ---
 title: "Access external data: Azure Blob Storage - PolyBase"
 description: The article uses PolyBase on a SQL Server instance with Azure Blob Storage. PolyBase is suited for ad-hoc queries of external tables and data import/export.
-ms.date: 12/02/2020
+ms.date: 11/23/2021
 ms.prod: sql
 ms.technology: polybase
 ms.topic: conceptual
-author: MikeRayMSFT
-ms.author: mikeray
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: ""
 monikerRange: ">= sql-server-2016"
-ms.custom: seo-dt-2019, seo-lt-2019
-
+ms.custom:
+- seo-dt-2019
+- seo-lt-2019
+- event-tier1-build-2022
 ---
 # Configure PolyBase to access external data in Azure Blob Storage
 
@@ -21,6 +23,15 @@ The article explains how to use PolyBase on a SQL Server instance to query exter
 ## Prerequisites
 
 If you haven't installed PolyBase, see [PolyBase installation](polybase-installation.md). The installation article explains the prerequisites.
+
+### SQL Server 2022 
+
+In SQL Server 2022 Preview, configure your external data sources to use new connectors when you connect to Azure Storage. The table below summarizes the change:
+
+| External Data Source | From | To |
+| -------------------- | ---- | -- |
+| Azure Blob Storage   | wasb[s] | abs |
+| ADLS Gen 2           | abfs[s] | adls |
 
 ### Configure Azure blob storage connectivity
 
@@ -56,7 +67,7 @@ To query the data in your Hadoop data source, you must define an external table 
    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'S0me!nfo';  
    ```
 
-1. Create a database scoped credential for Azure blob storage.
+1. Create a database scoped credential for Azure blob storage; `IDENTITY` can be anything as it's not used.
 
    ```sql
    -- IDENTITY: any string (this is not used for authentication to Azure storage).  
@@ -65,7 +76,7 @@ To query the data in your Hadoop data source, you must define an external table 
    WITH IDENTITY = 'user', Secret = '<azure_storage_account_key>';
    ```
 
-1. Create an external data source with [CREATE EXTERNAL DATA SOURCE](../../t-sql/statements/create-external-data-source-transact-sql.md)..
+1. Create an external data source with [CREATE EXTERNAL DATA SOURCE](../../t-sql/statements/create-external-data-source-transact-sql.md). Note that when connecting to the Azure Storage via the WASB[s] connector, authentication must be done with a storage account key, not with a shared access signature (SAS).
 
    ```sql
    -- LOCATION:  Azure account storage account name and blob container name.  
@@ -87,7 +98,7 @@ To query the data in your Hadoop data source, you must define an external table 
                USE_TYPE_DEFAULT = TRUE))  
    ```
 
-1. Create an external table pointing to data stored in Azure storage with [CREATE EXTERNAL TABLE](../../t-sql/statements/create-external-table-transact-sql.md). In this example, the external data contains car sensor data.
+1. Create an external table pointing to data stored in Azure storage with [CREATE EXTERNAL TABLE](../../t-sql/statements/create-external-table-transact-sql.md). In this example, the external data contains car sensor data; `LOCATION` can't be `/` but `/Demo/` as in this example doesn't need to exist previously.
 
    ```sql
    -- LOCATION: path to file or directory that contains the data (relative to HDFS root).  
@@ -133,7 +144,7 @@ ORDER BY CarSensor_Data.Speed DESC
 OPTION (FORCE EXTERNALPUSHDOWN);   -- or OPTION (DISABLE EXTERNALPUSHDOWN)  
 ```  
 
-### Importing data  
+### <a id="importing-data"></a>Import data with PolyBase
 
 The following query imports external data into SQL Server. This example imports data for fast drivers into SQL Server to do more in-depth analysis. To improve performance, it leverages Columnstore technology.  
 
@@ -151,7 +162,7 @@ ORDER BY YearlyIncome
 CREATE CLUSTERED COLUMNSTORE INDEX CCI_FastCustomers ON Fast_Customers;  
 ```  
 
-### Exporting data  
+### <a id="exporting-data"></a>Export data with PolyBase
 
 The following query exports data from SQL Server to Azure Blob Storage. First enable PolyBase export. Then, create an external table for the destination before exporting data to it.
 
@@ -192,7 +203,10 @@ In SSMS, external tables are displayed in a separate folder **External Tables**.
 
 ## Next steps
 
+For more tutorials on creating external data sources and external tables to a variety of data sources, see [PolyBase Transact-SQL reference](polybase-t-sql-objects.md).
+
 Explore more ways to use and monitor PolyBase in the following articles:
 
-[PolyBase scale-out groups](../../relational-databases/polybase/polybase-scale-out-groups.md).  
-[PolyBase troubleshooting](polybase-troubleshooting.md).  
+ - [PolyBase scale-out groups](../../relational-databases/polybase/polybase-scale-out-groups.md).  
+ - [PolyBase troubleshooting](polybase-troubleshooting.md).  
+ - [CREATE EXTERNAL DATA SOURCE](../../t-sql/statements/create-external-data-source-transact-sql.md)

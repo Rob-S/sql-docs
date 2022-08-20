@@ -6,5 +6,5 @@ ms.date: 06/11/2020
 ms.author: mikeray
 ---
 
-<Token>![yes](../media/yes-icon.png)[!INCLUDE [ssazurepdw_md](../ssazurepdw_md.md)]</Token>
+:::image type="icon" source="../media/yes-icon.svg" border="false"::: [!INCLUDE [ssazurepdw_md](../ssazurepdw_md.md)]
 

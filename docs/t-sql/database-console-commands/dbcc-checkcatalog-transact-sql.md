@@ -22,11 +22,11 @@ helpviewer_keywords:
   - "integrity [SQL Server], catalogs"
   - "consistency [SQL Server], catalogs"
 ms.assetid: 8076eb4e-f049-44bf-9a35-45cdd6ef0105
-author: pmasl
+author: rwestMSFT
 ms.author: umajay
 ---
 # DBCC CHECKCATALOG (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
   Checks for catalog consistency within the specified database. The database must be online.  
   

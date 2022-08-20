@@ -5,9 +5,9 @@ description: In this four-part tutorial series, you'll develop a model to perfor
 ms.prod: sql
 ms.technology: machine-learning
 ms.topic: tutorial
-author: dphansen
-ms.author: davidph
-ms.reviewer: garye, davidph
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: garye, jroth
 ms.date: 05/26/2020
 ms.custom: seo-lt-2019
 monikerRange: ">=sql-server-2016||>=sql-server-linux-ver15||=azuresqldb-mi-current"

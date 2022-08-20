@@ -6,5 +6,5 @@ ms.date: 06/11/2020
 ms.author: mikeray
 ---
 
-<Token>![yes](../media/yes-icon.png)[!INCLUDE [ssazuresynapse_sqlpool_only](../ssazuresynapse_sqlpool_only.md)]</Token>
+:::image type="icon" source="../media/yes-icon.svg" border="false"::: [!INCLUDE [ssazuresynapse_sqlpool_only](../ssazuresynapse_sqlpool_only.md)]
 

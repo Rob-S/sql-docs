@@ -1,19 +1,19 @@
 ---
-description: "&#x40;&#x40;CPU_BUSY (Transact-SQL)"
 title: CPU_BUSY (Transact-SQL)
-ms.custom: ""
+description: "&#x40;&#x40;CPU_BUSY (Transact-SQL)"
+author: markingmyname
+ms.author: maghan
+ms.reviewer: ""
 ms.date: "09/18/2017"
 ms.prod: sql
 ms.prod_service: "sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "@@CPU_BUSY_TSQL"
   - "@@CPU_BUSY"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "CPU [SQL Server]"
   - "status information [SQL Server], CPU"
   - "ticks [SQL Server]"
@@ -21,14 +21,13 @@ helpviewer_keywords:
   - "@@CPU_BUSY function"
   - "statistical information [SQL Server], CPU"
   - "CPU [SQL Server], activity"
-ms.assetid: 81ae0e64-79fa-4a74-9aa5-37045c4cd211
-author: cawrites
-ms.author: chadam
+dev_langs:
+  - "TSQL"
 ---
 
 # &#x40;&#x40;CPU_BUSY (Transact-SQL)
 
-[!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
+[!INCLUDE [SQL Server Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdbmi.md)]
 
 This function returns the amount of time that [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] has spent in active operation since its latest start. `@@CPU_BUSY` returns a result measured in CPU time increments, or "ticks." This value is cumulative for all CPUs, so it may exceed the actual elapsed time. To convert to microseconds, multiply by [@@TIMETICKS](./timeticks-transact-sql.md).
   

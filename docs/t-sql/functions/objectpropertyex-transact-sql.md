@@ -1,28 +1,27 @@
 ---
+title: "OBJECTPROPERTYEX (Transact-SQL)"
 description: "OBJECTPROPERTYEX (Transact-SQL)"
-title: "OBJECTPROPERTYEX (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: ""
 ms.date: "03/15/2017"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database, synapse-analytics, pdw"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "OBJECTPROPERTYEX"
   - "OBJECTPROPERTYEX_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "displaying schema-scoped object information"
   - "viewing schema-scoped object information"
   - "OBJECTPROPERTYEX function"
   - "schema-scoped objects [SQL Server]"
   - "objects [SQL Server], schema-scoped"
-ms.assetid: be36b3e3-3309-4332-bfb5-c7e9cf8dc8bd
-author: VanMSFT
-ms.author: vanto
-monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
+dev_langs:
+  - "TSQL"
+monikerRange: ">= aps-pdw-2016 || = azuresqldb-current || = azure-sqldw-latest || >= sql-server-2016 || >= sql-server-linux-2017 || = azuresqldb-mi-current"
 ---
 # OBJECTPROPERTYEX (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -151,7 +150,7 @@ OBJECTPROPERTYEX ( id , property )
 |TableInsertTriggerCount|Table|The table has the specified number of INSERT triggers.<br /><br /> >0 = The number of INSERT triggers.<br /><br /> Base data type: **int**|  
 |TableIsFake|Table|Table is not real. It is materialized internally on demand by the [!INCLUDE[ssDE](../../includes/ssde-md.md)].<br /><br /> 1 = True<br /><br /> 0 = False<br /><br /> Base data type: **int**|  
 |TableIsLockedOnBulkLoad|Table|Table is locked because a **bcp** or BULK INSERT job.<br /><br /> 1 = True<br /><br /> 0 = False<br /><br /> Base data type: **int**|  
-|TableIsMemoryOptimized|Table|**Applies to**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] and later.<br /><br /> Table is memory optimized<br /><br /> 1 = True<br /><br /> 0 = False<br /><br /> Base data type: **int**<br /><br /> For more information, see [In-Memory OLTP &#40;In-Memory Optimization&#41;](../../relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization.md).|  
+|TableIsMemoryOptimized|Table|**Applies to**: [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] and later.<br /><br /> Table is memory optimized<br /><br /> 1 = True<br /><br /> 0 = False<br /><br /> Base data type: **int**<br /><br /> For more information, see [In-Memory OLTP &#40;In-Memory Optimization&#41;](../../relational-databases/in-memory-oltp/overview-and-usage-scenarios.md).|  
 |TableIsPinned|Table|Table is pinned to be held in the data cache.<br /><br /> 0 = False<br /><br /> This feature is not supported in [!INCLUDE[ssVersion2005](../../includes/ssversion2005-md.md)] and later versions.|  
 |TableTextInRowLimit|Table|Table has text in row option set.<br /><br /> > 0 = Maximum bytes allowed for text in row.<br /><br /> 0 = text in row option is not set.<br /><br /> Base data type: **int**|  
 |TableUpdateTrigger|Table|Table has an UPDATE trigger.<br /><br /> > 1 = ID of first trigger with the specified type.<br /><br /> Base data type: **int**|  
@@ -259,5 +258,3 @@ U
  [ALTER AUTHORIZATION &#40;Transact-SQL&#41;](../../t-sql/statements/alter-authorization-transact-sql.md)   
  [TYPEPROPERTY &#40;Transact-SQL&#41;](../../t-sql/functions/typeproperty-transact-sql.md)  
   
-  
-

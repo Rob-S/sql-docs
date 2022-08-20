@@ -1,30 +1,29 @@
 ---
+title: "NEWID (Transact-SQL)"
 description: "NEWID (Transact-SQL)"
-title: "NEWID (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: ""
 ms.date: "07/29/2017"
 ms.prod: sql
-ms.prod_service: "synapse-analytics, sql-database"
-ms.reviewer: ""
+ms.prod_service: "sql-database"
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "NEWID"
   - "NEWID_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "uniqueidentifier data type"
   - "NEWID function"
-ms.assetid: f7014e60-96d5-457e-afc3-72b60ba20c0f
-author: julieMSFT
-ms.author: jrasnick
-monikerRange: "=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
+dev_langs:
+  - "TSQL"
+monikerRange: ">= sql-server-2016 || >= sql-server-linux-2017 || = azuresqldb-mi-current || azure-sqldw-latest"
 ---
 
 # NEWID (Transact-SQL)
 
-[!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa.md)]
+[!INCLUDE [sql-asdb-asdbmi](../../includes/applies-to-version/sql-asdb-asdbmi-asa.md)]
 
 Creates a unique value of type **uniqueidentifier**.  
   
@@ -37,6 +36,9 @@ NEWID ( )
 ```  
   
 [!INCLUDE[sql-server-tsql-previous-offline-documentation](../../includes/sql-server-tsql-previous-offline-documentation.md)]
+
+> [!Note]
+> Not supported in Azure Synapse serverless pools.
 
 ## Return Types
  **uniqueidentifier**  

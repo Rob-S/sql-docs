@@ -10,7 +10,7 @@ ms.technology: connectivity
 ms.topic: conceptual
 ms.assetid: 8fd5b5ef-d939-4b78-b900-5b7b6ddb3eb9
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # Handling errors
 
@@ -44,7 +44,7 @@ The following methods of the `SQLServerError` class can be used to obtain more d
 
 - `SQLServerError.getLineNumber()` returns the line number within the Transact-SQL command batch or stored procedure that generated the error.
 
-In the next example, an open connection to the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)][!INCLUDE[ssSampleDBnormal](../../includes/sssampledbnormal_md.md)] sample database is passed in to the function and a malformed SQL statement is constructed that doesn't have a FROM clause. Then, the statement is run and an SQL exception is processed.
+In the next example, an open connection to the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)][!INCLUDE[ssSampleDBnormal](../../includes/sssampledbnormal-md.md)] sample database is passed in to the function and a malformed SQL statement is constructed that doesn't have a FROM clause. Then, the statement is run and an SQL exception is processed.
 
 [!code[JDBC#HandlingErrors1](codesnippet/Java/handling-errors_1.java)]
 

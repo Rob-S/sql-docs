@@ -2,19 +2,21 @@
 title: Review cluster logs with Kibana Dashboard
 titleSuffix: SQL Server Big Data Clusters
 description: Monitoring cluster with Kibana Dashboard on SQL Server 2019 big data cluster.
-author: cloudmelon
-ms.author: melqin
+author: HugoMSFT
+ms.author: hudequei
 ms.reviewer: wiassaf
-ms.metadata: seo-lt-2019
 ms.date: 07/12/2021
-ms.topic: conceptual
 ms.prod: sql
 ms.technology: big-data-cluster
+ms.topic: conceptual
+ms.metadata: seo-lt-2019
 ---
 
 # Review cluster logs with Kibana Dashboard
 
 This article describes how to visualize the logs an application inside [!INCLUDE[ssbigdataclusters-ss-nover](../includes/ssbigdataclusters-ss-nover.md)]. [!INCLUDE[ssbigdataclusters-ss-nover](../includes/ssbigdataclusters-ss-nover.md)] use Fluent Bit, an open-source log processor and forwarder. Fluent Bit fetches the logs from big data cluster components in the cluster and stores them in [Elastic Stack Elasticsearch](https://azure.microsoft.com/overview/linux-on-azure/elastic/). From Kibana Dashboard, you can visualize and search the log of your interest.
+
+[!INCLUDE[big-data-clusters-banner-retirement](../includes/bdc-banner-retirement.md)]
 
 ## Logs stored in Elasticsearch
 
@@ -59,4 +61,4 @@ The link to a Kibana dashboard:
 
 ## Next steps
 
-For more information about [!INCLUDE[big-data-clusters-2019](../includes/ssbigdataclusters-ss-nover.md)], see [What are [!INCLUDE[big-data-clusters-2019](../includes/ssbigdataclusters-ver15.md)]?](big-data-cluster-overview.md).
+For more information about [!INCLUDE[big-data-clusters-2019](../includes/ssbigdataclusters-ss-nover.md)], see [Introducing [!INCLUDE[big-data-clusters-2019](../includes/ssbigdataclusters-ver15.md)]](big-data-cluster-overview.md).

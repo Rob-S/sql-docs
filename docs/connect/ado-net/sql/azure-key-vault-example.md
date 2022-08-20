@@ -1,16 +1,16 @@
 ---
 description: "Example demonstrating use of Azure Key Vault provider with Always Encrypted"
 title: "Example demonstrating use of Azure Key Vault provider with Always Encrypted | Microsoft Docs"
-ms.custom: ""
-ms.date: 06/03/2021
+ms.custom:
+- event-tier1-build-2022
+ms.date: 05/24/2022
 ms.prod: sql
 ms.prod_service: connectivity
 ms.technology: connectivity
 ms.tgt_pltfrm: ""
 ms.topic: tutorial
 author: David-Engel
-ms.author: v-daenge
-ms.reviewer: v-jizho2
+ms.author: v-davidengel
 ---
 
 # Example demonstrating use of Azure Key Vault provider with Always Encrypted

@@ -1,27 +1,25 @@
 ---
+title: "CHECKSUM (Transact-SQL)"
 description: "CHECKSUM (Transact-SQL)"
-title: "CHECKSUM (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: markingmyname
+ms.author: maghan
+ms.reviewer: ""
 ms.date: "07/24/2017"
 ms.prod: sql
 ms.prod_service: "synapse-analytics, database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "CHECKSUM_TSQL"
   - "CHECKSUM"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "hash indexes"
   - "CHECKSUM function"
   - "checksum values"
-ms.assetid: e26d3339-845c-49c2-9d89-243376874c13
-author: cawrites
-ms.author: chadam
-monikerRange: "=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
-
+dev_langs:
+  - "TSQL"
+monikerRange: "= azuresqldb-current || = azure-sqldw-latest || >= sql-server-2016 || >= sql-server-linux-2017 || = azuresqldb-mi-current"
 ---
 # CHECKSUM (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa.md)]
@@ -68,7 +66,7 @@ Therefore, to detect whether values have changed, we recommend use of `CHECKSUM`
 Practical problems:
 1. Checksum ignores negative signature in numeric string
 ```
-SELECT `CHECKSUM(N'1'), CHECKSUM(N'-1');
+SELECT CHECKSUM(N'1'), CHECKSUM(N'-1');
 ```
 2. A checksum comparison cannot detect that code was commented-out in stored proc definition
 ```

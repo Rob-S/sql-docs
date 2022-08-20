@@ -1,29 +1,28 @@
 ---
-description: "&#x40;&#x40;Version - Transact SQL Configuration Functions"
-title: "@@VERSION (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "@@VERSION (Transact-SQL)"
+description: "@@VERSION - Transact SQL Configuration Functions"
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: ""
 ms.date: "03/20/2018"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database, synapse-analytics, pdw"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "@@VERSION"
   - "@@VERSION_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "@@VERSION function"
   - "current SQL Server installation information"
   - "versions [SQL Server], @@VERSION"
   - "processors [SQL Server], types"
-ms.assetid: 385ba80e-7c28-41a5-9cdb-5648f3785983
-author: julieMSFT
-ms.author: jrasnick
-monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
+dev_langs:
+  - "TSQL"
+monikerRange: ">= aps-pdw-2016 || = azuresqldb-current || = azure-sqldw-latest || >= sql-server-2016 || >= sql-server-linux-2017 || = azuresqldb-mi-current"
 ---
-# &#x40;&#x40;Version - Transact SQL Configuration Functions
+# @@VERSION - Transact SQL Configuration Functions
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
   Returns system and build information for the current installation of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].  
@@ -31,11 +30,11 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
  ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
 
 > [!NOTE]  
-> We are aware of an issue where the product version reported by @@VERSION is incorrect for **Azure SQL Database**.
+> We are aware of an issue where the product version reported by @@VERSION is incorrect for **Azure SQL Database**, **Azure SQL Managed Instance** and **Azure Synapse Analytics**.
 > 
-> The version of the SQL Server database engine run by Azure SQL Database is always ahead of the on-premises version of SQL Server, and includes the latest security fixes. This means that the patch level is always on par with or ahead of the on-premises version of SQL Server, and that the latest features available in SQL Server are available in Azure SQL Database.
+> The version of the SQL Server database engine run by Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics is always ahead of the on-premises version of SQL Server, and includes the latest security fixes. This means that the patch level is always on par with or ahead of the on-premises version of SQL Server, and that the latest features available in SQL Server are available in these services.
 >
-> To programmatically determine the engine edition, use SELECT SERVERPROPERTY('EngineEdition'). This query will return '5' for Azure SQL Database and '8' for Azure SQL Managed Instance.
+> To programmatically determine the engine edition, use SELECT SERVERPROPERTY('EngineEdition'). This query will return '5' for Azure SQL Database, '8' for Azure SQL Managed Instance, and '6' or '11' for Azure Synapse.
 >
 > We will update the documentation once this issue is resolved.
 ## Syntax  
@@ -66,7 +65,7 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
   
 -   Operating system version  
   
- For [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)], the following information is returned.  
+ For [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)] and [!INCLUDE[ssSDSfull](../../includes/sssdsmifull-md.md)], the following information is returned.  
   
 -   Edition- "Microsoft SQL Azure"  
   

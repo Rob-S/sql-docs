@@ -8,8 +8,8 @@ ms.reviewer: ""
 ms.technology: availability-groups
 ms.topic: how-to
 ms.assetid: f7c7acc5-a350-4a17-95e1-e689c78a0900
-author: cawrites
-ms.author: chadam
+author: MashaMSFT
+ms.author: mathoma
 ---
 # Configure an Always On distributed availability group  
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -24,7 +24,7 @@ For a technical overview of distributed availability groups, see [Distributed av
 
 Make sure the endpoints can communicate between the different availability groups in the distributed availability group. If one availability group is set to a specific network on the endpoint, the distributed availability group does not work properly. On each server that hosts a replica in the distributed availability group, set the listener to listen on all IP addresses (`LISTENER_IP = ALL`).
 
-#### Create a listener to listen to all IP addresses
+#### Create an endpoint to listen to all IP addresses
 
 For example, the following script creates a listener endpoint on TCP port 5022 that listens on all IP addresses.  
 
@@ -40,7 +40,7 @@ FOR DATA_MIRRORING (
 GO
 ```
 
-#### Alter a listener to listen to all IP addresses
+#### Alter an endpoint to listen to all IP addresses
 
 For example, the following script changes a listener endpoint to listen on all IP addresses.  
 
@@ -204,7 +204,7 @@ GO
 ---
 
 > [!NOTE]  
->  The **LISTENER_URL** specifies the listener for each availability group along with the database mirroring endpoint of the availability group. In this example, that is port `5022` (not port `60173` used to create the listener). If you are using a load balancer, for instance in Azure, [add a load balancing rule for the distributed availability group port](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener#add-load-balancing-rule-for-distributed-availability-group). Add the rule for the listener port, in addition to the SQL Server instance port. 
+>  The **LISTENER_URL** specifies the listener for each availability group along with the database mirroring endpoint of the availability group. In this example, that is port `5022` (not port `60173` used to create the listener). If you are using a load balancer, for instance in Azure, [add a load balancing rule for the distributed availability group port](/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure#add-load-balancing-rule-for-distributed-availability-group). Add the rule for the listener port, in addition to the SQL Server instance port. 
 
 ### Cancel automatic seeding to forwarder
 
@@ -463,7 +463,7 @@ The listener URL is the VNN of the primary FCI instance.
 
 ## Manually fail over FCI in distributed availability group
 
-To manually fail over the FCI availability group, update the distributed availability group to reflect the change of listener URL. For example, run the following DDL on both the primary AG and the secondary AG of SQLFCIAG:
+To manually fail over the FCI availability group, update the distributed availability group to reflect the change of listener URL. For example, run the following DDL on both the global primary of the distributed AG and the forwarder of the distributed AG of SQLFCIDAG:
 
 ```sql  
 ALTER AVAILABILITY GROUP [SQLFCIDAG]  

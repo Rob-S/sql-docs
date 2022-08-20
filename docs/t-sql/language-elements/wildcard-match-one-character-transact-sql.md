@@ -1,30 +1,29 @@
 ---
+title: "_ (Wildcard - Match One Character) (Transact-SQL)"
 description: "_ (Wildcard - Match One Character) (Transact-SQL)"
-title: "_ (Wildcard - Match One Character) (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: ""
 ms.date: "12/06/2016"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "Match"
   - "wildcard"
   - "_TSQL"
   - "Match One"
   - "_"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "wildcard characters [SQL Server]"
   - "_ (wildcard - match one character)"
-ms.assetid: 11a2ed36-9e21-4bdf-ae20-a31db1434b97
-author: cawrites
-ms.author: chadam
+dev_langs:
+  - "TSQL"
 ---
 # _ (Wildcard - Match One Character) (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
 Use the underscore character _ to match any single character in a string comparison operation that involves pattern matching, such as `LIKE` and `PATINDEX`.  
   

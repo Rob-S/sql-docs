@@ -17,11 +17,11 @@ helpviewer_keywords:
   - "DBCC statement syntax information"
   - "DBCC HELP statement"
 ms.assetid: 306092c6-4354-4e47-928b-606124fbdc6e
-author: pmasl
+author: rwestMSFT
 ms.author: umajay
 ---
 # DBCC HELP (Transact-SQL)
-[!INCLUDE [SQL Server - ASDBMI](../../includes/applies-to-version/sql-asdbmi.md)]
+[!INCLUDE [SQL Server Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdbmi.md)]
 
 Returns syntax information for the specified DBCC command.
   

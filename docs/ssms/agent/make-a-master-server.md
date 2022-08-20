@@ -26,7 +26,7 @@ monikerRange: "= azuresqldb-mi-current || >= sql-server-2016"
 > [!IMPORTANT]
 > On [Azure SQL Managed Instance](/azure/sql-database/sql-database-managed-instance), most, but not all SQL Server Agent features are currently supported. See [Azure SQL Managed Instance T-SQL differences from SQL Server](/azure/sql-database/sql-database-managed-instance-transact-sql-information#sql-server-agent) for details.
 
-This topic describes how to make a master server [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] by using [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] or [!INCLUDE[tsql](../../includes/tsql-md.md)].  
+This topic describes how to make a master server [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] by using SQL Server Management Studio or [!INCLUDE[tsql](../../includes/tsql-md.md)].  
 
 ## <a name="BeforeYouBegin"></a>Before You Begin  
 
@@ -54,7 +54,7 @@ Permissions to execute this procedure default to members of the **sysadmin** fix
   
 #### To make a master server  
   
-1.  In **Object Explorer,** connect to an instance of the [!INCLUDE[msCoName](../../includes/msconame_md.md)] [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion_md.md)], and then expand that instance.  
+1.  In **Object Explorer,** connect to an instance of the [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)], and then expand that instance.  
   
 2.  Right-click **SQL Server Agent**, point to **Multi Server Administration**, and then click **Make this a Master**. The **Master Server Wizard** guides you through the process of making a master server and adding target servers.  
   
@@ -72,7 +72,7 @@ Permissions to execute this procedure default to members of the **sysadmin** fix
 4.  From the **Target Server** page, select target servers for the master server.  
   
     **Registered Servers**  
-    Lists the servers registered in Microsoft [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] that are not already target servers.  
+    Lists the servers registered in Microsoft SQL Server Management Studio that are not already target servers.  
   
     **Target Servers**  
     Lists the servers that are target servers.  

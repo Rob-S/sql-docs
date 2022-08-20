@@ -25,13 +25,13 @@ helpviewer_keywords:
   - "deleting columns"
   - "dropping columns"
 ms.assetid: 0dbbc956-15b1-427b-812c-618a044d07fa
-author: pmasl
+author: rwestMSFT
 ms.author: umajay
 ---
 
 # DBCC CLEANTABLE (Transact-SQL)
 
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 Reclaims space from dropped variable-length columns in tables or indexed views.
 ![Topic link icon](../../database-engine/configure-windows/media/topic-link.gif "Topic link icon") [Transact-SQL Syntax Conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
   

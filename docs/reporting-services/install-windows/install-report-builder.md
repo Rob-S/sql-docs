@@ -1,14 +1,15 @@
 ---
 title: "Install Report Builder | Microsoft Docs"
-description: Report Builder is stand-alone app, installed on your computer by you or an administrator. 
+description: Report Builder is stand-alone app, installed on your computer by you or an administrator.
 ms.date: 01/31/2020
 ms.prod: reporting-services
 ms.prod_service: "reporting-services-native"
-
 ms.topic: conceptual
 ms.assetid: 6b2291bb-1d20-4d08-81cb-a16dd8e01faf
 author: maggiesMSFT
 ms.author: maggies
+ms.custom:
+  - intro-installation
 ---
 # Install Report Builder
 
@@ -19,7 +20,7 @@ ms.author: maggies
 > [!NOTE]
 > Looking for installation information for Power BI Report Builder instead? Head to the [Microsoft Power BI Report Builder](https://www.microsoft.com/download/details.aspx?id=58158) page on the Download Center. 
 
- An administrator typically installs and configures [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)], grants permission to download [!INCLUDE[ssRBnoversion](../../includes/ssrbnoversion.md)] from the web portal, and manages folders and permissions to reports, report parts, and shared datasets saved to the report server. For more information about [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] administration, see [Reporting Services Report Server &#40;Native Mode&#41;](../../reporting-services/report-server/reporting-services-report-server-native-mode.md).  
+ An administrator typically installs and configures [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)], grants permission to download [!INCLUDE[ssRBnoversion](../../includes/ssrbnoversion.md)] from the web portal, and manages folders and permissions to reports and shared datasets saved to the report server. For more information about [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)] administration, see [Reporting Services Report Server &#40;Native Mode&#41;](../../reporting-services/report-server/reporting-services-report-server-native-mode.md).  
   
 ## Install [!INCLUDE[ssRBnoversion](../../includes/ssrbnoversion.md)] from  a  web portal or SharePoint library 
 
@@ -92,7 +93,7 @@ ms.author: maggies
   
 6.  Type a command with the following format:  
   
-     `msiexec/i ReportBuilder.msi OPTION=OptionValue [OPTION=OptionValue]`  
+     `msiexec /i ReportBuilder.msi OPTION=OptionValue [OPTION=OptionValue]`  
   
      The two options specific to installing [!INCLUDE[ssRBnoversion](../../includes/ssrbnoversion.md)] are: RBINSTALLDIR and RBSERVERURL. You don't have to include these arguments in the command line. The following is the baseline command:  
   

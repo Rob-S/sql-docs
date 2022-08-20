@@ -12,8 +12,8 @@ helpviewer_keywords:
   - "Availability Groups [SQL Server], deploying"
   - "Availability Groups [SQL Server], endpoint"
 ms.assetid: 6197bbe7-67d4-446d-ba5f-cabfa5df77f1
-author: cawrites
-ms.author: chadam
+author: MashaMSFT
+ms.author: mathoma
 ---
 # Create a database mirroring endpoint for an availability group using PowerShell
 [!INCLUDE [SQL Server](../../../includes/applies-to-version/sqlserver.md)]
@@ -26,7 +26,7 @@ ms.author: chadam
  Requires CREATE ENDPOINT permission, or membership in the sysadmin fixed server role. For more information, see [GRANT Endpoint Permissions &#40;Transact-SQL&#41;](../../../t-sql/statements/grant-endpoint-permissions-transact-sql.md).  
 
 > [!IMPORTANT]  
->  The RC4 algorithm is deprecated. [!INCLUDE[ssNoteDepFutureDontUse](../../../includes/ssnotedepfuturedontuse-md.md)] We recommend that you use AES.  
+>  The RC4 algorithm is deprecated. [!INCLUDE[ssNoteDepFutureAvoid](../../../includes/ssnotedepfutureavoid-md.md)] We recommend that you use AES.  
   
 ##  <a name="PowerShellProcedure"></a> Using PowerShell  
  **To create a database mirroring endpoint**  

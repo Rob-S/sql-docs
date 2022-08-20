@@ -30,7 +30,7 @@ ms.reviewer: vanto
 
 [!INCLUDE [SQL Server - Linux](../includes/applies-to-version/sql-linux.md)]
 
-This article provides details of features supported by the various editions of SQL Server 2019 on Linux. For editions and supported features of SQL Server on Windows, see [SQL Server 2019 - Windows](../sql-server/editions-and-components-of-sql-server-version-15.md).  
+This article provides details of features supported by the various editions of SQL Server 2019 on Linux. For editions and supported features of SQL Server on Windows, see [SQL Server 2019 - Windows](../sql-server/editions-and-components-of-sql-server-2019.md).  
   
 Installation requirements vary based on your application needs. The different editions of [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] accommodate the unique performance, runtime, and price requirements of organizations and individuals. The [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] components that you install also depend on your specific requirements. The following sections help you understand how to make the best choice among the editions and components available in [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)].  
 
@@ -148,7 +148,7 @@ The Developer edition continues to support only one client for [SQL Server Distr
 |Dynamic data masking|Yes|Yes|Yes|Yes|   
 |Basic auditing|Yes|Yes|Yes|Yes| 
 |Fine grained auditing|Yes|Yes|Yes|Yes| 
-|Transparent database encryption|Yes|Yes|No|No|   
+|Transparent database encryption (TDE)|Yes|Yes|No|No|   
 |User-defined roles|Yes|Yes|Yes|Yes| 
 |Contained databases|Yes|Yes|Yes|Yes| 
 |Encryption for backups|Yes|Yes|No|No|  
@@ -225,7 +225,7 @@ The following features and services are not available for SQL Server 2019 on Lin
 | &nbsp; | Alerts |
 | &nbsp; | Managed Backup |
 | **High Availability** | Database mirroring  |
-| **Security** | Extensible Key Management |
+| **Security** | Extensible Key Management (EKM) |
 | &nbsp; | AD Authentication for Linked Servers |
 | &nbsp; | AD Authentication for Availability Group (AG) Endpoints |
 | **Services** | SQL Server Browser |
@@ -242,7 +242,7 @@ The following features and services are not available for SQL Server 2019 on Lin
 
 ## Next steps
  [Editions and supported features for SQL Server 2017 - Linux](sql-server-linux-editions-and-components-2017.md)  
- [Editions and supported features for SQL Server 2019 - Windows](../sql-server/editions-and-components-of-sql-server-version-15.md)  
+ [Editions and supported features for SQL Server 2019 - Windows](../sql-server/editions-and-components-of-sql-server-2019.md)  
  [Editions and supported features for SQL Server 2017 - Windows](../sql-server/editions-and-components-of-sql-server-2017.md)  
  [Editions and supported features for SQL Server 2016 - Windows](../sql-server/editions-and-components-of-sql-server-2016.md)  
  [Installation for SQL Server](../database-engine/install-windows/install-sql-server.md)  

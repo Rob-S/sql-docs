@@ -1,11 +1,8 @@
 ---
-description: "Manage Objects by Using Object Explorer"
 title: "Manage Objects by Using Object Explorer"
-ms.custom: seo-lt-2019
-ms.date: "01/19/2017"
+description: "Manage Objects by Using Object Explorer"
 ms.prod: sql
 ms.prod_service: "sql-tools"
-ms.reviewer: ""
 ms.technology: ssms
 ms.topic: conceptual
 f1_keywords: 
@@ -14,15 +11,21 @@ helpviewer_keywords:
   - "Object Explorer F1 Help"
   - "OE F1 Help"
   - "OE Help"
-ms.assetid: e60367a7-3fdd-40b8-82bb-9e819d78de5a
 author: "markingmyname"
 ms.author: "maghan"
+ms.reviewer: ""
+ms.custom: seo-lt-2019
+ms.date: "01/19/2017"
 ---
+
 # Manage Objects by Using Object Explorer
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+
 You can use Object Explorer to manage objects such as databases, tables and stored procedures.  
   
-## Viewing Objects in Object Explorer  
+## Viewing Objects in Object Explorer
+
 Object Explorer uses a tree structure to group information into folders. To expand folders, click the plus sign (+) or double-click the folder. Expand folders to show more detailed information. Right-click folders or objects to perform common tasks. Double-click objects to perform the most common task.  
   
 The first time you expand a folder, Object Explorer will query the server for information to populate the tree. You can perform other functions while the tree is populating. While Object Explorer is populating the tree, you can click **Stop** to halt the process. Further actions, such as filtering the list, will only act upon the portion of the folder that was populated, unless you refresh the folder to start population again.  
@@ -32,7 +35,7 @@ To conserve resources when there are many objects, the folders in the Object Exp
 Object Explorer can only display up to 65,536 objects. After you have exceeded 65,536 visible objects, you cannot scroll through additional objects in the Object Explorer tree view. To view additional objects in Object Explorer, close nodes that you are not using or apply filtering to reduce the number of objects.  
   
 ## Filtering the List of Objects in Object Explorer  
-When a folder contains a large number of objects, it may be difficult to find the object you are looking for. In such cases, use the filter feature of Object Explorer to reduce the list to a smaller size. For example, you may want to find a specific database user or the most recently created table in lists that contain hundreds of objects. Click on the folder that you want to filter, and then click the filter button to open the **Filter Settings** dialog box. You can filter the list by name, create date, and sometimes schema, and provide additional filtering operators like **Starts with**, **Contains**, and **Between**.  
+When a folder contains a large number of objects, it may be difficult to find the object you are looking for. In such cases, use the filter feature of Object Explorer to reduce the list to a smaller size. For example, you may want to find a specific database user or the most recently created table in lists that contain hundreds of objects. Select the folder that you want to filter, and then click the filter button to open the **Filter Settings** dialog box. You can filter the list by name, create date, and sometimes schema, and provide additional filtering operators like **Starts with**, **Contains**, and **Between**.  
   
 ## Multi-select  
 Only one object can be selected at a time in Object Explorer. To select multiple items, press **F7** to open the **Object Explorer Details Page**. The **Object Explorer Details Page** supports multi-select.  

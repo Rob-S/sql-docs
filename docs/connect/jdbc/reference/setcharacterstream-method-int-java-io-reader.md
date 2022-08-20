@@ -10,7 +10,7 @@ ms.technology: connectivity
 ms.topic: reference
 ms.assetid: b8d4e1f7-14fc-4590-af98-1eda30d2ca6d
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # setCharacterStream Method (int, java.io.Reader)
 [!INCLUDE[Driver_JDBC_Download](../../../includes/driver_jdbc_download.md)]
@@ -18,7 +18,7 @@ ms.author: v-daenge
   Sets the designated parameter to the specified java.io.Reader object.  
   
 > [!NOTE]
->  This feature is introduced starting with the [!INCLUDE[msCoName](../../../includes/msconame_md.md)][!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] JDBC Driver version 2.0.  
+>  This feature is introduced starting with the [!INCLUDE[msCoName](../../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] JDBC Driver version 2.0.  
   
 ## Syntax  
   

@@ -15,7 +15,7 @@ apilocation:
 apitype: "Assembly"
 ms.assetid: 66c9a8b0-dc4c-4cbb-8004-c7157368cab4
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # getProcedures Method (SQLServerDatabaseMetaData)
 [!INCLUDE[Driver_JDBC_Download](../../../includes/driver_jdbc_download.md)]
@@ -70,7 +70,7 @@ public java.sql.ResultSet getProcedures(java.lang.String sCatalog,
 >  For more information about the data returned by the getProcedures method, see "sp_stored_procedures (Transact-SQL)" in [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] Books Online.  
   
 ## Example  
- The following example demonstrates how to use the getProcedures method to return information about the uspGetBillOfMaterials stored procedure in the [!INCLUDE[ssSampleDBnormal](../../../includes/sssampledbnormal_md.md)] sample database.  
+ The following example demonstrates how to use the getProcedures method to return information about the uspGetBillOfMaterials stored procedure in the [!INCLUDE[ssSampleDBnormal](../../../includes/sssampledbnormal-md.md)] sample database.  
   
 ```  
 public static void executeGetProcedures(Connection con) {  

@@ -1,27 +1,25 @@
 ---
-description: "CREATE SERVER AUDIT (Transact-SQL)"
 title: CREATE SERVER AUDIT (Transact-SQL)
-ms.custom: ""
-ms.date: "01/07/2019"
+description: CREATE SERVER AUDIT (Transact-SQL)
+author: sravanisaluru
+ms.author: srsaluru
+ms.date: "03/23/2022"
 ms.prod: sql
 ms.prod_service: "sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+f1_keywords:
   - "CREATE_SERVER_AUDIT_TSQL"
   - "SERVER AUDIT"
   - "SERVER_AUDIT_TSQL"
   - "CREATE SERVER AUDIT"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "server audit [SQL Server]"
   - "CREATE SERVER AUDIT statement"
   - "audits [SQL Server], creating"
+dev_langs:
+  - "TSQL"
 ms.assetid: 1c321680-562e-41f1-8eb1-e7fa5ae45cc5
-author: VanMSFT
-ms.author: vanto
 monikerRange: "=azuresqldb-mi-current||>=sql-server-2016||>=sql-server-linux-2017"
 ---
 
@@ -57,6 +55,7 @@ CREATE SERVER AUDIT audit_name
     [   QUEUE_DELAY = integer ]  
     [ , ON_FAILURE = { CONTINUE | SHUTDOWN | FAIL_OPERATION } ]  
     [ , AUDIT_GUID = uniqueidentifier ]  
+    [ , OPERATOR_AUDIT = { ON | OFF } ]  
 }  
   
 <predicate_expression>::=  
@@ -75,6 +74,8 @@ CREATE SERVER AUDIT audit_name
 ## Arguments
  TO { FILE \| APPLICATION_LOG \| SECURITY_LOG \| URL \| EXTERNAL_MONITOR } 
  Determines the location of the audit target. The options are a binary file, The Windows Application log, or the Windows Security log. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] cannot write to the Windows Security log without configuring additional settings in Windows. For more information, see [Write SQL Server Audit Events to the Security Log](../../relational-databases/security/auditing/write-sql-server-audit-events-to-the-security-log.md).  
+
+ Note: `URL` target is not supported for SQL Server.
 
 > [!IMPORTANT]
 > In Azure SQL Managed Instance, SQL Audit works at the server level. Locations can only be `URL` or `EXTERNAL_MONITOR`.
@@ -115,6 +116,10 @@ Forces the instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]
  AUDIT_GUID =*uniqueidentifier*  
  To support scenarios such as database mirroring, an audit needs a specific GUID that matches the GUID found in the mirrored database. The GUID cannot be modified after the audit has been created.  
   
+ OPERATOR_AUDIT
+ **Applies to**: [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) only.  
+ Indicates whether auditing will capture Microsoft support engineers' operations when they need to access your server during a support request.
+
  predicate_expression  
  **Applies to**: [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] and later.  
   
@@ -234,6 +239,4 @@ GO
  [sys.dm_server_audit_status &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-server-audit-status-transact-sql.md)   
  [sys.dm_audit_actions &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-audit-actions-transact-sql.md)   
  [sys.dm_audit_class_type_map &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-audit-class-type-map-transact-sql.md)   
- [Create a Server Audit and Server Audit Specification](../../relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification.md)  
-  
-  
+ [Create a Server Audit and Server Audit Specification](../../relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification.md)

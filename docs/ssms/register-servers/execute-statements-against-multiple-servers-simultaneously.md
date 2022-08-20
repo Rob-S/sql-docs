@@ -19,13 +19,14 @@ ms.date: 07/18/2016
 
 # Execute Statements Against Multiple Servers Simultaneously
 
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
 This topic describes how to query multiple servers at the same time in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)], by creating a local server group, or a Central Management Server and one or more server groups, and one or more registered servers within the groups, and then querying the complete group. 
 
 The results returned by the query can be combined into a single results pane, or can be returned in separate results panes. The results set can include additional columns for the server name and the login used by the query on each server. Central Management Servers and subordinate servers can be registered by using only Windows Authentication. Servers in local server groups can be registered by using Windows Authentication or [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Authentication.  
   
-> **NOTE!** Before you execute the following procedures, create a Central Management Server and server group. For more information, see [Create a Central Management Server and Server Group &#40;SQL Server Management Studio&#41;](./create-a-central-management-server-and-server-group.md).  
+> [!NOTE]  
+> Before you execute the following procedures, create a Central Management Server and server group. For more information, see [Create a Central Management Server and Server Group &#40;SQL Server Management Studio&#41;](./create-a-central-management-server-and-server-group.md).  
 
   
 ##  <a name="Permissions"></a> Permissions  

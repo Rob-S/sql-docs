@@ -22,13 +22,13 @@ helpviewer_keywords:
   - "constraints [SQL Server], consistency checks"
   - "integrity [SQL Server], constraints"
 ms.assetid: da6c9cee-6687-46e8-b504-738551f9068b
-author: pmasl
+author: rwestMSFT
 ms.author: umajay
 ---
 
 # DBCC CHECKCONSTRAINTS (Transact-SQL)
 
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
 Checks the integrity of a specified constraint or all constraints on a specified table in the current database.
   

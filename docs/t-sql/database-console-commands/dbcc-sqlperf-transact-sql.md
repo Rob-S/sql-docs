@@ -21,11 +21,12 @@ helpviewer_keywords:
   - "space [SQL Server], transaction logs"
   - "DBCC SQLPERF statement"
 ms.assetid: ec9225ce-e20f-4b03-8b3a-7bcad8a649df
-author: pmasl
+author: rwestMSFT
 ms.author: umajay
 ---
 # DBCC SQLPERF (Transact-SQL)
-[!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
+[!INCLUDE [SQL Server SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
+
 
 Provides transaction log space usage statistics for all databases. In [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] it can also be used to reset wait and latch statistics.
   

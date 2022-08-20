@@ -186,6 +186,8 @@ Value: 1
 
     SQL Server 2012 supports multiple containers per filegroup and can make things much easier. No complicated partitioning schemes may be needed to manage larger number of files.
 
+-  When there are very large number of FILESTREAM containers in a SQL instance, starting the databases which have many FILESTREAM containers might take a long time to register them in the FILESTREAM filter driver. Spreading them in multiple different volumes will help with improving database startup time.
+
 - The NTFS MFT may become fragmented, and that can cause performance issues. The MFT reserved size does depend on volume size, so you may or may not encounter this.
 
   - You can check the MFT fragmentation with `defrag /A /V C:` (change C: to the actual volume name).
@@ -204,7 +206,8 @@ Value: 1
 [Enable and Configure FILESTREAM](../../relational-databases/blob/enable-and-configure-filestream.md)  
 [Create a FILESTREAM-Enabled Database](../../relational-databases/blob/create-a-filestream-enabled-database.md)  
 [Create a Table for Storing FILESTREAM Data](../../relational-databases/blob/create-a-table-for-storing-filestream-data.md)  
-[Access FILESTREAM Data with Transact-SQL](../../relational-databases/blob/access-filestream-data-with-transact-sql.md) [Create Client Applications for FILESTREAM Data](../../relational-databases/blob/create-client-applications-for-filestream-data.md)  
+[Access FILESTREAM Data with Transact-SQL](../../relational-databases/blob/access-filestream-data-with-transact-sql.md)  
+[Create Client Applications for FILESTREAM Data](../../relational-databases/blob/create-client-applications-for-filestream-data.md)  
 [Access FILESTREAM Data with OpenSqlFilestream](../../relational-databases/blob/access-filestream-data-with-opensqlfilestream.md)  
 [Make Partial Updates to FILESTREAM Data](../../relational-databases/blob/make-partial-updates-to-filestream-data.md)  
 [Avoid Conflicts with Database Operations in FILESTREAM Applications](../../relational-databases/blob/avoid-conflicts-with-database-operations-in-filestream-applications.md)  
@@ -214,8 +217,7 @@ Value: 1
 
 ## Related Content
 
-[FILESTREAM Compatibility with Other SQL Server Features](../../relational-databases/blob/filestream-compatibility-with-other-sql-server-features.md)
-<br>[Filestream and FileTable Dynamic Management Views (Transact-SQL)](../system-dynamic-management-views/filestream-and-filetable-dynamic-management-views-transact-sql.md)
-<br>[Filestream and FileTable Catalog Views (Transact-SQL)](../system-catalog-views/filestream-and-filetable-catalog-views-transact-sql.md)
-<br>[Filestream and FileTable System Stored Procedures (Transact-SQL)](../system-stored-procedures/filestream-and-filetable-system-stored-procedures.md)
-
+[FILESTREAM Compatibility with Other SQL Server Features](../../relational-databases/blob/filestream-compatibility-with-other-sql-server-features.md)  
+[Filestream and FileTable Dynamic Management Views (Transact-SQL)](../system-dynamic-management-views/filestream-and-filetable-dynamic-management-views-transact-sql.md)  
+[Filestream and FileTable Catalog Views (Transact-SQL)](../system-catalog-views/filestream-and-filetable-catalog-views-transact-sql.md)  
+[Filestream and FileTable System Stored Procedures (Transact-SQL)](../system-stored-procedures/filestream-and-filetable-system-stored-procedures.md)  

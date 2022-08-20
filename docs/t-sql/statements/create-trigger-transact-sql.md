@@ -1,19 +1,20 @@
 ---
 title: CREATE TRIGGER (Transact-SQL)
-description: "Transact-SQL reference for the CREATE TRIGGER statement, which is used to create a DML, DDL, or logon trigger."
-ms.date: "10/30/2019"
+description: Transact-SQL reference for the CREATE TRIGGER statement, which is used to create a DML, DDL, or logon trigger.
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: mathoma
+ms.date: "09/05/2021"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+f1_keywords:
   - "CREATE TRIGGER"
   - "TRIGGER"
   - "CREATE_TRIGGER_TSQL"
   - "TRIGGER_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "recursive DML triggers [SQL Server]"
   - "CREATE TRIGGER statement"
   - "multiple triggers"
@@ -24,10 +25,9 @@ helpviewer_keywords:
   - "DDL triggers, creating"
   - "triggers [SQL Server], creating"
   - "database-scoped triggers [SQL Server]"
+dev_langs:
+  - "TSQL"
 ms.assetid: edeced03-decd-44c3-8c74-2c02f801d3e7
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: mathoma
 ---
 
 # CREATE TRIGGER (Transact-SQL)
@@ -257,7 +257,7 @@ DDL and logon triggers capture information about the triggering event by using t
 [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] allows the update of **text**, **ntext**, or **image** columns through the INSTEAD OF trigger on tables or views.  
   
 > [!IMPORTANT]
->  **ntext**, **text**, and **image** data types will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use [nvarchar(max)](../../t-sql/data-types/nchar-and-nvarchar-transact-sql.md), [varchar(max)](../../t-sql/data-types/char-and-varchar-transact-sql.md), and [varbinary(max)](../../t-sql/data-types/binary-and-varbinary-transact-sql.md) instead. Both AFTER and INSTEAD OF triggers support **varchar(MAX)**, **nvarchar(MAX)**, and **varbinary(MAX)** data in the inserted and deleted tables.  
+>  **ntext**, **text**, and **image** data types will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using these data types in new development work, and plan to modify applications that currently use them. Use [nvarchar(max)](../../t-sql/data-types/nchar-and-nvarchar-transact-sql.md), [varchar(max)](../../t-sql/data-types/char-and-varchar-transact-sql.md), and [varbinary(max)](../../t-sql/data-types/binary-and-varbinary-transact-sql.md) instead. Both AFTER and INSTEAD OF triggers support **varchar(MAX)**, **nvarchar(MAX)**, and **varbinary(MAX)** data in the inserted and deleted tables.  
   
 For triggers on memory-optimized tables, the only *sql_statement* allowed at the top level is an ATOMIC block. The T-SQL allowed inside the ATOMIC block is limited by the T-SQL allowed inside native procs.  
   
@@ -450,52 +450,9 @@ Because CHECK constraints reference only the columns on which the column-level o
   
 The following example creates a DML trigger in the AdventureWorks2012 database. This trigger checks to make sure the credit rating for the vendor is good (not 5) when there's an attempt to insert a new purchase order into the `PurchaseOrderHeader` table. To get the credit rating of the vendor, the `Vendor` table must be referenced. If the credit rating is too low, a message appears and the insertion doesn't happen.  
   
-```sql  
--- This trigger prevents a row from being inserted in the Purchasing.PurchaseOrderHeader 
--- table when the credit rating of the specified vendor is set to 5 (below average).  
-  
-CREATE TRIGGER Purchasing.LowCredit ON Purchasing.PurchaseOrderHeader  
-AFTER INSERT  
-AS  
-IF (ROWCOUNT_BIG() = 0)
-RETURN;
-IF EXISTS (SELECT *  
-           FROM Purchasing.PurchaseOrderHeader AS p   
-           JOIN inserted AS i   
-           ON p.PurchaseOrderID = i.PurchaseOrderID   
-           JOIN Purchasing.Vendor AS v   
-           ON v.BusinessEntityID = p.VendorID  
-           WHERE v.CreditRating = 5  
-          )  
-BEGIN  
-RAISERROR ('A vendor''s credit rating is too low to accept new  
-purchase orders.', 16, 1);  
-ROLLBACK TRANSACTION;  
-RETURN   
-END;  
-GO  
-  
--- This statement attempts to insert a row into the PurchaseOrderHeader table  
--- for a vendor that has a below average credit rating.  
--- The AFTER INSERT trigger is fired and the INSERT transaction is rolled back.  
-  
-INSERT INTO Purchasing.PurchaseOrderHeader (RevisionNumber, Status, EmployeeID,  
-VendorID, ShipMethodID, OrderDate, ShipDate, SubTotal, TaxAmt, Freight)  
-VALUES (  
-2  
-,3  
-,261  
-,1652  
-,4  
-,GETDATE()  
-,GETDATE()  
-,44594.55  
-,3567.564  
-,1114.8638 );  
-GO  
-  
-```  
-  
+:::code language="sql" source="../../relational-databases/triggers/codesnippet/tsql/use-the-inserted-and-del_1.sql":::
+
+
 ### D. Using a database-scoped DDL trigger  
 The following example uses a DDL trigger to prevent any synonym in a database from being dropped.  
   

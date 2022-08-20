@@ -10,7 +10,7 @@ ms.technology: connectivity
 ms.topic: conceptual
 ms.assetid: 21e19635-340d-49bb-b39d-4867102fb5df
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # Using bulk copy with the JDBC driver
 
@@ -599,7 +599,7 @@ public class BulkCopyExistingTransactions {
   
 3. For the Data Source, select the **Data source** that allows you to connect to your SQL Server (for example, SQL Server Native Client 11.0), check the configuration and then **Next**  
   
-4. For the Destination, Select the **Flat File Destination** and enter a **File Name** with a destination such as `C:\Test\TestBulkCSVExample.csv`. Check that the **Format** is Delimited, the **Text qualifier** is none, and enable **Column names in the first data row**, and then select **Next**  
+4. For the Destination, select the **Flat File Destination** and enter a **File Name** with a destination such as `C:\Test\TestBulkCSVExample.csv`. Check that the **Format** is Delimited, the **Text qualifier** is none, and enable **Column names in the first data row**, and then select **Next**  
   
 5. Select **Write a query to specify the data to transfer** and **Next**.  Enter your **SQL Statement** `SELECT ProductID, Name, ProductNumber FROM Production.Product`, and **Next**  
   
@@ -672,6 +672,15 @@ public class BulkCopyCSV {
     }
 }
 ```  
+
+### Using a regex character as a delimiter
+
+> [!NOTE]
+> When setting a custom delimiter, escape it if it's a regex character such as '|'.
+
+```java
+SQLServerBulkCSVFileRecord fileRecord = new SQLServerBulkCSVFileRecord(CSVFilePath, null, "\\|", true);
+```
 
 ### Bulk copy with delimiters as data in CSV file
 

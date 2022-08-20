@@ -1,7 +1,7 @@
 ---
 title: Using Azure Active Directory authentication with SqlClient
 description: Describes how to use supported Azure Active Directory authentication modes to connect to Azure SQL data sources with SqlClient
-ms.date: 06/3/2021
+ms.date: 12/14/2021
 dev_langs: 
   - "csharp"
 ms.prod: sql
@@ -9,8 +9,8 @@ ms.prod_service: connectivity
 ms.technology: connectivity
 ms.topic: conceptual
 author: David-Engel
-ms.author: v-daenge
-ms.reviewer: v-daenge
+ms.author: v-davidengel
+ms.reviewer: v-davidengel
 ---
 
 # Using Azure Active Directory authentication with SqlClient
@@ -21,7 +21,7 @@ ms.reviewer: v-daenge
 
 This article describes how to connect to Azure SQL data sources by using Azure Active Directory (Azure AD) authentication from a .NET application with SqlClient.
 
-Azure AD authentication uses identities in Azure AD to access Azure SQL data sources such as Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. The **Microsoft.Data.SqlClient** namespace allows client applications to specify Azure AD credentials in different authentication modes when they're connecting to Azure SQL Database.
+Azure AD authentication uses identities in Azure AD to access Azure SQL data sources such as Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. The **Microsoft.Data.SqlClient** namespace allows client applications to specify Azure AD credentials in different authentication modes when they're connecting to Azure SQL Database. To use Azure AD authentication, you must configure your Azure SQL data source. For more information, see [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure).
 
 When you set the `Authentication` connection property in the connection string, the client can choose a preferred Azure AD authentication mode according to the value provided:
 
@@ -258,7 +258,7 @@ using (SqlConnection conn = new SqlConnection(ConnectionString)) {
 
 Besides using the Active Directory authentication built into the driver, **Microsoft.Data.SqlClient** 2.1.0 and later provide applications the option to customize Active Directory authentication. The customization is based on the `ActiveDirectoryAuthenticationProvider` class, which is derived from the [`SqlAuthenticationProvider`](/dotnet/api/system.data.sqlclient.sqlauthenticationprovider) abstract class. 
 
-During Active Directory authentication, the client application can define its own `ActiveDirectoryAuthencationProvider` class by either:
+During Active Directory authentication, the client application can define its own `ActiveDirectoryAuthenticationProvider` class by either:
 
 - Using a customized callback method.
 - Passing an application client ID to the MSAL library via SqlClient driver for fetching access tokens.

@@ -1,11 +1,7 @@
 ---
+title: Filter (geography Data Type)
 description: "Filter (geography Data Type)"
-title: "Filter (geography Data Type) | Microsoft Docs"
-ms.custom: ""
-ms.date: "03/14/2017"
 ms.prod: sql
-ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
 f1_keywords: 
@@ -16,12 +12,15 @@ dev_langs:
   - "TSQL"
 helpviewer_keywords: 
   - "Filter method"
-ms.assetid: 82a8f54a-3a47-4e20-b13a-b148029c5448
 author: MladjoA
 ms.author: mlandzic 
+ms.reviewer: ""
+ms.custom: ""
+ms.date: "03/14/2017"
 ---
+
 # Filter (geography Data Type)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
   A method that offers a fast, index-only intersection method to determine if a **geography** instance intersects another **geography** instance, assuming an index is available.  
   
@@ -53,7 +52,7 @@ ms.author: mlandzic
 ## Examples  
  The following example uses `Filter()` to determine if two `geography` instances intersect each other.  
   
-```  
+```sql
 CREATE TABLE sample (id int primary key, g geography);  
 INSERT INTO sample VALUES  
    (0, geography::Point(45, -120, 4326)),  

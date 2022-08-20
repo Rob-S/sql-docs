@@ -1,5 +1,5 @@
 ---
-title: "Add a data-bound image to a paginated report (Report Builder) | Microsoft Docs"
+title: "Add a data-bound image to a paginated report | Microsoft Docs"
 description: Learn how to reference an image that is stored in a database to display the image in your paginated reports in Report Builder.
 ms.date: 03/01/2017
 ms.prod: reporting-services
@@ -14,7 +14,7 @@ ms.author: maggies
 ---
 # Add a data-bound image to a paginated report (Report Builder)
 
-[!INCLUDE [ssrs-appliesto](../../includes/ssrs-appliesto.md)] [!INCLUDE [ssrb-applies-to-report-builder-yes](../../includes/ssrb-applies-to-report-builder-yes.md)] [!INCLUDE [ssrb-applies-to-power-bi-rb-yes](../../includes/ssrb-applies-to-power-bi-rb-yes.md)] [!INCLUDE [ssrb-applies-to-ssdt-yes](../../includes/ssrb-applies-to-ssdt-yes.md)]
+[!INCLUDE[ssrs-appliesto](../../includes/ssrs-appliesto.md)] [!INCLUDE [ssrs-appliesto-ssrs-rb](../../includes/ssrs-appliesto-ssrs-rb.md)] [!INCLUDE [ssrs-appliesto-pbi-rb](../../includes/ssrs-appliesto-pbi-rb.md)] [!INCLUDE [ssrb-applies-to-ssdt-yes](../../includes/ssrb-applies-to-ssdt-yes.md)]
 
 A paginated report can include a reference to an image that is stored in a database. Such an image is known as a *data-bound image*. The pictures that appear alongside product names in a product list are examples of data-bound images.  
   
@@ -38,7 +38,7 @@ Adding a data-bound image to a page header or page footer requires additional st
   
 8.  In **Use this MIME type**, select the MIME type, or file format, of the image-for example, bmp.  
   
-9. [!INCLUDE[clickOK](../../includes/clickok-md.md)]  
+9.  Select **OK**.
   
      An image placeholder appears on the report design surface.  
   

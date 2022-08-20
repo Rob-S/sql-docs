@@ -1,16 +1,16 @@
 ---
+title: "JSON_MODIFY (Transact-SQL)"
 description: "JSON_MODIFY (Transact-SQL)"
-title: "JSON_MODIFY (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: "jovanpop-msft"
+ms.author: "jovanpop"
 ms.date: 06/03/2020
 ms.prod: sql
 ms.technology: t-sql
 ms.topic: reference
-ms.assetid: 96bc8255-a037-4907-aec4-1a9c30814651
-author: "jovanpop-msft"
-ms.author: "jovanpop"
-ms.reviewer: chadam
-monikerRange: "= azuresqldb-current||= azure-sqldw-latest||>= sql-server-2016||>= sql-server-linux-2017"
+ms.custom: ""
+dev_langs:
+  - "TSQL"
+monikerRange: "= azuresqldb-current || = azure-sqldw-latest || >= sql-server-2016 || >= sql-server-linux-2017"
 ---
 # JSON_MODIFY (Transact-SQL)
 
@@ -74,7 +74,7 @@ JSON_MODIFY escapes all special characters in the new value if the type of the v
   
  The following table compares the behavior of **JSON_MODIFY** in lax mode and in strict mode. For more info about the optional path mode specification (lax or strict), see [JSON Path Expressions &#40;SQL Server&#41;](../../relational-databases/json/json-path-expressions-sql-server.md).  
   
-|Existing value|Path exists|Lax mode|Strict mode|  
+|New value|Path exists|Lax mode|Strict mode|  
 |--------------------|-----------------|--------------|-----------------|  
 |Not NULL|Yes|Update the existing value.|Update the existing value.|  
 |Not NULL|No|Try to create a new key:value pair on the specified path.<br /><br /> This may fail. For example, if you specify the path `$.user.setting.theme`, JSON_MODIFY does not insert the key `theme` if the `$.user` or `$.user.settings` objects do not exist, or if settings is an array or a scalar value.|Error - INVALID_PROPERTY|  
@@ -106,6 +106,12 @@ PRINT @info
 -- Insert surname  
 
 SET @info=JSON_MODIFY(@info,'$.surname','Smith')
+
+PRINT @info
+
+-- Set name NULL 
+
+SET @info=JSON_MODIFY(@info,'strict $.name',NULL)
 
 PRINT @info
 
@@ -264,11 +270,11 @@ PRINT @info
     "skills": ["C#", "SQL"]
 } {
     "name": "John",
-    "skills": "["C#","T-SQL","Azure"]"
+    "skills": "[\"C#\",\"T-SQL\",\"Azure\"]"
 }
 ```  
   
- To avoid automatic escaping, provide *newValue* by using the JSON_QUERY function. JSON_MODIFY knows that the value returned by JSON_MODIFY is properly formatted JSON, so it doesn't escape the value.  
+ To avoid automatic escaping, provide *newValue* by using the JSON_QUERY function. JSON_MODIFY knows that the value returned by JSON_QUERY is properly formatted JSON, so it doesn't escape the value.  
   
  **Query**  
   

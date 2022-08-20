@@ -1,22 +1,20 @@
 ---
-description: "CREATE TYPE (Transact-SQL)"
-title: "CREATE TYPE (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "CREATE TYPE (Transact-SQL)"
+description: CREATE TYPE (Transact-SQL)
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: "12/05/2019"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+f1_keywords:
   - "sql13.swb.sysdatatype.properties.f1"
   - "CREATE TYPE"
   - "TYPE_TSQL"
   - "TYPE"
   - "CREATE_TYPE_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "UDTs [SQL Server], creating"
   - "CLR user-defined types [SQL Server]"
   - "user-defined table types [SQL Server]"
@@ -24,14 +22,14 @@ helpviewer_keywords:
   - "CREATE TYPE statement"
   - "alias data types [SQL Server], creating"
   - "data types [SQL Server], creating"
+dev_langs:
+  - "TSQL"
 ms.assetid: 2202236b-e09f-40a1-bbc7-b8cff7488905
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 ---
 # CREATE TYPE (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
-  Creates an alias data type or a user-defined type in the current database in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] or [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]. The implementation of an alias data type is based on a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] native system type. A user-defined type is implemented through a class of an assembly in the [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] common language runtime (CLR). To bind a user-defined type to its implementation, the CLR assembly that contains the implementation of the type must first be registered in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] by using [CREATE ASSEMBLY](../../t-sql/statements/create-assembly-transact-sql.md).  
+  Creates an alias data type or a user-defined type in the current database in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] or [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]. The implementation of an alias data type is based on a [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] native system type. A user-defined type is implemented through a class of an assembly in the [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[dnprdnshort](../../includes/dnprdnshort-md.md)] common language runtime (CLR). To bind a user-defined type to its implementation, the CLR assembly that contains the implementation of the type must first be registered in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] by using [CREATE ASSEMBLY](../../t-sql/statements/create-assembly-transact-sql.md).  
   
  The ability to run CLR code is off by default in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. You can create, modify and drop database objects that reference managed code modules, but these references will not execute in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] unless the [clr enabled Option](../../database-engine/configure-windows/clr-enabled-server-configuration-option.md) is enabled by using [sp_configure](../../relational-databases/system-stored-procedures/sp-configure-transact-sql.md).  
  
@@ -289,7 +287,7 @@ Specifies to create an index on the table. This can be a clustered index, or a n
  In user-defined table types, the primary key on computed columns must be PERSISTED and NOT NULL.  
   
 ## Memory-Optimized Table Types  
- Beginning in [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], processing data in a table type can be done in primary memory, and not on disk. For more information, see [In-Memory OLTP &#40;In-Memory Optimization&#41;](../../relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization.md). For code samples showing how to create memory-optimized table types, see [Creating a Memory-Optimized Table and a Natively Compiled Stored Procedure](../../relational-databases/in-memory-oltp/creating-a-memory-optimized-table-and-a-natively-compiled-stored-procedure.md).  
+ Beginning in [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], processing data in a table type can be done in primary memory, and not on disk. For more information, see [In-Memory OLTP &#40;In-Memory Optimization&#41;](../../relational-databases/in-memory-oltp/overview-and-usage-scenarios.md). For code samples showing how to create memory-optimized table types, see [Creating a Memory-Optimized Table and a Natively Compiled Stored Procedure](../../relational-databases/in-memory-oltp/creating-a-memory-optimized-table-and-a-natively-compiled-stored-procedure.md).  
   
 ## Permissions  
  Requires CREATE TYPE permission in the current database and ALTER permission on *schema_name*. If *schema_name* is not specified, the default name resolution rules for determining the schema for the current user apply. If *assembly_name* is specified, a user must either own the assembly or have REFERENCES permission on it.  
@@ -359,4 +357,4 @@ GO
  [DROP TYPE &#40;Transact-SQL&#41;](../../t-sql/statements/drop-type-transact-sql.md)   
  [EVENTDATA &#40;Transact-SQL&#41;](../../t-sql/functions/eventdata-transact-sql.md)    
  [CLR User-Defined Types](../../relational-databases/clr-integration-database-objects-user-defined-types/clr-user-defined-types.md)     
- [Working with User-Defined Types in SQL Server](../../relational-databases/clr-integration-database-objects-user-defined-types/working-with-user-defined-types-in-sql-server.md)     
+ [Working with User-Defined Types in SQL Server](../../relational-databases/clr-integration-database-objects-user-defined-types/working-with-user-defined-types-in-sql-server.md)

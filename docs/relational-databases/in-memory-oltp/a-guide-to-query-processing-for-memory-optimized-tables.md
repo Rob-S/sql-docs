@@ -1,20 +1,19 @@
 ---
 title: "Query processing for memory-optimized tables"
 description: Learn about query processing for both memory-optimized tables and natively compiled stored procedures in In-Memory OLTP in SQL Server.
-ms.custom: seo-dt-2019
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: "05/09/2019"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: in-memory-oltp
 ms.topic: conceptual
+ms.custom: seo-dt-2019
 ms.assetid: 065296fe-6711-4837-965e-252ef6c13a0f
-author: rothja
-ms.author: jroth
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # A Guide to Query Processing for Memory-Optimized Tables
-[!INCLUDE [SQL Server Azure SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
   In-Memory OLTP introduces memory-optimized tables and natively compiled stored procedures in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. This article gives an overview of query processing for both memory-optimized tables and natively compiled stored procedures.  
   
@@ -113,6 +112,8 @@ SQL Server query processing pipeline.
 6.  Access Methods retrieves the rows from the index and data pages in the buffer pool and loads pages from disk into the buffer pool as needed.  
 
  For the first example query, the execution engine requests rows in the clustered index on Customer and the nonclustered index on Order from Access Methods. Access Methods traverses the B-tree index structures to retrieve the requested rows. In this case all rows are retrieved as the plan calls for full index scans.  
+
+[!INCLUDE [sql-b-tree](../../includes/sql-b-tree.md)]
   
 ## Interpreted [!INCLUDE[tsql](../../includes/tsql-md.md)] Access to Memory-Optimized Tables  
  [!INCLUDE[tsql](../../includes/tsql-md.md)] ad hoc batches and stored procedures are also referred to as interpreted [!INCLUDE[tsql](../../includes/tsql-md.md)]. Interpreted refers to the fact that the query plan is interpreted by the query execution engine for each operator in the query plan. The execution engine reads the operator and its parameters and performs the operation.  

@@ -1,7 +1,7 @@
 ---
 title: Install the Microsoft ODBC driver for SQL Server (Linux)
 description: Learn how to install the Microsoft ODBC Driver for SQL Server on Linux clients to enable database connectivity.
-ms.date: 01/29/2021
+ms.date: 08/08/2022
 ms.prod: sql
 ms.prod_service: connectivity
 ms.technology: connectivity
@@ -10,7 +10,9 @@ helpviewer_keywords:
   - "driver, installing"
 ms.assetid: f78b81ed-5214-43ec-a600-9bfe51c5745a
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
+ms.custom:
+  - intro-installation
 ---
 
 # Install the Microsoft ODBC driver for SQL Server (Linux)
@@ -18,6 +20,169 @@ ms.author: v-daenge
 This article explains how to install the Microsoft ODBC Driver for SQL Server on Linux. It also includes instructions for the optional command-line tools for SQL Server (`bcp` and `sqlcmd`) and the unixODBC development headers.
 
 This article provides commands for installing the ODBC driver from the bash shell. If you want to download the packages directly, see [Download ODBC Driver for SQL Server](../download-odbc-driver-for-sql-server.md).
+
+## <a id="18"></a> Microsoft ODBC 18
+
+The following sections explain how to install the Microsoft ODBC driver 18 from the bash shell for different Linux distributions.
+
+- [Alpine Linux](#alpine18)
+- [Debian](#debian18)
+- [Red Hat Enterprise Linux and Oracle](#redhat18)
+- [SUSE Linux Enterprise Server](#suse18)
+- [Ubuntu](#ubuntu18)
+
+### <a id="alpine18"></a> Alpine Linux
+
+```bash
+#Download the desired package(s)
+curl -O https://download.microsoft.com/download/b/9/f/b9f3cce4-3925-46d4-9f46-da08869c6486/msodbcsql18_18.1.1.1-1_amd64.apk
+curl -O https://download.microsoft.com/download/b/9/f/b9f3cce4-3925-46d4-9f46-da08869c6486/mssql-tools18_18.1.1.1-1_amd64.apk
+
+
+#(Optional) Verify signature, if 'gpg' is missing install it using 'apk add gnupg':
+curl -O https://download.microsoft.com/download/b/9/f/b9f3cce4-3925-46d4-9f46-da08869c6486/msodbcsql18_18.1.1.1-1_amd64.sig
+curl -O https://download.microsoft.com/download/b/9/f/b9f3cce4-3925-46d4-9f46-da08869c6486/mssql-tools18_18.1.1.1-1_amd64.sig
+
+curl https://packages.microsoft.com/keys/microsoft.asc  | gpg --import -
+gpg --verify msodbcsql18_18.1.1.1-1_amd64.sig msodbcsql18_18.1.1.1-1_amd64.apk
+gpg --verify mssql-tools18_18.1.1.1-1_amd64.sig mssql-tools18_18.1.1.1-1_amd64.apk
+
+
+#Install the package(s)
+sudo apk add --allow-untrusted msodbcsql18_18.1.1.1-1_amd64.apk
+sudo apk add --allow-untrusted mssql-tools18_18.1.1.1-1_amd64.apk
+```
+
+> [!NOTE]
+> Driver version 17.5 or higher is required for Alpine support.
+
+### <a id="debian18"></a> Debian
+
+```bash
+sudo su
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+#Download appropriate package for the OS version
+#Choose only ONE of the following, corresponding to your OS version
+
+#Debian 9
+curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+#Debian 10
+curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+#Debian 11
+curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+exit
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
+# optional: for bcp and sqlcmd
+sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18
+echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
+source ~/.bashrc
+# optional: for unixODBC development headers
+sudo apt-get install -y unixodbc-dev
+# optional: kerberos library for debian-slim distributions
+sudo apt-get install -y libgssapi-krb5-2
+```
+
+> [!NOTE]
+> You can substitute setting the environment variable 'ACCEPT_EULA' with setting the debconf variable 'msodbcsql/ACCEPT_EULA' instead: `echo msodbcsql18 msodbcsql/ACCEPT_EULA boolean true | sudo debconf-set-selections`
+
+### <a id="redhat18"></a> Red Hat Enterprise Server and Oracle Linux
+
+```bash
+sudo su
+
+#Download appropriate package for the OS version
+#Choose only ONE of the following, corresponding to your OS version
+
+#Red Hat Enterprise Server 7 and Oracle Linux 7
+curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo
+
+#Red Hat Enterprise Server 8 and Oracle Linux 8
+curl https://packages.microsoft.com/config/rhel/8/prod.repo > /etc/yum.repos.d/mssql-release.repo
+
+exit
+sudo yum remove unixODBC-utf16 unixODBC-utf16-devel #to avoid conflicts
+sudo ACCEPT_EULA=Y yum install -y msodbcsql18
+# optional: for bcp and sqlcmd
+sudo ACCEPT_EULA=Y yum install -y mssql-tools18
+echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
+source ~/.bashrc
+# optional: for unixODBC development headers
+sudo yum install -y unixODBC-devel
+```
+
+### <a id="suse18"></a> SUSE Linux Enterprise Server
+
+```bash
+sudo su
+curl -O https://packages.microsoft.com/keys/microsoft.asc
+rpm --import microsoft.asc
+
+#Download appropriate package for the OS version
+#Choose only ONE of the following, corresponding to your OS version
+
+#SUSE Linux Enterprise Server 11 SP4
+#Ensure SUSE Linux Enterprise 11 Security Module has been installed
+zypper ar https://packages.microsoft.com/config/sles/11/prod.repo
+
+#SUSE Linux Enterprise Server 12
+zypper ar https://packages.microsoft.com/config/sles/12/prod.repo
+
+#SUSE Linux Enterprise Server 15
+zypper ar https://packages.microsoft.com/config/sles/15/prod.repo
+#(Only for driver 17.3 and below)
+SUSEConnect -p sle-module-legacy/15/x86_64
+
+exit
+sudo ACCEPT_EULA=Y zypper install -y msodbcsql18
+# optional: for bcp and sqlcmd
+sudo ACCEPT_EULA=Y zypper install -y mssql-tools18
+echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
+source ~/.bashrc
+# optional: for unixODBC development headers
+sudo zypper install -y unixODBC-devel
+```
+
+### <a id="ubuntu18"></a> Ubuntu
+
+```bash
+if ! [[ "18.04 20.04 22.04" == *"$(lsb_release -rs)"* ]];
+then
+    echo "Ubuntu $(lsb_release -rs) is not currently supported.";
+    exit;
+fi
+
+sudo su
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+exit
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
+# optional: for bcp and sqlcmd
+sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18
+echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
+source ~/.bashrc
+# optional: for unixODBC development headers
+sudo apt-get install -y unixodbc-dev
+```
+
+> [!NOTE]
+> You can substitute setting the environment variable 'ACCEPT_EULA' with setting the debconf variable 'msodbcsql/ACCEPT_EULA' instead: `echo msodbcsql18 msodbcsql/ACCEPT_EULA boolean true | sudo debconf-set-selections`
+
+## Previous versions
+
+The following sections provide instructions for installing previous versions of the Microsoft ODBC driver on Linux. The following driver versions are covered:
+
+- [Microsoft ODBC driver 17 for SQL Server](#17)
+- [Microsoft ODBC driver 13.1 for SQL Server](#13.1)
+- [Microsoft ODBC driver 13 for SQL Server](#13)
+- [Microsoft ODBC driver 11 for SQL Server](#11)
 
 ## <a id="17"></a> Microsoft ODBC 17
 
@@ -36,22 +201,23 @@ The following sections explain how to install the Microsoft ODBC driver 17 from 
 
 ```bash
 #Download the desired package(s)
-curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/msodbcsql17_17.7.2.1-1_amd64.apk
-curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/mssql-tools_17.7.1.1-1_amd64.apk
+curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/msodbcsql17_17.10.1.1-1_amd64.apk
+curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/mssql-tools_17.10.1.1-1_amd64.apk
 
 
 #(Optional) Verify signature, if 'gpg' is missing install it using 'apk add gnupg':
-curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/msodbcsql17_17.7.2.1-1_amd64.sig
-curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/mssql-tools_17.7.1.1-1_amd64.sig
+curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/msodbcsql17_17.10.1.1-1_amd64.sig
+curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/mssql-tools_17.10.1.1-1_amd64.sig
 
 curl https://packages.microsoft.com/keys/microsoft.asc  | gpg --import -
-gpg --verify msodbcsql17_17.7.2.1-1_amd64.sig msodbcsql17_17.7.2.1-1_amd64.apk
-gpg --verify mssql-tools_17.7.1.1-1_amd64.sig mssql-tools_17.7.1.1-1_amd64.apk
+gpg --verify msodbcsql17_17.10.1.1-1_amd64.sig msodbcsql17_17.10.1.1-1_amd64.apk
+gpg --verify mssql-tools_17.10.1.1-1_amd64.sig mssql-tools_17.10.1.1-1_amd64.apk
+
 
 
 #Install the package(s)
-sudo apk add --allow-untrusted msodbcsql17_17.7.2.1-1_amd64.apk
-sudo apk add --allow-untrusted mssql-tools_17.7.1.1-1_amd64.apk
+sudo apk add --allow-untrusted msodbcsql17_17.10.1.1-1_amd64.apk
+sudo apk add --allow-untrusted mssql-tools_17.10.1.1-1_amd64.apk
 ```
 
 > [!NOTE]
@@ -66,7 +232,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 #Download appropriate package for the OS version
 #Choose only ONE of the following, corresponding to your OS version
 
-#Debian 8
+#Debian 8 (only supported up to driver version 17.6)
 curl https://packages.microsoft.com/config/debian/8/prod.list > /etc/apt/sources.list.d/mssql-release.list
 
 #Debian 9
@@ -74,6 +240,9 @@ curl https://packages.microsoft.com/config/debian/9/prod.list > /etc/apt/sources
 
 #Debian 10
 curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+
+#Debian 11
+curl https://packages.microsoft.com/config/debian/11/prod.list > /etc/apt/sources.list.d/mssql-release.list
 
 exit
 sudo apt-get update
@@ -99,7 +268,7 @@ sudo su
 #Download appropriate package for the OS version
 #Choose only ONE of the following, corresponding to your OS version
 
-#Red Hat Enterprise Server 6
+#Red Hat Enterprise Server 6 (only supported up to driver version 17.7)
 curl https://packages.microsoft.com/config/rhel/6/prod.repo > /etc/yum.repos.d/mssql-release.repo
 
 #Red Hat Enterprise Server 7 and Oracle Linux 7
@@ -154,23 +323,16 @@ sudo zypper install -y unixODBC-devel
 ### <a id="ubuntu17"></a> Ubuntu
 
 ```bash
+if ! [[ "16.04 18.04 20.04 22.04" == *"$(lsb_release -rs)"* ]];
+then
+    echo "Ubuntu $(lsb_release -rs) is not currently supported.";
+    exit;
+fi
+
 sudo su
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 
-#Download appropriate package for the OS version
-#Choose only ONE of the following, corresponding to your OS version
-
-#Ubuntu 16.04
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
-
-#Ubuntu 18.04
-curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
-
-#Ubuntu 20.04
-curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
-
-#Ubuntu 20.10
-curl https://packages.microsoft.com/config/ubuntu/20.10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list
 
 exit
 sudo apt-get update
@@ -184,20 +346,7 @@ sudo apt-get install -y unixodbc-dev
 ```
 
 > [!NOTE]
->
-> - Driver version 17.2 or higher is required for Ubuntu 18.04 support.
-> - Driver version 17.3 or higher is required for Ubuntu 18.10 support.
-
-> [!NOTE]
 > You can substitute setting the environment variable 'ACCEPT_EULA' with setting the debconf variable 'msodbcsql/ACCEPT_EULA' instead: `echo msodbcsql17 msodbcsql/ACCEPT_EULA boolean true | sudo debconf-set-selections`
-
-## Previous versions
-
-The following sections provide instructions for installing previous versions of the Microsoft ODBC driver on Linux. The following driver versions are covered:
-
-- [Microsoft ODBC driver 13.1 for SQL Server](#13.1)
-- [Microsoft ODBC driver 13 for SQL Server](#13)
-- [Microsoft ODBC driver 11 for SQL Server](#11)
 
 ## <a id="13.1"></a> ODBC 13.1
 
@@ -412,7 +561,7 @@ ln -sfn /opt/mssql-tools/bin/bcp-13.0.1.0 /usr/bin/bcp
 
 ### Offline installation
 
-If you prefer/require the [!INCLUDE[msCoName](../../../includes/msconame_md.md)] ODBC Driver 13 to be installed on a computer with no internet connection, you'll need to resolve package dependencies manually. The [!INCLUDE[msCoName](../../../includes/msconame_md.md)] ODBC Driver 13 has the following direct dependencies:
+If you prefer/require the [!INCLUDE[msCoName](../../../includes/msconame-md.md)] ODBC Driver 13 to be installed on a computer with no internet connection, you'll need to resolve package dependencies manually. The [!INCLUDE[msCoName](../../../includes/msconame-md.md)] ODBC Driver 13 has the following direct dependencies:
 
 - Ubuntu: libc6 (>= 2.21), libstdc++6 (>= 4.9), libkrb5-3, libcurl3, openssl, debconf (>= 0.5), unixodbc (>= 2.3.1-1)
 - Red Hat: ```glibc, e2fsprogs, krb5-libs, openssl, unixODBC```
@@ -420,7 +569,7 @@ If you prefer/require the [!INCLUDE[msCoName](../../../includes/msconame_md.md)]
 
 Each of these packages in turn has their own dependencies, which may or may not be present on the system. For a general solution to this issue, refer to your distribution's package manager documentation: [Red Hat](https://wiki.centos.org/HowTos/CreateLocalRepos), [Ubuntu](https://unix.stackexchange.com/questions/87130/how-to-quickly-create-a-local-apt-repository-for-random-packages-using-a-debian), and [SUSE](https://en.opensuse.org/Portal:Zypper)
 
-It's also common to manually download all the dependent packages and place them together on the installation computer, then manually install each package in turn, finishing with the [!INCLUDE[msCoName](../../../includes/msconame_md.md)] ODBC Driver 13 package.
+It's also common to manually download all the dependent packages and place them together on the installation computer, then manually install each package in turn, finishing with the [!INCLUDE[msCoName](../../../includes/msconame-md.md)] ODBC Driver 13 package.
 
 #### Red Hat Linux Enterprise Server 7
 
@@ -452,7 +601,7 @@ zypper install glibc, libuuid1, krb5, openssl, unixODBC unixODBC-devel #install 
 sudo rpm -i  msodbcsql-13.1.X.X-X.x86_64.rpm #install the Driver
 ```
 
-After you've completed the package installation, you can verify that the [!INCLUDE[msCoName](../../../includes/msconame_md.md)] ODBC Driver 13 can find all its dependencies by running ldd and inspecting its output for missing libraries:
+After you've completed the package installation, you can verify that the [!INCLUDE[msCoName](../../../includes/msconame-md.md)] ODBC Driver 13 can find all its dependencies by running ldd and inspecting its output for missing libraries:
 
 ```bash
 ldd /opt/microsoft/msodbcsql/lib64/libmsodbcsql-*

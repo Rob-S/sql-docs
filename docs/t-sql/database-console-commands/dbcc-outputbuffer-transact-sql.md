@@ -20,11 +20,11 @@ helpviewer_keywords:
   - "output buffers"
   - "current output buffer"
 ms.assetid: e912a06d-9fde-4e26-b057-801255d79504
-author: pmasl
+author: rwestMSFT
 ms.author: umajay
 ---
 # DBCC OUTPUTBUFFER (Transact-SQL)
-[!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
+[!INCLUDE [SQL Server Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdbmi.md)]
 
 Returns the current output buffer in hexadecimal and ASCII format for the specified *session_id*.
   

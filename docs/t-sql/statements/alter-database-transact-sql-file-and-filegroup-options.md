@@ -1,20 +1,19 @@
 ---
 title: "ALTER DATABASE File and Filegroups"
-description: Update a database's files and filegroups using Transact-SQL.
 titleSuffix: SQL Server (Transact-SQL)
-ms.custom: "seo-lt-2019"
-ms.date: "02/21/2019"
+description: Update a database's files and filegroups using Transact-SQL.
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.date: "09/15/2021"
 ms.prod: sql
 ms.prod_service: "sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: "seo-lt-2019"
+f1_keywords:
   - "ADD FILE"
   - "ADD_FILE_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "deleting files"
   - "removing files"
   - "deleting filegroups"
@@ -40,9 +39,9 @@ helpviewer_keywords:
   - "files [SQL Server], deleting"
   - "files [SQL Server], adding"
   - "databases [SQL Server], moving"
+dev_langs:
+  - "TSQL"
 ms.assetid: 1f635762-f7aa-4241-9b7a-b51b22292b07
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 monikerRange: "=azuresqldb-mi-current||>=sql-server-2016||>=sql-server-linux-2017"
 ---
 # ALTER DATABASE (Transact-SQL) File and Filegroup Options
@@ -290,7 +289,7 @@ CONTAINS MEMORY_OPTIMIZED_DATA
 
 **Applies to**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ( [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] and later)
 
-Specifies that the filegroup stores memory optimized data in the file system. For more information, see [In-Memory OLTP - In-Memory Optimization](../../relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization.md). Only one `MEMORY_OPTIMIZED_DATA` filegroup is allowed per database. For creating memory optimized tables, the filegroup cannot be empty. There must be at least one file. *filegroup_name* refers to a path. The path up to the last folder must exist, and the last folder must not exist.
+Specifies that the filegroup stores memory optimized data in the file system. For more information, see [In-Memory OLTP - In-Memory Optimization](../../relational-databases/in-memory-oltp/overview-and-usage-scenarios.md). Only one `MEMORY_OPTIMIZED_DATA` filegroup is allowed per database. For creating memory optimized tables, the filegroup cannot be empty. There must be at least one file. *filegroup_name* refers to a path. The path up to the last folder must exist, and the last folder must not exist.
 
 REMOVE FILEGROUP *filegroup_name*
 Removes a filegroup from the database. The filegroup cannot be removed unless it is empty. Remove all files from the filegroup first. For more information, see "REMOVE FILE *logical_file_name*," earlier in this topic.
@@ -338,13 +337,13 @@ Because a read-only database does not allow data modifications:
 - No locking occurs in read-only databases. This can cause faster query performance.
 
 > [!NOTE]
-> The keyword `READONLY` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READONLY` in new development work, and plan to modify applications that currently use `READONLY`. Use `READ_ONLY` instead.
+> The keyword `READONLY` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READONLY` in new development work, and plan to modify applications that currently use `READONLY`. Use `READ_ONLY` instead.
 
 READ_WRITE | READWRITE
 Specifies the group is READ_WRITE. Updates are enabled for the objects in the filegroup. To change this state, you must have exclusive access to the database. For more information, see the SINGLE_USER clause.
 
 > [!NOTE]
-> The keyword `READWRITE` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READWRITE` in new development work, and plan to modify applications that currently use `READWRITE` to use `READ_WRITE` instead.
+> The keyword `READWRITE` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READWRITE` in new development work, and plan to modify applications that currently use `READWRITE` to use `READ_WRITE` instead.
 > [!TIP]
 > The status of these options can be determined by examining the **is_read_only** column in the **sys.databases** catalog view or the **Updateability** property of the `DATABASEPROPERTYEX` function.
 
@@ -365,9 +364,9 @@ SIZE, MAXSIZE, and FILEGROWTH parameters cannot be set when a UNC path is specif
 
 SIZE and FILEGROWTH parameters cannot be set for memory optimized filegroups.
 
-The keyword `READONLY` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READONLY` in new development work, and plan to modify applications that currently use READONLY. Use `READ_ONLY` instead.
+The keyword `READONLY` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READONLY` in new development work, and plan to modify applications that currently use READONLY. Use `READ_ONLY` instead.
 
-The keyword `READWRITE` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READWRITE` in new development work, and plan to modify applications that currently use `READWRITE` to use `READ_WRITE` instead.
+The keyword `READWRITE` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READWRITE` in new development work, and plan to modify applications that currently use `READWRITE` to use `READ_WRITE` instead.
 
 ## Moving Files
 
@@ -841,8 +840,8 @@ A value of 0 indicates that automatic growth is set to off and no additional spa
 
 If FILEGROWTH is not specified, the default values are:
 
-- Data 64 MB
-- Log files 64 MB
+- Data 16 MB
+- Log files 16 MB
 
 **\<add_or_modify_filegroups>::=**
 
@@ -896,13 +895,13 @@ Because a read-only database does not allow data modifications:
 - No locking occurs in read-only databases. This can cause faster query performance.
 
 > [!NOTE]
-> The keyword READONLY will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using READONLY in new development work, and plan to modify applications that currently use READONLY. Use READ_ONLY instead.
+> The keyword READONLY will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using READONLY in new development work, and plan to modify applications that currently use READONLY. Use READ_ONLY instead.
 
 READ_WRITE | READWRITE
 Specifies the group is READ_WRITE. Updates are enabled for the objects in the filegroup. To change this state, you must have exclusive access to the database. For more information, see the SINGLE_USER clause.
 
 > [!NOTE]
-> The keyword `READWRITE` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READWRITE` in new development work, and plan to modify applications that currently use `READWRITE` to use `READ_WRITE` instead.
+> The keyword `READWRITE` will be removed in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using `READWRITE` in new development work, and plan to modify applications that currently use `READWRITE` to use `READ_WRITE` instead.
 
 The status of these options can be determined by examining the **is_read_only** column in the **sys.databases** catalog view or the **Updateability** property of the `DATABASEPROPERTYEX` function.
 

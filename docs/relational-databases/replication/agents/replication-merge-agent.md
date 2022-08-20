@@ -175,7 +175,7 @@ replmerg [-?]
   
  **-ExchangeType** [ **1**\| **2**\| **3**]  
 > [!WARNING]
->  [!INCLUDE[ssNoteDepFutureDontUse](../../../includes/ssnotedepfuturedontuse-md.md)] To restrict uploading, use the **\@subscriber_upload_options** of **sp_addmergearticle** instead.  
+>  [!INCLUDE[ssNoteDepFutureAvoid](../../../includes/ssnotedepfutureavoid-md.md)] To restrict uploading, use the **\@subscriber_upload_options** of **sp_addmergearticle** instead.  
   
  Specifies the type of data exchange during synchronization, which can be one of the following:  
   
@@ -291,7 +291,7 @@ replmerg [-?]
 This parameter is on the list for possible deprecation soon. We recommend setting the **ParallelUploadDownload** parameter to 0 and avoiding use of the "High Volume Server-to-Server" Merge agent Profile, as **ParallelUploadDownload** is set to 1 in this profile.
 
 > [!WARNING]
->  [!INCLUDE[ssNoteDepFutureDontUse](../../../includes/ssnotedepfuturedontuse-md.md)]
+>  [!INCLUDE[ssNoteDepFutureAvoid](../../../includes/ssnotedepfutureavoid-md.md)]
   
  **-PacketSize**  
  Is the packet size, in bytes. The default is 4096 (bytes).  
@@ -361,7 +361,7 @@ This parameter is on the list for possible deprecation soon. We recommend settin
  Specifies whether the Merge Agent is synchronizing between a Subscriber and an alternate Publisher. A value of **1** indicates that it is an alternate Publisher. The default is **0**.  
  
  **-T** [**101\|102**]  
- Trace flags that enable additional functionality for the Merge Agent. A value of **101** enables additional verbose logging information to help determine how much time each step of the merge replication synchronization process takes. A value of **102** writes the same statistics as trace flag **101** but to the <Distribution server>..msmerge_history table instead. Enable merge agent logging when you use trace flag 101 by using the `-output` and `-outputverboselevel` parameters.  For example,  add the following parameters to the merge agent, and then restart the agent: `-T 101, -output, -outputverboselevel`. 
+ Trace flags that enable additional functionality for the Merge Agent. A value of **101** enables additional verbose logging information to help determine how much time each step of the merge replication synchronization process takes. A value of **102** writes the same statistics as trace flag **101** but to the \<Distribution server\>..msmerge_history table instead. Enable merge agent logging when you use trace flag 101 by using the `-output` and `-outputverboselevel` parameters.  For example,  add the following parameters to the merge agent, and then restart the agent: `-T 101, -output, -outputverboselevel`. 
  
  **-UploadGenerationsPerBatch** _upload_generations_per_batch_  
  Is the number of generations to be processed in a single batch while uploading changes from the Subscriber to the Publisher. A generation is defined as a logical group of changes per article. The default for a reliable communication link is **100**. The default for an unreliable communication link is **1**.  
@@ -406,7 +406,7 @@ This parameter is on the list for possible deprecation soon. We recommend settin
   <br/>-output
   <br/>-outputverboselevel
 
-In addition, if you have to write statistics to the <Distribution server>..msmerge_history table, use trace flag -T 102.
+In addition, if you have to write statistics to the \<Distribution server\>..msmerge_history table, use trace flag -T 102.
   
 ## See Also  
  [Replication Agent Administration](../../../relational-databases/replication/agents/replication-agent-administration.md)  

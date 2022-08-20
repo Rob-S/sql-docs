@@ -1,27 +1,26 @@
 ---
+title: "NULLIF (Transact-SQL)"
 description: "NULLIF (Transact-SQL)"
-title: "NULLIF (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: ""
 ms.date: "09/08/2017"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database, synapse-analytics, pdw"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "NULLIF"
   - "NULLIF_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "null values [SQL Server], equivalent expressions"
   - "expressions [SQL Server], null values"
   - "NULLIF function"
   - "equivalent expressions [SQL Server]"
-ms.assetid: 44c7b67e-74c7-4bb9-93a4-7a3016bd2feb
-author: cawrites
-ms.author: chadam
-monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
+dev_langs:
+  - "TSQL"
+monikerRange: ">= aps-pdw-2016 || = azuresqldb-current || = azure-sqldw-latest || >= sql-server-2016 || >= sql-server-linux-2017 || = azuresqldb-mi-current"
 ---
 # NULLIF (Transact-SQL)
 [!INCLUDE [sql-asdb-asdbmi-asa-pdw](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
@@ -108,10 +107,12 @@ WHERE ProductID < 10;
 GO  
 ```  
 
-### C: Returning budget amounts that contain no data  
- The following example creates a `budgets` table, loads data, and uses `NULLIF` to return a null if neither `current_year` nor `previous_year` contains data.  
-  
-```sql  
+### C: Returning budget amounts that contain no data
+The following example creates a `budgets` table, loads data, and uses `NULLIF` to return a null if `current_year` is null or contains the same data as `previous_year`.
+
+```SQL
+
+Copy
 CREATE TABLE budgets (  
    dept           TINYINT,  
    current_year   DECIMAL(10,2),  
@@ -127,8 +128,8 @@ INSERT INTO budgets VALUES(5, 300000, 300000);
 SELECT dept, NULLIF(current_year,  
    previous_year) AS LastBudget  
 FROM budgets;  
-```  
-  
+```
+
  [!INCLUDE[ssResult](../../includes/ssresult-md.md)]  
   
  ```

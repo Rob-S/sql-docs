@@ -1,29 +1,26 @@
 ---
-description: "SET NOCOUNT (Transact-SQL)"
-title: "SET NOCOUNT (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
-ms.date: "03/14/2017"
+title: "SET NOCOUNT (Transact-SQL)"
+description: SET NOCOUNT (Transact-SQL)
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.date: "12/09/2021"
 ms.prod: sql
 ms.prod_service: "synapse-analytics, database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+f1_keywords:
   - "NOCOUNT"
   - "SET_NOCOUNT_TSQL"
   - "NOCOUNT_TSQL"
   - "SET NOCOUNT"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "NOCOUNT option"
   - "number of rows affected by statement"
   - "row affected by statements [SQL Server]"
   - "counting rows"
   - "SET NOCOUNT statement"
-ms.assetid: eb3e6727-cb26-4bc2-84c7-171cbac02029
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+dev_langs:
+  - "TSQL"
 monikerRange: "=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # SET NOCOUNT (Transact-SQL)
@@ -47,7 +44,7 @@ SET NOCOUNT { ON | OFF }
   
  The @@ROWCOUNT function is updated even when SET NOCOUNT is ON.  
   
- SET NOCOUNT ON prevents the sending of DONE_IN_PROC messages to the client for each statement in a stored procedure. For stored procedures that contain several statements that do not return much actual data, or for procedures that contain [!INCLUDE[tsql](../../includes/tsql-md.md)] loops, setting SET NOCOUNT to ON can provide a significant performance boost, because network traffic is greatly reduced.  
+ SET NOCOUNT ON prevents the sending of DONEINPROC messages to the client for each statement in a stored procedure. For stored procedures that contain several statements that do not return much actual data, or for procedures that contain [!INCLUDE[tsql](../../includes/tsql-md.md)] loops, setting SET NOCOUNT to ON can provide a significant performance boost, because network traffic is greatly reduced.  
   
  The setting specified by SET NOCOUNT is in effect at execute or run time and not at parse time.  
   
@@ -64,15 +61,15 @@ SELECT @NOCOUNT AS NOCOUNT;
  Requires membership in the **public** role.  
   
 ## Examples  
- The following example prevents the message about the number of rows affected from being displayed.  
-  
+ The following example prevents the message about the number of rows affected from being displayed. In the following example, "(5 rows affected)" will only be returned to clients from the first SELECT statement.
+   
 ```sql
 USE AdventureWorks2012;  
 GO  
 SET NOCOUNT OFF;  
 GO  
 -- Display the count message.  
-SELECT TOP(5)LastName  
+SELECT TOP(5) LastName  
 FROM Person.Person  
 WHERE LastName LIKE 'A%';  
 GO  
@@ -89,7 +86,7 @@ GO
 ```  
   
 ## See Also  
- [@@ROWCOUNT &#40;Transact-SQL&#41;](../../t-sql/functions/rowcount-transact-sql.md)   
- [SET Statements &#40;Transact-SQL&#41;](../../t-sql/statements/set-statements-transact-sql.md)  
-  
+
+ - [@@ROWCOUNT &#40;Transact-SQL&#41;](../../t-sql/functions/rowcount-transact-sql.md)   
+ - [SET Statements &#40;Transact-SQL&#41;](../../t-sql/statements/set-statements-transact-sql.md)  
   

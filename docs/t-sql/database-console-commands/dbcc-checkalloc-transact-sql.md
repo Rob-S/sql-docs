@@ -25,13 +25,13 @@ helpviewer_keywords:
   - "disk space [SQL Server], allocation consistency checks"
   - "space allocation [SQL Server], checking"
 ms.assetid: bc1218eb-ffff-44ce-8122-6e4fa7d68a79
-author: pmasl
+author: rwestMSFT
 ms.author: umajay
 ---
 
 # DBCC CHECKALLOC (Transact-SQL)
 
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
 Checks the consistency of disk space allocation structures for a specified database.
   

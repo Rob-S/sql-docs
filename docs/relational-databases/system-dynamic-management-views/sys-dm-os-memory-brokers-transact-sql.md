@@ -1,25 +1,23 @@
 ---
-description: "sys.dm_os_memory_brokers (Transact-SQL)"
-title: "sys.dm_os_memory_brokers (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "sys.dm_os_memory_brokers (Transact-SQL)"
+description: sys.dm_os_memory_brokers (Transact-SQL)
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: "08/18/2017"
 ms.prod: sql
-ms.reviewer: ""
 ms.technology: system-objects
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "sys.dm_os_memory_brokers"
   - "dm_os_memory_brokers_TSQL"
   - "sys.dm_os_memory_brokers_TSQL"
   - "dm_os_memory_brokers"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sys.dm_os_memory_brokers dynamic management view"
+dev_langs:
+  - "TSQL"
 ms.assetid: 48dd6ad9-0d36-4370-8a12-4921d0df4b86
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-monikerRange: ">= sql-server-2016 || >= sql-server-linux-2017|| >= aps-pdw-2016 || = azure-sqldw-latest"
+monikerRange: ">=sql-server-2016||>=sql-server-linux-2017||>=aps-pdw-2016||=azure-sqldw-latest"
 ---
 # sys.dm_os_memory_brokers (Transact-SQL)
 [!INCLUDE [sql-asa-pdw](../../includes/applies-to-version/sql-asa-pdw.md)]
@@ -36,7 +34,7 @@ monikerRange: ">= sql-server-2016 || >= sql-server-linux-2017|| >= aps-pdw-2016 
 |Column name|Data type|Description|  
 |-----------------|---------------|-----------------|  
 |**pool_id**|**int**|ID of the resource pool if it is associated with a Resource Governor pool.|  
-|**memory_broker_type**|**nvarchar(60)**|Type of memory broker. There are currently three types of memory brokers in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], listed below with their descriptions.<br /><br /> **MEMORYBROKER_FOR_CACHE** : Memory that is allocated for use by cached objects (Not Buffer Pool cache).<br /><br /> **MEMORYBROKER_FOR_STEAL** : Memory that is stolen from the buffer pool. This memory is not available for reuse by other components until it is freed by the current owner.<br /><br /> **MEMORYBROKER_FOR_RESERVE** : Memory reserved for future use by currently executing requests.|  
+|**memory_broker_type**|**nvarchar(60)**|Type of memory broker. There are currently three types of memory brokers in [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], listed below with their descriptions.<br /><br /> **MEMORYBROKER_FOR_CACHE** : Memory that is allocated for use by cached objects (Not Buffer Pool cache).<br /><br /> **MEMORYBROKER_FOR_STEAL** : Memory that is stolen from the buffer pool. This memory is tracked by memory clerks and is not available for reuse by other components until it is freed by the current owner.<br /><br /> **MEMORYBROKER_FOR_RESERVE** : Memory reserved for future use by currently executing requests.|  
 |**allocations_kb**|**bigint**|Amount of memory, in kilobytes (KB), that has been allocated to this type of broker.|  
 |**allocations_kb_per_sec**|**bigint**|Rate of memory allocations in kilobytes (KB) per second. This value can be negative for memory deallocations.|  
 |**predicted_allocations_kb**|**bigint**|Predicted amount of allocated memory by the broker. This is based on the memory usage pattern.|  
@@ -48,8 +46,9 @@ monikerRange: ">= sql-server-2016 || >= sql-server-linux-2017|| >= aps-pdw-2016 
   
 ## Permissions  
 
-On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.   
-On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account or the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account is required. On all other SQL Database service objectives, the `VIEW DATABASE STATE` permission is required in the database.   
+On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.
+
+On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account, the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account, or membership in the `##MS_ServerStateReader##` [server role](/azure/azure-sql/database/security-server-roles) is required. On all other SQL Database service objectives, either the `VIEW DATABASE STATE` permission on the database, or membership in the `##MS_ServerStateReader##` server role is required.   
   
 ## See Also  
 

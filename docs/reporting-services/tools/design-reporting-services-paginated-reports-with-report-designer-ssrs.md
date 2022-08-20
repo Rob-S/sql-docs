@@ -83,6 +83,9 @@ Paginated reports are files that are stored in a report project. Reports can be 
      For more information, see [Report Definition Language &#40;SSRS&#41;](../../reporting-services/reports/report-definition-language-ssrs.md).  
   
 ##  <a name="bkmk_ReportParts"></a> Report Parts  
+
+[!INCLUDE [ssrs-report-parts-deprecated](../../includes/ssrs-report-parts-deprecated.md)]
+
  In Report Designer, after you create tables, charts, and other paginated report items in a project, you can publish them as *report parts* to a report server or SharePoint site integrated with a report server so that you and others can reuse them in other reports. For more information, see [Report Parts in Report Designer &#40;SSRS&#41;](../../reporting-services/report-design/report-parts-in-report-designer-ssrs.md).  
   
  Report parts can be deployed independently from other items in a project by using **TargetReportPartFolder** and other properties. For more information, see [Set Deployment Properties &#40;Reporting Services&#41;](../../reporting-services/tools/set-deployment-properties-reporting-services.md).  
@@ -183,4 +186,4 @@ Paginated reports are files that are stored in a report project. Reports can be 
 [Query Design Tools](../../reporting-services/report-data/query-design-tools-ssrs.md)   
 [Deployment and Version Support in SQL Server Data Tools](../../reporting-services/tools/deployment-and-version-support-in-sql-server-data-tools-ssrs.md)  
 
-More questions? [Try asking the Reporting Services forum](https://go.microsoft.com/fwlink/?LinkId=620231)
+More questions? [Try asking the Reporting Services forum](/answers/search.html?c=&f=&includeChildren=&q=ssrs+OR+reporting+services&redirect=search%2fsearch&sort=relevance&type=question+OR+idea+OR+kbentry+OR+answer+OR+topic+OR+user)

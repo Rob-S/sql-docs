@@ -1,19 +1,19 @@
 ---
+title: "T-SQL Tutorial: Create & query database objects"
 description: "T-SQL Tutorial: Create & query database objects"
-title: "T-SQL Tutorial: Create & query database objects| Microsoft Docs"
-ms.custom: ""
-ms.date: "07/30/2018"
 ms.prod: sql
-ms.reviewer: ""
 ms.technology: t-sql
-ms.topic: conceptual
-ms.assetid: 9fb8656b-0e4e-4ada-b404-4db4d3eea995
+ms.topic: tutorial
 author: MikeRayMSFT
 ms.author: mikeray
-monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
+ms.reviewer: ""
+ms.custom: ""
+ms.date: "07/30/2018"
+monikerRange: ">=aps-pdw-2016||=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
+
 # Lesson 1: Create and query database objects
-[!INCLUDE[tsql-appliesto-ss2008-all-md](../includes/tsql-appliesto-ss2008-all-md.md)]
+[!INCLUDE[sql-asdb-asdbmi-pdw-md](../includes/applies-to-version/sql-asdb-asdbmi-pdw.md)]
 
 This lesson shows you how to create a database, create a table in the database, and then access and change the data in the table. Because this lesson is an introduction to using [!INCLUDE[tsql](../includes/tsql-md.md)], it does not use or describe the many options that are available for these statements.  
   
@@ -39,7 +39,7 @@ If you don't have a SQL Server instance, create one. To create one, select your 
 - **macOS**: [Download SQL Server 2017 on Docker](../linux/quickstart-install-connect-docker.md).
 
 ## Create a database
-Like many [!INCLUDE[tsql](../includes/tsql-md.md)] statements, the [`CREATE DATABASE`](statements/create-database-transact-sql.md) statement has a required parameter: the name of the database.` CREATE DATABASE` also has many optional parameters, such as the disk location where you want to put the database files. When you execute `CREATE DATABASE` without the optional parameters, [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] uses default values for many of these parameters.
+Like many [!INCLUDE[tsql](../includes/tsql-md.md)] statements, the [`CREATE DATABASE`](statements/create-database-transact-sql.md) statement has a required parameter: the name of the database. `CREATE DATABASE` also has many optional parameters, such as the disk location where you want to put the database files. When you execute `CREATE DATABASE` without the optional parameters, [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md)] uses default values for many of these parameters.
 
 1.  In a Query Editor window, type but do not execute the following code:  
   
@@ -59,7 +59,7 @@ When you create a database, [!INCLUDE[ssNoVersion](../includes/ssnoversion-md.md
 
 ## Create a Table
 
-[!INCLUDE[tsql-appliesto-ss2008-all-md](../includes/tsql-appliesto-ss2008-all-md.md)]
+[!INCLUDE[tsql-appliesto-ss2008-all-md](../includes/appliesto-ss-asdb-asdw-pdw-md.md)]
 
 To create a table, you must provide a name for the table, and the names and data types of each column in the table. It is also a good practice to indicate whether null values are allowed in each column. To create a table, you must have the `CREATE TABLE` permission, and the `ALTER SCHEMA` permission on the schema that will contain the table. The [`db_ddladmin`](../relational-databases/security/authentication-access/database-level-roles.md) fixed database role has these permissions.  
   
@@ -278,7 +278,7 @@ The following statement creates a stored procedure name `pr_Names`, accepts an i
         PRINT 'Products less than ' + CAST(@VarPrice AS varchar(10));  
         -- A second statement starts here  
         SELECT ProductName, Price FROM vw_Names  
-              WHERE Price < @varPrice;  
+              WHERE Price < @VarPrice;  
      END  
   GO    
   ```  

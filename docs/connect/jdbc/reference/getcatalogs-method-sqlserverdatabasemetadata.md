@@ -15,7 +15,7 @@ apilocation:
 apitype: "Assembly"
 ms.assetid: 7f8bd0f1-f340-4bb9-b559-0a6176124033
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # getCatalogs Method (SQLServerDatabaseMetaData)
 [!INCLUDE[Driver_JDBC_Download](../../../includes/driver_jdbc_download.md)]
@@ -45,10 +45,10 @@ public java.sql.ResultSet getCatalogs()
   
 |Name|Type|Description|  
 |----------|----------|-----------------|  
-|TABLE_CAT|**String**|The name of the catalog, including system databases in [!INCLUDE[msCoName](../../../includes/msconame_md.md)] [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)].|  
+|TABLE_CAT|**String**|The name of the catalog, including system databases in [!INCLUDE[msCoName](../../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)].|  
   
 ## Example  
- The following example demonstrates how to use the getCatalogs method to return the names of all the databases that are contained in [!INCLUDE[msCoName](../../../includes/msconame_md.md)] [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], including the system databases.  
+ The following example demonstrates how to use the getCatalogs method to return the names of all the databases that are contained in [!INCLUDE[msCoName](../../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)], including the system databases.  
   
 ```  
 public static void executeGetCatalogs(Connection con) {  

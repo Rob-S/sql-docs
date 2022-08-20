@@ -20,14 +20,14 @@ ms.author: maghan
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # sqlcmd - Use the utility
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
   The **sqlcmd** utility is a command-line utility for ad hoc, interactive execution of [!INCLUDE[tsql](../../includes/tsql-md.md)] statements and scripts and for automating [!INCLUDE[tsql](../../includes/tsql-md.md)] scripting tasks. To use **sqlcmd** interactively, or to build script files to be run using **sqlcmd**, users must understand [!INCLUDE[tsql](../../includes/tsql-md.md)]. The **sqlcmd** utility is typically used in the following ways:  
   
 -   Users enter [!INCLUDE[tsql](../../includes/tsql-md.md)] statements in a manner similar to working at the command prompt. The results are displayed at the command prompt. To open a Command Prompt window, enter "cmd" in the Windows search box and click **Command Prompt** to open. At the command prompt, type **sqlcmd** followed by a list of options that you want. For a complete list of the options that are supported by **sqlcmd**, see [sqlcmd Utility](../../tools/sqlcmd-utility.md).  
   
 -   Users submit a **sqlcmd** job either by specifying a single [!INCLUDE[tsql](../../includes/tsql-md.md)] statement to execute, or by pointing the utility to a text file that contains [!INCLUDE[tsql](../../includes/tsql-md.md)] statements to execute. The output is usually directed to a text file, but can also be displayed at the command prompt.  
   
--   [SQLCMD mode](./edit-sqlcmd-scripts-with-query-editor.md) in [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] Query Editor.  
+-   [SQLCMD mode](./edit-sqlcmd-scripts-with-query-editor.md) in SQL Server Management Studio Query Editor.  
   
 -   SQL Server Management Objects (SMO)  
   
@@ -37,7 +37,9 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
   
 -   Server option (**-S**) identifies the instance of [!INCLUDE[msCoName](../../includes/msconame-md.md)] [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] to which **sqlcmd** connects.  
   
--   Authentication options (**-E**, **-U**, and **-P**) specify the credentials that **sqlcmd** uses to connect to the instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. **NOTE:** The option **-E** is the default and does not need to be specified.  
+-   Authentication options (**-E**, **-U**, and **-P**) specify the credentials that **sqlcmd** uses to connect to the instance of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)].
+    > [!NOTE]  
+    > The option **-E** is the default and does not need to be specified.  
   
 -   Input options (**-Q**, **-q**, and **-i**) identify the location of the input to **sqlcmd**.  
   
@@ -51,7 +53,8 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
     sqlcmd -S <ComputerName>  
     ```  
   
-    > **NOTE:** In the previous example, **-E** is not specified because it is the default and **sqlcmd** connects to the default instance by using Windows Authentication.  
+    > [!NOTE]  
+    > In the previous example, **-E** is not specified because it is the default and **sqlcmd** connects to the default instance by using Windows Authentication.  
   
 -   Connecting to a named instance by using Windows Authentication to interactively run [!INCLUDE[tsql](../../includes/tsql-md.md)] statements:  
   
@@ -102,7 +105,7 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
   
  To clear the statement cache, type **:RESET**. Typing **^C** causes **sqlcmd** to exit. **^C** can also be used to stop the execution of the statement cache after a **GO** command has been issued.  
   
- [!INCLUDE[tsql](../../includes/tsql-md.md)] statements that are entered in an interactive session can edited by entering the **:ED** command and the **sqlcmd** prompt. The editor will open and, after editing the [!INCLUDE[tsql](../../includes/tsql-md.md)] statement and closing the editor, the revised [!INCLUDE[tsql](../../includes/tsql-md.md)] statement will appear in the command window. Enter **GO** to run therevised [!INCLUDE[tsql](../../includes/tsql-md.md)] statement.  
+ [!INCLUDE[tsql](../../includes/tsql-md.md)] statements that are entered in an interactive session can edited by entering the **:ED** command and the **sqlcmd** prompt. The editor will open and, after editing the [!INCLUDE[tsql](../../includes/tsql-md.md)] statement and closing the editor, the revised [!INCLUDE[tsql](../../includes/tsql-md.md)] statement will appear in the command window. Enter **GO** to run the revised [!INCLUDE[tsql](../../includes/tsql-md.md)] statement.  
   
 ## Quoted strings  
  Characters that are enclosed in quotation marks are used without any additional preprocessing, except that quotations marks can be inserted into a string by entering two consecutive quotation marks. [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] treats this character sequence as one quotation mark. (However, the translation occurs in the server.) Scripting variables will not be expanded when they appear within a string.  
@@ -200,7 +203,7 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
   
  There are different ways to create database script files:  
   
--   You can interactively build and debug a set of [!INCLUDE[tsql](../../includes/tsql-md.md)] statements in [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)], and then save the contents of the Query window as a script file.  
+-   You can interactively build and debug a set of [!INCLUDE[tsql](../../includes/tsql-md.md)] statements in SQL Server Management Studio, and then save the contents of the Query window as a script file.  
   
 -   You can create a text file that contains [!INCLUDE[tsql](../../includes/tsql-md.md)] statements by using a text editor, such as Notepad.  
   

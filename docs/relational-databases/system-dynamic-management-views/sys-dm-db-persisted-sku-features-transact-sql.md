@@ -1,25 +1,23 @@
 ---
-description: "sys.dm_db_persisted_sku_features (Transact-SQL)"
-title: "sys.dm_db_persisted_sku_features (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "sys.dm_db_persisted_sku_features (Transact-SQL)"
+description: sys.dm_db_persisted_sku_features (Transact-SQL)
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: "08/23/2017"
 ms.prod: sql
-ms.reviewer: ""
 ms.technology: system-objects
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "sys.dm_db_persisted_sku_features_TSQL"
   - "sys.dm_db_persisted_sku_features"
   - "dm_db_persisted_sku_features_TSQL"
   - "dm_db_persisted_sku_features"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "editions [SQL Server]"
   - "sys.dm_db_persisted_sku_features dynamic management view"
+dev_langs:
+  - "TSQL"
 ms.assetid: b4b29e97-b523-41b9-9528-6d4e84b89e09
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 ---
 # sys.dm_db_persisted_sku_features (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -51,7 +49,7 @@ ms.author: wiassaf
   
 -   **MultipleFSContainers**: Indicates that the database uses multiple FILESTREAM containers. The database has a FILESTREAM filegroup with multiple containers (files). For more information, see [FILESTREAM &#40;SQL Server&#41;](../../relational-databases/blob/filestream-sql-server.md).  
   
--   **InMemoryOLTP**: Indicates that the database uses In-Memory OLTP. The database has a MEMORY_OPTIMIZED_DATA filegroup. For more information, see [In-Memory OLTP &#40;In-Memory Optimization&#41;](../../relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization.md).  
+-   **InMemoryOLTP**: Indicates that the database uses In-Memory OLTP. The database has a MEMORY_OPTIMIZED_DATA filegroup. For more information, see [In-Memory OLTP &#40;In-Memory Optimization&#41;](../in-memory-oltp/overview-and-usage-scenarios.md).  
   
   **Applies to**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] ([!INCLUDE[ssSQL14](../../includes/sssql14-md.md)] and later). 
   
@@ -74,4 +72,3 @@ GO
  [Database Related Dynamic Management Views &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/database-related-dynamic-management-views-transact-sql.md)   
  [Editions and supported features of SQL Server 2016](../../sql-server/editions-and-components-of-sql-server-2016.md)   
  [Editions and supported features of SQL Server 2017](../../sql-server/editions-and-components-of-sql-server-2017.md)  
-  

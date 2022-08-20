@@ -18,7 +18,7 @@ author: MikeRayMSFT
 ms.author: mikeray
 ---
 # table (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
 Is a special data type used to store a result set for processing at a later time. **table** is primarily used for temporarily storing a set of rows that are returned as the table-valued function result set. Functions and variables can be declared to be of type **table**. **table** variables can be used in functions, stored procedures, and batches. To declare variables of type **table**, use [DECLARE @local_variable](../../t-sql/language-elements/declare-local-variable-transact-sql.md).
   
@@ -99,7 +99,7 @@ SELECT select_list INTO table_variable;
 Queries that modify **table** variables don't generate parallel query execution plans. Performance can be affected when large **table** variables, or **table** variables in complex queries, are modified. Consider using temporary tables instead in situations where **table** variables are modified. For more information, see [CREATE TABLE &#40;Transact-SQL&#41;](../../t-sql/statements/create-table-transact-sql.md). Queries that read **table** variables without modifying them can still be parallelized.
 
 > [!IMPORTANT]
-> Database compatibility level 150 improves the performance of table variables with the introduction of **table variable deferred compilation**.  For more information, see [Table variable deferred compilation](../../relational-databases/performance/intelligent-query-processing.md#table-variable-deferred-compilation).
+> Database compatibility level 150 improves the performance of table variables with the introduction of **table variable deferred compilation**.  For more information, see [Table variable deferred compilation](../../relational-databases/performance/intelligent-query-processing-details.md#table-variable-deferred-compilation).
 >
   
 Indexes can't be created explicitly on **table** variables, and no statistics are kept on **table** variables. Starting with [!INCLUDE[ssSQL14](../../includes/sssql14-md.md)], new syntax was introduced which allows you to create certain index types inline with the table definition.  Using this new syntax, you can create indexes on **table** variables as part of the table definition. In some cases, performance may improve by using temporary tables instead, which provide full index support and statistics. For more information about temporary tables and inline index creation, see [CREATE TABLE &#40;Transact-SQL&#41;](../../t-sql/statements/create-table-transact-sql.md).

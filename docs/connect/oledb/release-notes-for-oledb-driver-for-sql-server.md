@@ -1,16 +1,16 @@
 ---
-title: "Release notes for OLE DB Driver"
-description: "This release notes article describes the changes in each release of the Microsoft OLE DB Driver for SQL Server."
-ms.date: 06/18/2021
+title: Release notes for OLE DB Driver
+description: This release notes article describes the changes in each release of the Microsoft OLE DB Driver for SQL Server.
+ms.date: 03/02/2022
 ms.prod: sql
 ms.technology: connectivity
 ms.topic: conceptual
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # Release notes for the Microsoft OLE DB Driver for SQL Server
 
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 
 This page discusses what was added in each version of the Microsoft OLE DB Driver for SQL Server.
 
@@ -21,9 +21,55 @@ See section "## 18.2.1" for a live example in this article.
 Thank you. For questions, contact GeneMi. (2019/03/16)
 -->
 
+## 19.0.0
+
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2186934)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2186855)  
+
+Released: February 15, 2022
+
+If you need to download the installer in a language other than the one detected for you, you can use these direct links.  
+    For the x64 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x804) | [Chinese (Traditional)](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x404) | [English (United States)](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x409) | [French](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x40c) | [German](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x407) | [Italian](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x410) | [Japanese](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x411) | [Korean](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x412) | [Portuguese (Brazil)](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x416) | [Russian](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x419) | [Spanish](https://go.microsoft.com/fwlink/?linkid=2186934&clcid=0x40a)  
+    For the x86 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x804) | [Chinese (Traditional)](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x404) | [English (United States)](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x409) | [French](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x40c) | [German](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x407) | [Italian](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x410) | [Japanese](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x411) | [Korean](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x412) | [Portuguese (Brazil)](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x416) | [Russian](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x419) | [Spanish](https://go.microsoft.com/fwlink/?linkid=2186855&clcid=0x40a)
+
+### Features added
+
+| Feature added | Details |
+| :------------ | :------ |
+| TDS 8.0 support | The encryption connection string keyword/property now includes the option for strict encryption, which encrypts the whole connection (including PRELOGIN packets). |
+| Secure by default | **BREAKING CHANGE**<br />The driver now defaults to secure-by-default options. Encrypted connections are enabled by default. The server certificate is now validated when client-side encryption is off but the server requires encryption.<br /><br />To restore previous version behavior, you need to opt-in to non-encrypted connections (`Encrypt` or `Use Encryption for Data` option) and trust the server certificate (`Trust Server Certificate` option), if the server uses a self-signed certificate. For more information, see [Encryption and certificate validation](features/encryption-and-certificate-validation.md). |
+| Support for the `Host Name In Certificate` connection string keyword, and the `SSPROP_INIT_HOST_NAME_CERTIFICATE` initialization property. | The user may now specify the host name to be used when validating the SQL Server TLS/SSL certificate. |
+
+## Previous releases
+
+## 18.6.3
+
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2183083)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2183084)  
+
+Released: December 15, 2021
+
+If you need to download the installer in a language other than the one detected for you, you can use these direct links.  
+    For the x64 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x804) | [Chinese (Traditional)](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x404) | [English (United States)](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x409) | [French](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x40c) | [German](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x407) | [Italian](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x410) | [Japanese](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x411) | [Korean](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x412) | [Portuguese (Brazil)](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x416) | [Russian](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x419) | [Spanish](https://go.microsoft.com/fwlink/?linkid=2183083&clcid=0x40a)  
+    For the x86 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x804) | [Chinese (Traditional)](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x404) | [English (United States)](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x409) | [French](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x40c) | [German](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x407) | [Italian](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x410) | [Japanese](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x411) | [Korean](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x412) | [Portuguese (Brazil)](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x416) | [Russian](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x419) | [Spanish](https://go.microsoft.com/fwlink/?linkid=2183084&clcid=0x40a)
+
+### Features added
+
+| Feature added | Details |
+| :------------ | :------ |
+| Removal of dependency on vcruntime140_1.dll | To remove the requirement to install Visual Studio in some scenarios, we removed all dependencies to vcruntime140_1.dll. |
+| Enable querying server SPN from connection | During a connection attempt where Azure AD authentication has been selected, the server will send a FEDAUTHINFO packet. This packet contains the server's SPN that must be used to generate the access token. Clients can query this value after a connection attempt is made (on success or failure) through the SSPROP_INIT_DISCOVERDSERVERSPN property in DBPROPSET_SQLSERVERDBINIT. |
+
+### Bugs fixed
+
+| Bug fixed | Details |
+| :-------- | :------ |
+| Fixed an issue where string values were being padded with zeros. | Fixed a bug, which resulted in empty fixed char fields being padded with zeroes during BCP import. |
+
 ## 18.6.0
-![download](../../ssms/media/download-icon.png) [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2164384)  
-![download](../../ssms/media/download-icon.png) [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2164408)  
+
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2164384)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2164408)  
 
 Released: June 18, 2021
 
@@ -46,11 +92,10 @@ If you need to download the installer in a language other than the one detected 
 | Fixed an accessibility issue. | Fixed an accessibility issue in the user interface of [Universal Data Link (UDL)](help-topics\data-link-pages.md). This accessibility issue resulted in the *Browse* button not being announced by screen reader software. |
 | Fixed crash in scenarios involving Multiple Active Result Sets. | Fixed a bug, which could result in the driver crashing in some scenarios involving [Multiple Active Result Sets (MARS)](features/using-multiple-active-result-sets-mars.md).|
 
-## Previous Releases
-
 ## 18.5.0
-![download](../../ssms/media/download-icon.png) [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2135577)  
-![download](../../ssms/media/download-icon.png) [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2135722)  
+
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2135577)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2135722)  
 
 Released: December 1, 2020
 
@@ -75,8 +120,9 @@ If you need to download the installer in a language other than the one detected 
 | Fixed a linked server remote table insert bug. | Fixed a bug which caused a linked server remote table insert to fail if the [NOCOUNT server configuration option](../../database-engine/configure-windows/configure-the-user-options-server-configuration-option.md) has been enabled. |
 
 ## 18.4.0
-![download](../../ssms/media/download-icon.png) [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2129954)  
-![download](../../ssms/media/download-icon.png) [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2131003)  
+
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2129954)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2131003)  
 
 Released: May 2020
 
@@ -105,8 +151,8 @@ For the x86 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?link
 
 ## 18.3.0
 
-![download](../../ssms/media/download-icon.png) [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2117515)  
-![download](../../ssms/media/download-icon.png) [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2117517)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2117515)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2117517)  
 
 Released: October 2019
 
@@ -133,8 +179,8 @@ Download previous OLE DB Driver versions by clicking the download links in the f
 
 ## 18.2.3
 
-![download](../../ssms/media/download-icon.png) [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2119554)  
-![download](../../ssms/media/download-icon.png) [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2119738)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2119554)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2119738)  
 
 Released: June 2019
 
@@ -151,8 +197,8 @@ For the x86 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?link
 
 ## 18.2.2
 
-![download](../../ssms/media/download-icon.png) [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2118512)  
-![download](../../ssms/media/download-icon.png) [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2118415)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2118512)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2118415)  
 
 Released: May 2019
 
@@ -169,8 +215,8 @@ For the x86 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?link
 
 ## 18.2.1
 
-![download](../../ssms/media/download-icon.png) [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2118511)  
-![download](../../ssms/media/download-icon.png) [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2118278)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2118511)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2118278)  
 
 Released: February 2019
 
@@ -188,8 +234,8 @@ For the x86 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?link
 
 ## 18.1.0
 
-![download](../../ssms/media/download-icon.png) [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2118506)  
-![download](../../ssms/media/download-icon.png) [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2118509)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2118506)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2118509)  
 
 Released: July 2018
 
@@ -213,8 +259,8 @@ For the x86 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?link
 
 ## 18.0.2
 
-![download](../../ssms/media/download-icon.png) [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2118504)  
-![download](../../ssms/media/download-icon.png) [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2118277)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x64 installer](https://go.microsoft.com/fwlink/?linkid=2118504)  
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download x86 installer](https://go.microsoft.com/fwlink/?linkid=2118277)  
 
 Released: March 2018
 
@@ -231,4 +277,6 @@ For the x86 driver: [Chinese (Simplified)](https://go.microsoft.com/fwlink/?link
 
 ## See also
 
-[Microsoft OLE DB Driver for SQL Server](oledb-driver-for-sql-server.md)
+[Microsoft OLE DB Driver for SQL Server](oledb-driver-for-sql-server.md)  
+[MSOLEDBSQL major version differences](major-version-differences.md)  
+  

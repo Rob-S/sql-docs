@@ -1,5 +1,5 @@
 ---
-title: "Tables, Matrices, and Lists (Report Builder) | Microsoft Docs"
+title: "Tables, matrices, and lists in paginated reports | Microsoft Docs"
 description: Learn about tables, matrices, and lists, the tablix data regions that display paginated report data organized into rows and columns in Report Builder.
 ms.date: 03/14/2017
 ms.prod: reporting-services
@@ -37,8 +37,11 @@ ms.assetid: 9dcf3fc8-bf9c-4a14-a03d-e78254aa4098
 author: maggiesMSFT
 ms.author: maggies
 ---
-# Tables, Matrices, and Lists (Report Builder and SSRS)
- In [!INCLUDE[ssRSnoversion_md](../../includes/ssrsnoversion-md.md)], tables, matrices, and lists are *data regions* that display paginated report data in cells that are organized into rows and columns. The cells typically contain text data such as text, dates, and numbers but they can also contain gauges, charts, or report items such as images. Collectively, tables, matrices, and lists are frequently referred to as *tablix* data regions.  
+# Tables, matrices, and lists in paginated reports (Report Builder)
+
+[!INCLUDE[ssrs-appliesto](../../includes/ssrs-appliesto.md)] [!INCLUDE [ssrs-appliesto-ssrs-rb](../../includes/ssrs-appliesto-ssrs-rb.md)] [!INCLUDE [ssrs-appliesto-pbi-rb](../../includes/ssrs-appliesto-pbi-rb.md)] [!INCLUDE [ssrb-applies-to-ssdt-yes](../../includes/ssrb-applies-to-ssdt-yes.md)]
+
+ In Report Builder, tables, matrices, and lists are *data regions* that display paginated report data in cells that are organized into rows and columns. The cells typically contain text data such as text, dates, and numbers but they can also contain gauges, charts, or report items such as images. Collectively, tables, matrices, and lists are frequently referred to as *tablix* data regions.  
   
  The table, matrix, and list templates are built on the tablix data region, which is a flexible grid that can display data in cells. In the table and matrix templates, cells are organized into rows and columns. Because templates are variations of the underlying generic tablix data region, you can display data in combination of template formats and change the table, matrix, or list on to include the features of another data region as you develop your report. For example, if you add a table and find it does not serve your needs, you can add column groups to make the table a matrix.  
   
@@ -53,7 +56,7 @@ ms.author: maggies
  To quickly get started with tables, matrices, and lists, see [Tutorial: Creating a Basic Table Report &#40;Report Builder&#41;](../../reporting-services/tutorial-creating-a-basic-table-report-report-builder.md), [Tutorial: Creating a Matrix Report &#40;Report Builder&#41;](../../reporting-services/tutorial-creating-a-matrix-report-report-builder.md), and [Tutorial: Creating a Free Form Report &#40;Report Builder&#41;](../../reporting-services/tutorial-creating-a-free-form-report-report-builder.md).  
   
 > [!NOTE]  
->  You can publish tables, matrices, and lists separately from a report as report parts. Read more about [Report Parts](../../reporting-services/report-design/report-parts-report-builder-and-ssrs.md).  
+>  You can publish tables, matrices, and lists separately from a report as report parts. Read more about [Report Parts](../../reporting-services/report-design/report-parts-report-builder-and-ssrs.md). However, report parts are deprecated for all releases of SQL Server Reporting Services after SQL Server Reporting Services 2019.
   
 ##  <a name="Table"></a> Table  
  Use a table to display detail data, organize the data in row groups, or both. The Table template contains three columns with a table header row and a details row for data. The following figure shows the initial table template, selected on the design surface:  

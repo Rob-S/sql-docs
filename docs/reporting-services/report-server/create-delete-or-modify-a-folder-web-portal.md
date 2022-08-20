@@ -40,7 +40,7 @@ ms.author: maggies
   
 3.  In the drop-down menu, click **Delete**.  
   
-4.  [!INCLUDE[clickOK](../../includes/clickok-md.md)]  
+4.  Select **OK**.
   
 ## To modify or delete a folder  
   
@@ -84,7 +84,7 @@ ms.author: maggies
   
 2. Right-click-the folder, and select **Delete** from the drop-down menu.  
   
-3. Select the **Delete** button in the **Delete <foldername>** dialog box to confirm the deletion.  
+3. Select the **Delete** button in the **Delete \<foldername\>** dialog box to confirm the deletion.  
   
 ## To modify a folder's properties  
   

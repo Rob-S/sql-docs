@@ -1,25 +1,23 @@
 ---
-description: "sys.dm_tran_locks (Transact-SQL)"
-title: "sys.dm_tran_locks (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "sys.dm_tran_locks (Transact-SQL)"
+description: sys.dm_tran_locks (Transact-SQL)
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: "03/30/2017"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database, synapse-analytics, pdw"
-ms.reviewer: ""
 ms.technology: system-objects
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "dm_tran_locks"
   - "sys.dm_tran_locks"
   - "sys.dm_tran_locks_TSQL"
   - "dm_tran_locks_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sys.dm_tran_locks dynamic management view"
+dev_langs:
+  - "TSQL"
 ms.assetid: f0d3b95a-8a00-471b-9da4-14cb8f5b045f
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # sys.dm_tran_locks (Transact-SQL)
@@ -56,8 +54,9 @@ monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-s
 |**pdw_node_id**|**int**|**Applies to**: [!INCLUDE[ssSDWfull](../../includes/sssdwfull-md.md)], [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]<br /><br /> The identifier for the node that this distribution is on.|  
   
 ## Permissions
-On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.   
-On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account or the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account is required. On all other SQL Database service objectives, the `VIEW DATABASE STATE` permission is required in the database.   
+On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.
+
+On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account, the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account, or membership in the `##MS_ServerStateReader##` [server role](/azure/azure-sql/database/security-server-roles) is required. On all other SQL Database service objectives, either the `VIEW DATABASE STATE` permission on the database, or membership in the `##MS_ServerStateReader##` server role is required.   
  
 ## Remarks  
  A granted request status indicates that a lock has been granted on a resource to the requestor. A waiting request indicates that the request has not yet been granted. The following waiting-request types are returned by the **request_status** column:  
@@ -66,7 +65,7 @@ On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databa
   
 -   A wait request status indicates that the requestor does not currently hold a granted request on the resource.  
   
- Because **sys.dm_tran_locks** is populated from internal lock manager data structures, maintaining this information does not add extra overhead to regular processing. Materializing the view does require access to the lock manager internal data structures. This can have minor effects on the regular processing in the server. These effects should be unnoticeable and should only affect heavily used resources. Because the data in this view corresponds to live lock manager state, the data can change at any time, and rows are added and removed as locks are acquired and released. This view has no historical information.  
+ Because **sys.dm_tran_locks** is populated from internal lock manager data structures, maintaining this information does not add extra overhead to regular processing. Materializing the view does require access to the lock manager internal data structures. This can have minor effects on the regular processing in the server. These effects should be unnoticeable and should only affect heavily used resources. Because the data in this view corresponds to live lock manager state, the data can change at any time, and rows are added and removed as locks are acquired and released. Applications querying this view might experience unpredictable performance due to the nature of protecting the integrity of lock manager structures. This view has no historical information.  
   
  Two requests operate on the same resource only if all the resource-group columns are equal.  
   
@@ -103,6 +102,8 @@ Locks are held on [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] reso
 |METADATA|Represents metadata information.|Not applicable|  
 |HOBT|Represents a heap or a B-tree. These are the basic access path structures.|HoBt ID. This value corresponds to **sys.partitions.hobt_id**.|  
 |ALLOCATION_UNIT|Represents a set of related pages, such as an index partition. Each allocation unit covers a single Index Allocation Map (IAM) chain.|Allocation Unit ID. This value corresponds to **sys.allocation_units.allocation_unit_id**.|  
+
+[!INCLUDE [sql-b-tree](../../includes/sql-b-tree.md)]
   
  The following table lists the subtypes that are associated with each resource type.  
   

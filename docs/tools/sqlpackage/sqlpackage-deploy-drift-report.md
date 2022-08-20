@@ -8,8 +8,8 @@ ms.topic: conceptual
 ms.assetid: 198198e2-7cf4-4a21-bda4-51b36cb4284b
 author: "dzsquared"
 ms.author: "drskwier"
-ms.reviewer: "maghan; sstein"
-ms.date: 7/2/2021
+ms.reviewer: "maghan"
+ms.date: 11/14/2021
 ---
 
 # SqlPackage deploy report and drift report
@@ -34,7 +34,7 @@ SqlPackage {parameters}{properties}{SQLCMD Variables}
 |**/DiagnosticsFile:**|**/df**|{string}|Specifies a file to store diagnostic logs. |
 |**/MaxParallelism:**|**/mp**|{int}| Specifies the degree of parallelism for concurrent operations running against a database. The default value is 8. |
 |**/OutputPath:**|**/op**|{string}|Specifies the file path where the output files are generated. |
-|**/OverwriteFiles:**|**/of**|{True&#124;False}|Specifies if sqlpackage.exe should overwrite existing files. Specifying false causes sqlpackage.exe to abort action if an existing file is encountered. Default value is True. |
+|**/OverwriteFiles:**|**/of**|{True&#124;False}|Specifies if SqlPackage.exe should overwrite existing files. Specifying false causes SqlPackage.exe to abort action if an existing file is encountered. Default value is True. |
 |**/Profile:**|**/pr**|{string}|Specifies the file path to a DAC Publish Profile. The profile defines a collection of properties and variables to use when generating outputs. |
 |**/Properties:**|**/p**|{PropertyName}={Value}|Specifies a name value pair for an [action-specific property](#deployreport-action-properties); {PropertyName}={Value}. |
 |**/Quiet:**|**/q**|{True&#124;False}|Specifies whether detailed feedback is suppressed. Defaults to False. |
@@ -48,7 +48,7 @@ SqlPackage {parameters}{properties}{SQLCMD Variables}
 |**/SourceTrustServerCertificate:**|**/stsc**|{True&#124;False}|Specifies whether to use TLS to encrypt the source database connection and bypass walking the certificate chain to validate trust. |
 |**/SourceUser:**|**/su**|{string}|For SQL Server Auth scenarios, defines the SQL Server user to use to access the source database. |
 |**/TargetConnectionString:**|**/tcs**|{string}|Specifies a valid SQL Server/Azure connection string to the target database. If this parameter is specified, it shall be used exclusively of all other target parameters. |
-|**/TargetDatabaseName:**|**/tdn**|{string}|Specifies an override for the name of the database that is the target of sqlpackage.exe Action. |
+|**/TargetDatabaseName:**|**/tdn**|{string}|Specifies an override for the name of the database that is the target of SqlPackage.exe Action. |
 |**/TargetEncryptConnection:**|**/tec**|{True&#124;False}|Specifies if SQL encryption should be used for the target database connection. |
 |**/TargetFile:**|**/tf**|{string}|Specifies a target file (that is, a .dacpac file) to be used as the target of action instead of a database. If this parameter is used, no other target parameter shall be valid. This parameter shall be invalid for actions that only support database targets.|
 |**/TargetPassword:**|**/tp**|{string}|For SQL Server Auth scenarios, defines the password to use to access the target database. |
@@ -77,7 +77,7 @@ SqlPackage {parameters}{properties}{SQLCMD Variables}
 |**/p:**|CommentOutSetVarDeclarations=(BOOLEAN)|Specifies whether the declaration of SETVAR variables should be commented out in the generated publish script. You might choose to do this if you plan to specify the values on the command line when you publish by using a tool such as SQLCMD.EXE. |
 |**/p:**|CompareUsingTargetCollation=(BOOLEAN)|This setting dictates how the database's collation is handled during deployment; by default the target database's collation will be updated if it does not match the collation specified by the source. When this option is set, the target database's (or server's) collation should be used. |
 |**/p:**|CreateNewDatabase=(BOOLEAN)|Specifies whether the target database should be updated or whether it should be dropped and re-created when you publish to a database. |
-|**/p:**|DatabaseEdition=({Basic&#124;Standard&#124;Premium&#124;DataWarehouse&#124;GeneralPurpose&#124;BusinessCritical&#124;Hyperscale&#124;Default} 'Default')|Defines the edition of an Azure SQL Database.|
+|**/p:**|DatabaseEdition=({ Basic &#124; Standard &#124; Premium &#124; DataWarehouse &#124; GeneralPurpose &#124; BusinessCritical &#124; Hyperscale &#124; Default } 'Default')|Defines the edition of an Azure SQL Database. See [Azure SQL Database service tiers](/azure/azure-sql/database/service-tiers-general-purpose-business-critical).|
 |**/p:**|DatabaseLockTimeout=(INT32 '60')| Specifies the database lock timeout in seconds when executing queries against SQLServer. Use -1 to wait indefinitely.|
 |**/p:**|DatabaseMaximumSize=(INT32)|Defines the maximum size in GB of an Azure SQL Database.|
 |**/p:**|DatabaseServiceObjective=(STRING)|Defines the performance level of an Azure SQL Database such as "P0" or "S1". |
@@ -136,9 +136,9 @@ SqlPackage {parameters}{properties}{SQLCMD Variables}
 |**/p:**|IgnoreWhitespace=(BOOLEAN 'True')|Specifies whether differences in white space will be ignored or updated when you publish to a database. |
 |**/p:**|IgnoreWithNocheckOnCheckConstraints=(BOOLEAN)|Specifies whether differences in the value of the WITH NOCHECK clause for check constraints will be ignored or updated when you publish to a database.| 
 |**/p:**|IgnoreWithNocheckOnForeignKeys=(BOOLEAN)|Specifies whether differences in the value of the WITH NOCHECK clause for foreign keys will be ignored or updated when you publish to a database.| 
-|**/p:**|IncludeCompositeObjects=(BOOLEAN)|Include all composite elements as part of a single publish operation.|
+|**/p:**|IncludeCompositeObjects=(BOOLEAN)|Include all composite elements with the same database as part of a single publish operation.|
 |**/p:**|IncludeTransactionalScripts=(BOOLEAN)|Specifies whether transactional statements should be used where possible when you publish to a database.|
-|**/p:**|LongRunningCommandTimeout=(INT32)| Specifies the long running command timeout in seconds when executing queries against SQL Server. Use 0 to wait indefinitely.|
+|**/p:**|LongRunningCommandTimeout=(INT32 '0')| Specifies the long running command timeout in seconds when executing queries against SQL Server. Use 0 to wait indefinitely.|
 |**/p:**|NoAlterStatementsToChangeClrTypes=(BOOLEAN)|Specifies that publish should always drop and re-create an assembly if there is a difference instead of issuing an ALTER ASSEMBLY statement. |
 |**/p:**|PopulateFilesOnFileGroups=(BOOLEAN 'True')|Specifies whether a new file is also created when a new FileGroup is created in the target database. |
 |**/p:**|RegisterDataTierApplication=(BOOLEAN)|Specifies whether the schema is registered with the database server. 
@@ -150,7 +150,7 @@ SqlPackage {parameters}{properties}{SQLCMD Variables}
 |**/p:**|ScriptFileSize=(BOOLEAN)|Controls whether size is specified when adding a file to a filegroup. |
 |**/p:**|ScriptNewConstraintValidation=(BOOLEAN 'True')|At the end of publish all of the constraints will be verified as one set, avoiding data errors caused by a check or foreign key constraint in the middle of publish. If set to False, your constraints are published without checking the corresponding data.|
 |**/p:**|ScriptRefreshModule=(BOOLEAN 'True')|Include refresh statements at the end of the publish script.|
-|**/p:**|Storage=({File&#124;Memory})|Specifies how elements are stored when building the database model. For performance reasons the default is InMemory. For large databases, File backed storage is required.|
+|**/p:**|Storage=({File&#124;Memory})|Specifies how elements are stored when building the database model. For performance reasons the default is InMemory. For large databases, File backed storage may be required and is only available for .NET Framework version of SqlPackage.|
 |**/p:**|TreatVerificationErrorsAsWarnings=(BOOLEAN)|Specifies whether errors encountered during publish verification should be treated as warnings. The check is performed against the generated deployment plan before the plan is executed against your target database. Plan verification detects problems such as the loss of target-only objects (such as indexes) that must be dropped to make a change. Verification will also detect situations where dependencies (such as a table or view) exist because of a reference to a composite project, but do not exist in the target database. You might choose to do this to get a complete list of all issues, instead of having the publish action stop on the first error. |
 |**/p:**|UnmodifiableObjectWarnings=(BOOLEAN 'True')|Specifies whether warnings should be generated when differences are found in objects that cannot be modified, for example, if the file size or file paths were different for a file.| 
 |**/p:**|VerifyCollationCompatibility=(BOOLEAN 'True')|Specifies whether collation compatibility is verified.| 
@@ -166,10 +166,10 @@ SqlPackage {parameters}{properties}{SQLCMD Variables}
 |**/DiagnosticsFile:**|**/df**|{string}|Specifies a file to store diagnostic logs. |
 |**/MaxParallelism:**|**/mp**|{int}| Specifies the degree of parallelism for concurrent operations running against a database. The default value is 8. |
 |**/OutputPath:**|**/op**|{string}|Specifies the file path where the output files are generated. |
-|**/OverwriteFiles:**|**/of**|{True&#124;False}|Specifies if sqlpackage.exe should overwrite existing files. Specifying false causes sqlpackage.exe to abort action if an existing file is encountered. Default value is True. |
+|**/OverwriteFiles:**|**/of**|{True&#124;False}|Specifies if SqlPackage.exe should overwrite existing files. Specifying false causes SqlPackage.exe to abort action if an existing file is encountered. Default value is True. |
 |**/Quiet:**|**/q**|{True&#124;False}|Specifies whether detailed feedback is suppressed. Defaults to False.|
 |**/TargetConnectionString:**|**/tcs**|{string}|Specifies a valid SQL Server/Azure connection string to the target database. If this parameter is specified, it shall be used exclusively of all other target parameters. |
-|**/TargetDatabaseName:**|**/tdn**|{string}|Specifies an override for the name of the database that is the target of sqlpackage.exe Action. |
+|**/TargetDatabaseName:**|**/tdn**|{string}|Specifies an override for the name of the database that is the target of SqlPackage.exe Action. |
 |**/TargetEncryptConnection:**|**/tec**|{True&#124;False}|Specifies if SQL encryption should be used for the target database connection. |
 |**/TargetPassword:**|**/tp**|{string}|For SQL Server Auth scenarios, defines the password to use to access the target database. |
 |**/TargetServerName:**|**/tsn**|{string}|Defines the name of the server hosting the target database. |
@@ -181,4 +181,4 @@ SqlPackage {parameters}{properties}{SQLCMD Variables}
 
 ## Next Steps
 
-- Learn more about [sqlpackage](sqlpackage.md)
+- Learn more about [SqlPackage](sqlpackage.md)

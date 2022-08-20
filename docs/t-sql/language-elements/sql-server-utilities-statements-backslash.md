@@ -1,19 +1,19 @@
 ---
+title: "Backslash (Line Continuation) (Transact-SQL)"
 description: "Backslash (Line Continuation) (Transact-SQL)"
-title: "Backslash (Line Continuation) (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: ""
 ms.date: "07/25/2019"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "\\_TSQL"
   - "\\"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "backwhack"
   - "backslash"
   - "escape character"
@@ -26,13 +26,12 @@ helpviewer_keywords:
   - "reversed virgule"
   - "line continuation character"
   - "reverse solidus"
-ms.assetid: c97fbb20-3d12-4d0b-9b52-62a229bc83c0
-author: cawrites
-ms.author: chadam
+dev_langs:
+  - "TSQL"
 ---
 # Backslash (Line Continuation) (Transact-SQL)
 
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
 `\`  breaks a long string constant, character or binary, into two or more lines for readability.  
   

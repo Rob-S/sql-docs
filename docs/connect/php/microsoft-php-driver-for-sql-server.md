@@ -10,7 +10,7 @@ ms.technology: connectivity
 ms.topic: conceptual
 ms.assetid: 9e78bbf3-9e9a-426d-99d3-6fa2cb33ff6b
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # Microsoft Drivers for PHP for SQL Server
 
@@ -34,7 +34,7 @@ The Microsoft Drivers for PHP for SQL Server enable integration with SQL Server 
 * [Support Resources for the Microsoft Drivers for PHP for SQL Server](support-resources-for-the-php-sql-driver.md)
   
 ## Download  
-* ![Download-DownArrow-Circled](../../ssms/media/download-icon.png)[To download drivers for PHP for SQL](download-drivers-php-sql-server.md)
+* :::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download drivers for PHP for SQL](download-drivers-php-sql-server.md)
   
 ## Samples  
 * [Code Samples for the Microsoft Drivers for PHP for SQL Server](code-samples-for-php-sql-driver.md)

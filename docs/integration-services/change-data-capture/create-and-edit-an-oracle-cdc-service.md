@@ -1,19 +1,18 @@
 ---
+title: Create and Edit an Oracle CDC Service
 description: "Create and Edit an Oracle CDC Service"
-title: "Create and Edit an Oracle CDC Service | Microsoft Docs"
-ms.custom: ""
-ms.date: "03/20/2017"
 ms.prod: sql
-ms.prod_service: "integration-services"
-ms.reviewer: ""
 ms.technology: integration-services
 ms.topic: conceptual
 f1_keywords: 
   - "createSrv"
-ms.assetid: 10cd612e-d8f1-4af2-97d3-a0c22e1e2326
 author: chugugrace
 ms.author: chugu
+ms.reviewer: ""
+ms.custom: ""
+ms.date: "03/20/2017"
 ---
+
 # Create and Edit an Oracle CDC Service
 
 [!INCLUDE[sqlserver-ssis](../../includes/applies-to-version/sqlserver-ssis.md)]
@@ -49,7 +48,7 @@ ms.author: chugu
   
      On Windows Vista or Windows Server 2008, the default service account is the NETWORK SERVICE account.  
   
-     On Windows 7, Windows Server 2008 R2 and later, the default service account is NT Service\\<service-name>.  
+     On Windows 7, Windows Server 2008 R2 and later, the default service account is NT Service\\\\<service-name\>.  
   
      Using these accounts lets you work without using passwords because a password is not necessary for these accounts. In addition these accounts provide only the necessary permissions required for the Oracle CDC Service to run.  
   

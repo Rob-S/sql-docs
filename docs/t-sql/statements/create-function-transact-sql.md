@@ -1,23 +1,21 @@
 ---
-description: "CREATE FUNCTION (Transact-SQL)"
-title: "CREATE FUNCTION (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "CREATE FUNCTION (Transact-SQL)"
+description: CREATE FUNCTION (Transact-SQL)
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: 03/16/2020
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+f1_keywords:
   - "FUNCTION"
   - "CREATE FUNCTION"
   - "CREATE_FUNCTION_TSQL"
   - "FUNCTION_TSQL"
   - "TVF"
   - "MSTVF"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "invoking functions"
   - "extended stored procedures [SQL Server], functions"
   - "table-valued parameters"
@@ -38,9 +36,9 @@ helpviewer_keywords:
   - "MSTVF"
   - "TVF"
   - "functions [SQL Server], invoking"
+dev_langs:
+  - "TSQL"
 ms.assetid: 864b393f-225f-4895-8c8d-4db59ea60032
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 ---
 # CREATE FUNCTION (Transact-SQL)
 
@@ -544,7 +542,7 @@ For more information about how to program CLR functions, see [CLR User-Defined F
 
 ## General Remarks
 
-Scalar functions can be invoked where scalar expressions are used. This includes computed columns and CHECK constraint definitions. Scalar functions can also be executed by using the [EXECUTE](../../t-sql/language-elements/execute-transact-sql.md) statement. Scalar functions must be invoked by using at least the two-part name of the function (*<schema>.<function>*). For more information about multipart names, see [Transact-SQL Syntax Conventions (Transact-SQL)](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md). Table-valued functions can be invoked where table expressions are allowed in the `FROM` clause of `SELECT`, `INSERT`, `UPDATE`, or `DELETE` statements. For more information, see [Execute User-defined Functions](../../relational-databases/user-defined-functions/execute-user-defined-functions.md).
+Scalar functions can be invoked where scalar expressions are used. This includes computed columns and CHECK constraint definitions. Scalar functions can also be executed by using the [EXECUTE](../../t-sql/language-elements/execute-transact-sql.md) statement. Scalar functions must be invoked by using at least the two-part name of the function (*\<schema\>.\<function\>*). For more information about multipart names, see [Transact-SQL Syntax Conventions (Transact-SQL)](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md). Table-valued functions can be invoked where table expressions are allowed in the `FROM` clause of `SELECT`, `INSERT`, `UPDATE`, or `DELETE` statements. For more information, see [Execute User-defined Functions](../../relational-databases/user-defined-functions/execute-user-defined-functions.md).
 
 ## Interoperability
 
@@ -735,19 +733,20 @@ BEGIN
 WITH EMP_cte(EmployeeID, OrganizationNode, FirstName, LastName, JobTitle, RecursionLevel) -- CTE name and columns
     AS (
         -- Get the initial list of Employees for Manager n
-        SELECT e.BusinessEntityID, e.OrganizationNode, p.FirstName, p.LastName, e.JobTitle, 0
+        SELECT e.BusinessEntityID, OrganizationNode = ISNULL(e.OrganizationNode, CAST('/' AS hierarchyid)) 
+        , p.FirstName, p.LastName, e.JobTitle, 0
         FROM HumanResources.Employee e
-INNER JOIN Person.Person p
-ON p.BusinessEntityID = e.BusinessEntityID
+              INNER JOIN Person.Person p
+              ON p.BusinessEntityID = e.BusinessEntityID
         WHERE e.BusinessEntityID = @InEmpID
         UNION ALL
         -- Join recursive member to anchor
         SELECT e.BusinessEntityID, e.OrganizationNode, p.FirstName, p.LastName, e.JobTitle, RecursionLevel + 1
         FROM HumanResources.Employee e
-            INNER JOIN EMP_cte
-            ON e.OrganizationNode.GetAncestor(1) = EMP_cte.OrganizationNode
-INNER JOIN Person.Person p
-ON p.BusinessEntityID = e.BusinessEntityID
+          INNER JOIN EMP_cte
+          ON e.OrganizationNode.GetAncestor(1) = EMP_cte.OrganizationNode
+          INNER JOIN Person.Person p
+          ON p.BusinessEntityID = e.BusinessEntityID
         )
 -- copy the required columns to the result of the function
     INSERT @retFindReports

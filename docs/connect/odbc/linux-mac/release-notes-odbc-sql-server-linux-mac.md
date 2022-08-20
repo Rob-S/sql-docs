@@ -1,11 +1,11 @@
 ---
-title: "Release Notes ODBC Driver for SQL Server on Linux and macOS"
+title: Release Notes ODBC Driver for SQL Server on Linux and macOS
 description: "Learn what's new and changed in released versions of the Microsoft ODBC Driver for SQL Server."
 ms.custom: ""
-ms.date: "01/29/2021"
+ms.date: 08/08/2022
 ms.prod: sql
 ms.prod_service: connectivity
-ms.reviewer: v-daenge
+ms.reviewer: v-davidengel
 ms.technology: connectivity
 ms.topic: conceptual
 author: v-chojas
@@ -16,7 +16,7 @@ manager: kenvh
 
 [!INCLUDE[Driver_ODBC_Download](../../../includes/driver_odbc_download.md)]
 
-This article lists and describes what's new in the versioned releases of the [!INCLUDE[msCoName](../../../includes/msconame_md.md)] ODBC driver for [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] on Linux and macOS.
+This article lists and describes what's new in the versioned releases of the [!INCLUDE[msCoName](../../../includes/msconame-md.md)] ODBC driver for [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] on Linux and macOS.
 
 <!--
 Going forward, please use the new 2-column markdown table for each new H2 version section.
@@ -30,6 +30,68 @@ NOW NEW FILE NAME:    linux-mac/release-notes-odbc-sql-server-linux-mac.md
 Thank you.
 GeneMi.  2019/04/03.
 -->
+
+## 18.1, August 2022
+
+| New item | Details |
+| :------- | :------ |
+| New distributions supported. | Ubuntu 22.04, Red Hat 9. ARM64 Linux platforms: Debian 11, RedHat 8 and 9, Ubuntu 20.04, 22.04 |
+| IpAddressPreference option | See [DSN and Connection String Attributes and Keywords](../dsn-connection-string-attribute.md). |
+| RetryExec option | See [DSN and Connection String Attributes and Keywords](../dsn-connection-string-attribute.md). |
+| VBS-NONE enclave attestation protocol | New enclave attestation option to not attest the enclave. See [Using Always Encrypted](../using-always-encrypted-with-the-odbc-driver.md) |
+| Wildcard matching of HostnameInCertificate | Now able to use wildcard for specifying hostname, if different from default value found in Addr/Address/Server. |
+| ServerCertificate option | See [DSN and Connection String Attributes and Keywords](../dsn-connection-string-attribute.md). |
+| TrustedConnection_UseAAD option | Now only Kerberos integrated authentication is enabled when specifying Trusted_Connection=yes. Use the TrustedConnection_UseAAD option to enable the previous behavior of using either Kerberos or Azure Active Directory integrated. See [Using Azure Active Directory](../using-azure-active-directory.md) for more information. |
+| Bug fixes. | [Bug fixes](../bug-fixes.md). |
+| &nbsp; | &nbsp; |
+
+## 17.10, June 2022
+
+| New item | Details |
+| :------- | :------ |
+| New distributions supported. | Ubuntu 22.04, Red Hat 9 |
+| TrustedConnection_UseAAD option | Now only Kerberos integrated authentication is enabled when specifying Trusted_Connection=yes. Use the TrustedConnection_UseAAD option to enable the previous behavior of using either Kerberos or Azure Active Directory integrated. |
+| Bug fixes. | [Bug fixes](../bug-fixes.md). |
+| &nbsp; | &nbsp; |
+
+## 18.0, February 2022
+
+| New item | Details |
+| :------- | :------ |
+| New distributions supported. | Debian 11, Ubuntu 21.10, macOS 12 |
+| Added compatibility with OpenSSL 3.0 | See [Connection String Keywords and Data Source Names](connection-string-keywords-and-data-source-names-dsns.md#using-tlsssl). |
+| Ability to send long types as max types | See [DSN and Connection String Attributes and Keywords](../dsn-connection-string-attribute.md). |
+| Support for TDS 8.0 | See [Features of the Microsoft ODBC Driver for SQL Server on Windows](../windows/features-of-the-microsoft-odbc-driver-for-sql-server-on-windows.md). |
+| Compatibility extensions for SQLGetData | See [Features of the Microsoft ODBC Driver for SQL Server on Windows](../windows/features-of-the-microsoft-odbc-driver-for-sql-server-on-windows.md). |
+| Bug fixes. | [Bug fixes](../bug-fixes.md). |
+| &nbsp; | &nbsp; |
+
+## 17.9, February 2022
+
+| New item | Details |
+| :------- | :------ |
+| New distributions supported. | Debian 11, Ubuntu 21.10, macOS 12 |
+| Added compatibility with OpenSSL 3.0 | See [Connection String Keywords and Data Source Names](connection-string-keywords-and-data-source-names-dsns.md#using-tlsssl). |
+| Bug fixes. | [Bug fixes](../bug-fixes.md). |
+| &nbsp; | &nbsp; |
+
+## 17.8.1.2, October 2021
+
+| New item | Details |
+| :------- | :------ |
+| Package update | Updated RPM packages for Red Hat 7, Red Hat 8, SUSE 12, and SUSE 15 to use SHA256 RPM signing. |
+| &nbsp; | &nbsp; |
+
+## 17.8, July 2021
+
+| New item | Details |
+| :------- | :------ |
+| New distributions supported. | Ubuntu 21.04, Alpine 3.13 |
+| Support for Apple M1 ARM64 hardware | See [Install the ODBC driver (macOS)](install-microsoft-odbc-driver-sql-server-macos.md). |
+| Replication option added to the connection string | See [DSN and Connection String Attributes and Keywords](../dsn-connection-string-attribute.md). |
+| KeepAlive and KeepAliveInterval options added to the connection string | See [DSN and Connection String Attributes and Keywords](../dsn-connection-string-attribute.md). |
+| Bug fixes. | [Bug fixes](../bug-fixes.md). |
+| &nbsp; | &nbsp; |
 
 ## 17.7.2, March 2021
 
@@ -71,7 +133,7 @@ GeneMi.  2019/04/03.
 | Feature added | Details |
 | :------------ | :------ |
 | Support authentication with Managed Identity for Azure Key Vault | See [Using Always Encrypted with the ODBC Driver](../using-always-encrypted-with-the-odbc-driver.md). |
-| Support for additional Azure Key Vault endpoints | See [Using Always Encrypted with the ODBC Driver](../using-always-encrypted-with-the-odbc-driver.md). |
+| Support for more Azure Key Vault endpoints | See [Using Always Encrypted with the ODBC Driver](../using-always-encrypted-with-the-odbc-driver.md). |
 | Bug fixes. | See [Bug fixes](../bug-fixes.md). |
 | &nbsp; | &nbsp; |
 
@@ -89,7 +151,7 @@ GeneMi.  2019/04/03.
 
 | Feature added | Details |
 | :------------ | :------ |
-| Support for additional Azure Key Vault endpoints | See [Using Always Encrypted with the ODBC Driver](../using-always-encrypted-with-the-odbc-driver.md). |
+| Support for more Azure Key Vault endpoints | See [Using Always Encrypted with the ODBC Driver](../using-always-encrypted-with-the-odbc-driver.md). |
 | Support for setting data classification version | See [Data Classification](../data-classification.md#bkmk-version). |
 | Bug fixes. | See [Bug fixes](../bug-fixes.md). |
 | &nbsp; | &nbsp; |
@@ -126,8 +188,8 @@ When using Always Encrypted with secure enclaves and Azure Key Vault, odd key pa
 | Data Classification for Azure SQL Database and SQL Server. | See [Data Classification](../data-classification.md). |
 | Support UTF-8 server encoding. | &nbsp; |
 | `SQLBrowseConnect` | &nbsp; |
-| Dynamic dependency on `libcurl`. | Starting with this version, the `libcurl` package is not an explicit dependency.<br/>The `libcurl` package for OpenSSL or NSS is required when using Azure Key Vault or Azure Active Directory authentication.<br/>If you encounter an error regarding `libcurl`, ensure it is installed. |
-| Idle Connection Resiliency with ConnectRetryCount and ConnectRetryInterval keywords in connection string. | &bull; &nbsp; &nbsp; Use `SQL_COPT_SS_CONNECT_RETRY_COUNT`(read only) to retrieve the number of connection retry attempts.<br/><br/>&bull; &nbsp; &nbsp; Use `SQL_COPT_SS_CONNECT_RETRY_INTERVAL`(read only) to retrieve the length of the connection retry interval.<br/><br/>See [Connection Resiliency in the Windows ODBC Driver](../windows/connection-resiliency-in-the-windows-odbc-driver.md). |
+| Dynamic dependency on `libcurl`. | Starting with this version, the `libcurl` package isn't an explicit dependency.<br/>The `libcurl` package for OpenSSL or NSS is required when using Azure Key Vault or Azure Active Directory authentication.<br/>If you encounter an error regarding `libcurl`, ensure it's installed. |
+| Idle Connection Resiliency with ConnectRetryCount and ConnectRetryInterval keywords in connection string. | &bull; &nbsp; &nbsp; Use `SQL_COPT_SS_CONNECT_RETRY_COUNT`(read only) to retrieve the number of connection retry attempts.<br/><br/>&bull; &nbsp; &nbsp; Use `SQL_COPT_SS_CONNECT_RETRY_INTERVAL`(read only) to retrieve the length of the connection retry interval.<br/><br/>See [Connection Resiliency](../connection-resiliency.md). |
 | Bug fixes. | [Bug fixes](../bug-fixes.md). |
 | &nbsp; | &nbsp; |
 
@@ -135,7 +197,7 @@ When using Always Encrypted with secure enclaves and Azure Key Vault, odd key pa
 
 | New item | Details |
 | :------- | :------ |
-| Support for `SQL_COPT_SS_CEKCACHETTL` and `SQL_COPT_SS_TRUSTEDCMKPATHS` connection attributes. | &bull; &nbsp; &nbsp; `SQL_COPT_SS_CEKCACHETTL` allows controlling the time that the local cache of Column Encryption Keys exists, as well as flushing it.<br/><br/>&bull; &nbsp; &nbsp; `SQL_COPT_SS_TRUSTEDCMKPATHS` allows the application to restrict Always Encrypted operations to use only the specified list of Column Master Keys.<br/><br/>See [Using Always Encrypted with the ODBC Driver for SQL Server](../using-always-encrypted-with-the-odbc-driver.md)). |
+| Support for `SQL_COPT_SS_CEKCACHETTL` and `SQL_COPT_SS_TRUSTEDCMKPATHS` connection attributes. | &bull; &nbsp; &nbsp; `SQL_COPT_SS_CEKCACHETTL` allows controlling the time that the local cache of Column Encryption Keys exists, and flushing it.<br/><br/>&bull; &nbsp; &nbsp; `SQL_COPT_SS_TRUSTEDCMKPATHS` allows the application to restrict Always Encrypted operations to use only the specified list of Column Master Keys.<br/><br/>See [Using Always Encrypted with the ODBC Driver for SQL Server](../using-always-encrypted-with-the-odbc-driver.md)). |
 | Support for loading the `.rll` from default location. | See ['Resource File Loading' section in the Installation document](installing-the-microsoft-odbc-driver-for-sql-server.md#resource-file-loading). |
 | Bug fixes. | [Bug fixes](../bug-fixes.md). |
 | &nbsp; | &nbsp; |
@@ -146,7 +208,7 @@ When using Always Encrypted with secure enclaves and Azure Key Vault, odd key pa
 macOS High Sierra and Ubuntu 17.10
 
 **Performance Improvements**:
-Greater than 10x performance improvement when driver converts to/from UTF-8/16.
+Greater than 10 times performance improvement when driver converts to/from UTF-8/16.
 
 **Features Added**:
 
@@ -172,11 +234,11 @@ Support for Azure SQL Managed Instance.
 
 ## 13.1, for [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] on Linux and macOS, May 2017
 
-ODBC Driver 13.1 for [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] adds support for Always Encrypted and Azure Active Directory when used in conjunction with Microsoft SQL Server 2016.
+ODBC Driver 13.1 for [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] adds support for Always Encrypted and Azure Active Directory when used with Microsoft SQL Server 2016.
 
 **New distributions supported**:
-OS X 10.11 and macOS 10.12 are supported in the first release of the ODBC Driver on macOS. Ubuntu 16.10 is now also supported, along with Red Hat 6, 7, and SUSE 12. Each platform has a platform-relevant package (RPM or DEB) to ease installation and configuration. For more information, see the ODBC driver installation instructions for [Linux](../../../connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server.md)
-and [macOS](../../../connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos.md).
+OS X 10.11 and macOS 10.12 are supported in the first release of the ODBC Driver on macOS. Ubuntu 16.10 is now also supported, along with Red Hat 6, 7, and SUSE 12. Each platform has a platform-relevant package (RPM or DEB) to ease installation and configuration. For more information, see the ODBC driver installation instructions for [Linux](installing-the-microsoft-odbc-driver-for-sql-server.md)
+and [macOS](install-microsoft-odbc-driver-sql-server-macos.md).
 
 **unixODBC Driver Manager 2.3.1 Support Changes**: The ODBC driver no longer depends on custom packaging for the unixODBC driver manager (except on Red Hat 6), and instead relies on the distribution package manager to resolve the UnixODBC dependency from the distribution's repositories.
 
@@ -188,20 +250,20 @@ With Microsoft ODBC Driver 13.0 for SQL Server, SQL Server 2014 and SQL Server 2
 
 **New distributions supported**:
 
-Ubuntu is now supported, along with Red Hat and SUSE. Each platform has a platform-relevant package (RPM or DEB) to ease installation and configuration.  See [Installing the Driver](../../../connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server.md) for installation instructions.
+Ubuntu is now supported, along with Red Hat and SUSE. Each platform has a platform-relevant package (RPM or DEB) to ease installation and configuration.  See [Installing the Driver](installing-the-microsoft-odbc-driver-for-sql-server.md) for installation instructions.
 
-**unixODBC Driver Manager 2.3.1 Support**: In addition to a newer driver manager, there is also a package for installing this dependency that eases installation and configuration.  
+**unixODBC Driver Manager 2.3.1 Support**: In addition to a newer driver manager, there's also a package for installing this dependency that eases installation and configuration.  
 
-**Transparent Network IP Resolution**: Transparent Network IP Resolution is a revision of the existing Multi-Subnet Failover feature that affects the connection sequence of the driver in the case where the first resolved IP of the hostname does not respond and there are multiple IPs associated with the hostname.
+**Transparent Network IP Resolution**: Transparent Network IP Resolution is a revision of the existing Multi-Subnet Failover feature that affects the connection sequence of the driver in the case where the first resolved IP of the hostname doesn't respond and there are multiple IPs associated with the hostname.
 
 **TLS 1.2 Support**: The Microsoft ODBC Driver 13.0 for SQL Server on Linux now supports TLS 1.2 when secure communications with SQL Server are used.
 
 ## 11, for [!INCLUDE[ssNoVersion](../../../includes/ssnoversion-md.md)] on Linux
 
-The ODBC driver on SUSE Linux (Preview) supports 64-bit SUSE Linux Enterprise 11 Service Pack 2. For more information, see [System Requirements](../../../connect/odbc/linux-mac/system-requirements.md).  
+The ODBC driver on SUSE Linux (Preview) supports 64-bit SUSE Linux Enterprise 11 Service Pack 2. For more information, see [System Requirements](system-requirements.md).  
 
-The ODBC driver on Linux supports [!INCLUDE[ssHADR](../../../includes/sshadr_md.md)]. For more information, see [ODBC Driver on Linux Support for High Availability, Disaster Recovery](../../../connect/odbc/linux-mac/odbc-driver-on-linux-support-for-high-availability-disaster-recovery.md).  
+The ODBC driver on Linux supports [!INCLUDE[ssHADR](../../../includes/sshadr-md.md)]. For more information, see [ODBC Driver on Linux Support for High Availability, Disaster Recovery](odbc-driver-on-linux-support-for-high-availability-disaster-recovery.md).  
 
 The ODBC driver on Linux supports connections to Azure SQL Database.
 
-The `-l` option (login timeout) has been added to `bcp`. For more information, see [Connecting with **bcp**](../../../connect/odbc/linux-mac/connecting-with-bcp.md).
+The `-l` option (login timeout) has been added to `bcp`. For more information, see [Connecting with **bcp**](connecting-with-bcp.md).

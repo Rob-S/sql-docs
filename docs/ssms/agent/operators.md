@@ -48,7 +48,7 @@ Every operator must have a name. Operator names must be unique within the [!INCL
 An operator's contact information defines how the operator is notified. Operators can be notified by e-mail, pager, or through the **net send** command:  
   
 > [!IMPORTANT]
-> The Pager and **net send** options will be removed from [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Agent in a future version of [!INCLUDE[msCoName](../../includes/msconame_md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using these features in new development work, and plan to modify applications that currently use these features.  
+> The Pager and **net send** options will be removed from [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] Agent in a future version of [!INCLUDE[msCoName](../../includes/msconame-md.md)][!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. Avoid using these features in new development work, and plan to modify applications that currently use these features.  
   
 -   **E-mail notification**  
   
@@ -70,7 +70,7 @@ An operator's contact information defines how the operator is notified. Operator
   
         This software is proprietary to pager service providers. The software acts as a e-mail client that periodically processes its inbox either by interpreting all or part of the e-mail address information as a pager number, or by matching the e-mail name to a pager number in a translation table.  
   
-        If all of the operators share a pager provider, you can use [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] to specify any special e-mail formatting that is required by the pager-to-e-mail system. The special formatting can be a prefix or a suffix and can be included in the following lines of the e-mail:  
+        If all of the operators share a pager provider, you can use SQL Server Management Studio to specify any special e-mail formatting that is required by the pager-to-e-mail system. The special formatting can be a prefix or a suffix and can be included in the following lines of the e-mail:  
   
         **Subject:**  
   

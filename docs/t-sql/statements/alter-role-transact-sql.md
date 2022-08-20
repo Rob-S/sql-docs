@@ -1,27 +1,25 @@
 ---
-description: "ALTER ROLE (Transact-SQL)"
-title: "ALTER ROLE (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "ALTER ROLE (Transact-SQL)"
+description: ALTER ROLE (Transact-SQL)
+author: VanMSFT
+ms.author: vanto
 ms.date: "03/13/2018"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+f1_keywords:
   - "ALTER_ROLE_TSQL"
   - "ALTER ROLE"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "modifying database roles"
   - "ALTER ROLE statement"
   - "renaming database roles"
   - "database roles [SQL Server], modifying"
   - "names [SQL Server], database roles"
+dev_langs:
+  - "TSQL"
 ms.assetid: e1e83caa-17cc-4871-b2db-2711339fb64f
-author: VanMSFT
-ms.author: vanto
 monikerRange: ">=aps-pdw-2016||=azuresqldb-current||=azure-sqldw-latest||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # ALTER ROLE (Transact-SQL)
@@ -117,7 +115,7 @@ Additionally, to change the membership in a fixed database role you need:
 ### A. Change the name of a database role  
  **APPLIES TO:**  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (starting with 2008), [!INCLUDE[ssSDS](../../includes/sssds-md.md)]  
   
- The following example changes the name of role `buyers` to `purchasing`.   This example can be executed in the [AdventureWorks](https://msftdbprodsamples.codeplex.com/) sample database.
+ The following example changes the name of role `buyers` to `purchasing`.   This example can be executed in the [AdventureWorks](../../samples/adventureworks-install-configure.md) sample database.
   
 ```sql  
 ALTER ROLE buyers WITH NAME = purchasing;  
@@ -126,7 +124,7 @@ ALTER ROLE buyers WITH NAME = purchasing;
 ### B. Add or remove role members  
  **APPLIES TO:**  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (starting with 2012), [!INCLUDE[ssSDS](../../includes/sssds-md.md)]  
   
- This example creates a database role named `Sales`. It adds a database user named Barry to the membership, and then shows how to remove the member Barry.   This example can be executed in the [AdventureWorks](https://msftdbprodsamples.codeplex.com/) sample database.
+ This example creates a database role named `Sales`. It adds a database user named Barry to the membership, and then shows how to remove the member Barry.   This example can be executed in the [AdventureWorks](../../samples/adventureworks-install-configure.md) sample database.
   
 ```sql  
 CREATE ROLE Sales;  
@@ -155,6 +153,4 @@ This example creates a SQL login in the master database, creates a database user
  [DROP ROLE &#40;Transact-SQL&#41;](../../t-sql/statements/drop-role-transact-sql.md)   
  [sp_addrolemember &#40;Transact-SQL&#41;](../../relational-databases/system-stored-procedures/sp-addrolemember-transact-sql.md)   
  [sys.database_role_members &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-database-role-members-transact-sql.md)   
- [sys.database_principals &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-database-principals-transact-sql.md)  
-  
-  
+ [sys.database_principals &#40;Transact-SQL&#41;](../../relational-databases/system-catalog-views/sys-database-principals-transact-sql.md)

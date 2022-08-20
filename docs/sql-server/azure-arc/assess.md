@@ -2,11 +2,11 @@
 title: Configure on-demand SQL Assessment on an SQL Server on Azure Arc-enabled servers  instance
 description: Configure on-demand SQL Assessment on an SQL Server on Azure Arc-enabled servers instance
 author: anosov1960
-ms.author: sashan 
-ms.reviewer: mikeray
-ms.date: 04/06/2021
-ms.topic: conceptual
+ms.author: sashan
+ms.reviewer: mikeray, randolphwest
+ms.date: 07/25/2022
 ms.prod: sql
+ms.topic: conceptual
 ---
 # Configure SQL Assessment | SQL Server on Azure Arc-enabled servers
 
@@ -14,86 +14,77 @@ SQL Assessment provides a mechanism to evaluate your configuration of SQL Server
 
 ## Prerequisites
 
-* Your Windows-based SQL Server instance is connected to Azure Arc. Follow the instructions to [onboard your SQL Server instance to  Arc-enabled SQL Server](connect.md).
-   
-   > [!NOTE]
-   > On-demand SQL Assessment is currently limited to SQL Server running on Windows machines. This will not work for SQL on Linux machines.
+- Your Windows-based SQL Server instance is connected to Azure Arc. Follow the instructions to [onboard your SQL Server instance to  Arc-enabled SQL Server](connect.md).
 
-* The Microsoft Monitoring Agent (MMA) extension must be installed and configured on the machine. View the [Install MMA](configure-advanced-data-security.md#install-microsoft-monitoring-agent-mma) article for instructions. You can also get more information on the [Log Analytics Agent](/azure/azure-monitor/platform/log-analytics-agent) article.
+  > [!NOTE]
+  > On-demand SQL Assessment is currently limited to SQL Server running on Windows machines. This will not work for SQL on Linux machines.
 
-* Your SQL Server instance must have the [TCP/IP protocol enabled](../../database-engine/configure-windows/enable-or-disable-a-server-network-protocol.md).
+- The Microsoft Monitoring Agent (MMA) must be installed and configured on the machine. View the [Install MMA](configure-advanced-data-security.md#install-microsoft-monitoring-agent-mma) article for instructions. You can also get more information on the [Log Analytics Agent](/azure/azure-monitor/platform/log-analytics-agent) article.
 
-* The [SQL Server browser service](../../tools/configuration-manager/sql-server-browser-service.md) must be running if you're operating a named instance of SQL Server.
+- Your SQL Server instance must have the [TCP/IP protocol enabled](../../database-engine/configure-windows/enable-or-disable-a-server-network-protocol.md).
 
-* Make sure you've reviewed the SQL Server document at [Services Hub On-Demand Assessments Prerequisites](/services-hub/health/assessment-prereq-docs#on-demand-assessment-prerequisite-documents).
+- The [SQL Server browser service](../../tools/configuration-manager/sql-server-browser-service.md) must be running if you're operating a named instance of SQL Server.
+
+- Make sure you've reviewed the SQL Server document at [Services Hub On-Demand Assessments Prerequisites](/services-hub/health/assessment-prereq-docs#on-demand-assessment-prerequisite-documents).
 
 ## Run on-demand SQL Assessment
 
 1. Open your SQL Server – Azure Arc resource and select **Environment Health** in the left pane.
 
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot showing the Environment Health screen of a SQL Server - Azure Arc resource.](media/assess/sql-assessment-heading-sql-server-arc.png) ](media/assess/sql-assessment-heading-sql-server-arc.png#lightbox)
+   :::image type="content" source="media/assess/sql-assessment-heading-sql-server-arc.png" alt-text="Screenshot showing the Environment Health screen of a SQL Server - Azure Arc resource.":::
 
-> [!IMPORTANT]
-> If MMA extension is not installed, you will not be able to initiate the on-demand SQL Assessment.
+   If the MMA extension isn't installed, you can't initiate the on-demand SQL Assessment.
 
-2. Select the  account type. If you have a Managed service account, it will allow you to initiate SQL Assessment directly from the Portal. Specify the account name.
+2. Select the  account type. If you have a Managed service account, it will allow you to initiate SQL Assessment directly from the portal. Specify the account name.
 
-> [!NOTE]
-> Specifying a *Managed service account* will activate the **Configure SQL Assessment** button so you could initiate the assessment from the Portal by deploying a *CustomScriptExtension*. Because only one *CustomScriptExtension* can be deployed at a time, the script extension for SQL Assessment 
-will be automatically removed after execution. If you already have another *CustomScriptExtension* deployed to the hosting machine,  the **Configure SQL Assessment** button will not be activated.
+   Specifying a *Managed service account* activates the **Configure SQL Assessment** button so you can initiate the assessment from the portal by deploying a *CustomScriptExtension*. Because you can only deploy one *CustomScriptExtension* at a time, the script extension for SQL Assessment will be automatically removed after execution.
 
-3. Specify a working directory on the data collection machine if you want to change the default. By default, `C:\sql_assessment\work_dir` is used. During collection and analysis, data is temporarily stored in that folder. If the folder doesn't exist, it's created automatically.
+   If you already have another *CustomScriptExtension* deployed to the hosting machine,  the **Configure SQL Assessment** button won't be activated.
 
-4. If you initiate SQL Assessment from the Portal by clicking **Configure SQL Assessment**, a standard deployment bubble will show up.
+3. Specify a working directory on the data collection machine if you want to change the default. By default, `C:\sql_assessment\work_dir` is used. During collection and analysis, the assessment temporarily stores data in that folder. If the folder doesn't exist, the assessment creates it automatically.
 
-> [!div class="mx-imgBorder"]
-   > [ ![Screenshot showing deploymentof the CustomScriptExtension.](media/assess/sql-assessment-custom-script-deployment.png) ](media/assess/sql-assessment-custom-script-deployment.png#lightbox)
+4. If you initiate SQL Assessment from the portal by selecting **Configure SQL Assessment**, the portal presents a standard deployment bubble.
 
-5. If you prefer initiating SQL Assessment from the target machine, click **Download configuration script**, copy the downloaded script to the target machine and and execute one of the following code blocks in a admin instance of **powershell.exe**:
+   :::image type="content" source="media/assess/sql-assessment-custom-script-deployment.png" alt-text="Screenshot showing deployment of the CustomScriptExtension.":::
 
-   * _Domain account_:  You'll be prompted for the user account and password.
+   Alternatively, you can initiate SQL Assessment from the target machine. Select **Download configuration script**, copy the downloaded script to the target machine and execute one of the following code blocks in an admin instance of **powershell.exe**:
 
-      ```powershell
-      Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
-      & '.\AddSqlAssessment.ps1'
-      ```
+   - *Domain account*:  You'll be prompted for the user account and password.
 
-   * _Managed Service Account (MSA)_
+     ```powershell
+     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+     & '.\AddSqlAssessment.ps1'
+     ```
 
-      ```powershell
-      Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
-      & '.\AddSqlAssessment.ps1' -ManagedServiceAccountName <MSA account name>
-      ```
+   - *Managed Service Account (MSA)*
 
-> [!NOTE]
-> The script schedules a task named *SQLAssessment*, which triggers data collection. This task executes within an hour after you've run the script. It then repeats every seven days.
+     ```powershell
+     Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
+     & '.\AddSqlAssessment.ps1' -ManagedServiceAccountName <MSA account name>
+     ```
 
-> [!TIP]
-> You can modify the task to run on a different date and time or even force it to run immediately. In the the task scheduler library, find **Microsoft** > **Operations Management Suite** > **AOI\*\*\*** > **Assessments** > **SQLAssessment**.
+   The script schedules a task named *SQLAssessment*, which triggers data collection. This task executes within an hour after you've run the script. It then repeats every seven days.
+
+   You can modify the task to run on a different date and time or even force it to run immediately. In the task scheduler library, find **Microsoft** > **Operations Management Suite** > **AOI\*\*\*** > **Assessments** > **SQLAssessment**.
 
 ## View SQL Assessment results
 
-* On the _Environment Health_ pane, select the **View SQL Assessment results** button.
+- On the *Environment Health* pane, select the **View SQL Assessment results** button.
 
-   > [!NOTE]
-   > The **View SQL Assessment results** button remains disabled until the results are ready in Log Analytics. This process might take up to two hours after the data files are processed on the target machine.
+  The **View SQL Assessment results** button remains disabled until the results are ready in Log Analytics. This process might take up to two hours after the data files are processed on the target machine.
 
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot showing the SQL Assessment results.](media/assess/sql-assessment-results.png) ](media/assess/sql-assessment-results.png#lightbox)
+  :::image type="content" source="media/assess/sql-assessment-results.png" alt-text="Screenshot showing the SQL Assessment results.":::
 
-* You can see the state of data processing on the collection machine by checking the files in the working folder. After the scheduled task is completed, you should see several files with the _new._ prefix in the working directory.
+- You can see the state of data processing on the collection machine by checking the files in the working folder. After the scheduled task is completed, you should see several files with the *new.* prefix in the working directory.
 
-   > [!div class="mx-imgBorder"]
-   > [ ![Screenshot showing a File Manager window displaying new data files in the working folder.](media/assess/sql-assessment-data-files-ready.png) ](media/assess/sql-assessment-data-files-ready.png#lightbox)
+  :::image type="content" source="media/assess/sql-assessment-data-files-ready.png" alt-text="Screenshot showing a File Manager window displaying new data files in the working folder.":::
 
-* The Microsoft Monitoring Agent scans the working folder every 15 minutes. It looks for _new.*_ files and sends the data to the Log Analytics workspace. After MMA uploads the file, it changes the prefix change from _new._ to _processed._
+- The Microsoft Monitoring Agent scans the working folder every 15 minutes. It looks for _new.*_ files and sends the data to the Log Analytics workspace. After MMA uploads the file, it changes the prefix change from *new.* to *processed.*
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot showing a File Manager window displaying processed data files.](media/assess/sql-assessment-data-files-processed.png)
+  :::image type="content" source="media/assess/sql-assessment-data-files-processed.png" alt-text="Screenshot showing a File Manager window displaying processed data files.":::
 
 ## Next steps
 
-* Get more information by viewing the prerequisite documents at [Services Hub On-Demand Assessments](/services-hub/health/assessment-prereq-docs#on-demand-assessment-prerequisite-documents).
+- Get more information by viewing the prerequisite documents at [Services Hub On-Demand Assessments](/services-hub/health/assessment-prereq-docs#on-demand-assessment-prerequisite-documents).
 
-* To obtain comprehensive support of the on-demand SQL Assessment feature, a Premier or Unified support subscription is required. For details, see [Azure Premier Support](https://azure.microsoft.com/support/plans/premier).
+- To obtain comprehensive support of the on-demand SQL Assessment feature, a Premier or Unified support subscription is required. For details, see [Azure Premier Support](https://azure.microsoft.com/support/plans/premier).

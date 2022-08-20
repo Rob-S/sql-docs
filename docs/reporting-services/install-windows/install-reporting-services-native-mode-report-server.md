@@ -4,15 +4,16 @@ title: "Install Reporting Services 2016 native mode report server | Microsoft Do
 ms.date: 12/20/2017
 ms.prod: reporting-services
 ms.prod_service: "reporting-services-native"
-
 ms.topic: conceptual
-helpviewer_keywords: 
+helpviewer_keywords:
   - "default configuration [Reporting Services]"
   - "report servers [Reporting Services], default configurations"
   - "installation options [Reporting Services]"
 ms.assetid: 8f25e6dc-b753-400e-9e9a-50f4f35bf6c4
 author: maggiesMSFT
 ms.author: maggies
+ms.custom:
+  - intro-installation
 ---
 
 # Install Reporting Services 2016 native mode report server
@@ -118,7 +119,7 @@ The following list describes the [!INCLUDE[ssRSnoversion](../../includes/ssrsnov
 
     - Install Rules
 
-2. On the **Setup Role** page, Select **SQL Server Feature Installation**.
+2. On the **Setup Role** page, select **SQL Server Feature Installation**.
 
     ![SQL Server Feature Installation for setup role](../../reporting-services/install-windows/media/rs-setuprole.png "SQL Server Feature Installation for setup role")
 
@@ -149,7 +150,7 @@ The following list describes the [!INCLUDE[ssRSnoversion](../../includes/ssrsnov
     > [!NOTE]
     > **Install and Configure** will not be available unless the database feature is also selected to be installed.
 
-9. Feature Configuration Rules: verify the rules passed. The setup wizard automatically advances to the **Ready to install** if the rules all pass.\
+9. Feature Configuration Rules: verify the rules passed. The setup wizard automatically advances to the **Ready to install** if the rules all pass.
 Specific to [!INCLUDE[ssRSnoversion](../../includes/ssrsnoversion-md.md)], the rules verify a report server catalog and temp catalog database do not already exist.
 
 10. On the **ready to install** page, note the path to the configuration file as you can refer to it at a later time for a good summary of the servers initial [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] configuration including the components installed, service accounts and administrators.
@@ -188,4 +189,4 @@ For more information, see the Native section of the following two topics:
 [Configure TLS Connections on a Native Mode Report Server](../../reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server.md)  
 [Configure Windows Service Accounts and Permissions](../../database-engine/configure-windows/configure-windows-service-accounts-and-permissions.md)  
 
-More questions? [Try asking the Reporting Services forum](https://go.microsoft.com/fwlink/?LinkId=620231)
+More questions? [Try asking the Reporting Services forum](/answers/search.html?c=&f=&includeChildren=&q=ssrs+OR+reporting+services&redirect=search%2fsearch&sort=relevance&type=question+OR+idea+OR+kbentry+OR+answer+OR+topic+OR+user)

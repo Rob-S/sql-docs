@@ -1,25 +1,23 @@
 ---
-description: "sys.dm_os_memory_cache_entries (Transact-SQL)"
-title: "sys.dm_os_memory_cache_entries (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "sys.dm_os_memory_cache_entries (Transact-SQL)"
+description: sys.dm_os_memory_cache_entries (Transact-SQL)
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: "08/18/2017"
 ms.prod: sql
-ms.reviewer: ""
 ms.technology: system-objects
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "dm_os_memory_cache_entries"
   - "sys.dm_os_memory_cache_entries"
   - "dm_os_memory_cache_entries_TSQL"
   - "sys.dm_os_memory_cache_entries_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sys.dm_os_memory_cache_entries dynamic management view"
+dev_langs:
+  - "TSQL"
 ms.assetid: dd32be6b-10d1-4059-b4fd-0bf817f40d54
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-monikerRange: ">= sql-server-2016 || >= sql-server-linux-2017|| >= aps-pdw-2016 || = azure-sqldw-latest"
+monikerRange: ">=sql-server-2016||>=sql-server-linux-2017||>=aps-pdw-2016||=azure-sqldw-latest"
 ---
 # sys.dm_os_memory_cache_entries (Transact-SQL)
 [!INCLUDE [sql-asa-pdw](../../includes/applies-to-version/sql-asa-pdw.md)]
@@ -51,8 +49,9 @@ monikerRange: ">= sql-server-2016 || >= sql-server-linux-2017|| >= aps-pdw-2016 
   
 ## Permissions 
 
-On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.   
-On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account or the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account is required. On all other SQL Database service objectives, the `VIEW DATABASE STATE` permission is required in the database.   
+On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.
+
+On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account, the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account, or membership in the `##MS_ServerStateReader##` [server role](/azure/azure-sql/database/security-server-roles) is required. On all other SQL Database service objectives, either the `VIEW DATABASE STATE` permission on the database, or membership in the `##MS_ServerStateReader##` server role is required.   
 
 ## See Also  
  

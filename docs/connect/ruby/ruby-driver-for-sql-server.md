@@ -10,11 +10,11 @@ ms.technology: connectivity
 ms.topic: conceptual
 ms.assetid: 45d1b1b6-363d-4924-bcb1-b2582b60f76b
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # Ruby Driver for SQL Server
 
-![Download-DownArrow-Circled](../../ssms/media/download-icon.png)[To download Ruby driver for SQL](../sql-connection-libraries.md#anchor-20-drivers-relational-access)
+:::image type="icon" source="../../includes/media/download.svg" border="false"::: [Download Ruby driver for SQL](../sql-connection-libraries.md#anchor-20-drivers-relational-access)
 
 You can connect to a SQL Database using Ruby on Windows, Linux, or macOS.
   

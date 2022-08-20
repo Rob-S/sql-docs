@@ -19,7 +19,7 @@ author: "markingmyname"
 ms.author: "maghan"
 ---
 # Solutions (SQL Server Management Studio)
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 A [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] solution is a collection of one or more related projects. Projects are containers that developers use to organize related files, such as sets of commonly used administration scripts.  
   
 ## Solution Overview  
@@ -33,7 +33,7 @@ Projects can contain:
   
 One or more related projects can be combined in a solution. Solutions and projects can be managed by using the Solution Explorer pane in [!INCLUDE[ssManStudio](../../includes/ssmanstudio-md.md)].  
   
-Solutions and projects can be integrated into a [!INCLUDE[msCoName](../../includes/msconame_md.md)] Visual SourceSafe (VSS) database or other third-party source control providers, for development change tracking and life-cycle management.  
+Solutions and projects can be integrated into a [!INCLUDE[msCoName](../../includes/msconame-md.md)] Visual SourceSafe (VSS) database or other third-party source control providers, for development change tracking and life-cycle management.  
   
 ## Solution Tasks  
   

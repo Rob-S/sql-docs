@@ -1,11 +1,7 @@
 ---
+title: GeomFromGML (geography Data Type)
 description: "GeomFromGML (geography Data Type)"
-title: "GeomFromGML (geography Data Type) | Microsoft Docs"
-ms.custom: ""
-ms.date: "07/30/2017"
 ms.prod: sql
-ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
 f1_keywords: 
@@ -16,12 +12,16 @@ dev_langs:
 helpviewer_keywords: 
   - "GeomFromGML (geography Data Type)"
   - "GeomFromGML method"
-ms.assetid: 470d0997-3cb0-4d34-9a45-b332fe432b14
 author: MladjoA
 ms.author: mlandzic 
+ms.reviewer: ""
+ms.custom: ""
+ms.date: "07/30/2017"
 ---
+
 # GeomFromGML (geography Data Type)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
 Constructs a **geography** instance given a representation in the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] subset of the Geography Markup Language (GML).
   
@@ -58,7 +58,7 @@ GeomFromGml ( GML_input, SRID )
 ## Examples  
  The following example uses `GeomFromGml()` to create a `geography` instance.  
   
-```  
+```sql
 DECLARE @g geography;  
 DECLARE @x xml;  
 SET @x = '<LineString xmlns="https://www.opengis.net/gml"><posList>47.656 -122.36 47.656 -122.343</posList></LineString>';  
@@ -68,7 +68,7 @@ SELECT @g.ToString();
   
  The following example uses `GeomFromGml()` to create a `FullGlobe``geography` instance.  
   
-```  
+```sql
 DECLARE @g geography;  
 DECLARE @x xml;  
 SET @x = '<FullGlobe xmlns="https://schemas.microsoft.com/sqlserver/2011/geography" />';  

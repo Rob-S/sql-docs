@@ -20,11 +20,11 @@ helpviewer_keywords:
   - "active SET options"
   - "SET statement, active SET options"
 ms.assetid: 565ab112-7af1-4c18-a579-07cdb332f539
-author: pmasl
+author: rwestMSFT
 ms.author: umajay
 ---
 # DBCC USEROPTIONS (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
 Returns the SET options active (set) for the current connection.
   

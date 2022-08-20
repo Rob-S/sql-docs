@@ -1,25 +1,23 @@
 ---
-description: "sys.soap_endpoints (Transact-SQL)"
-title: "sys.soap_endpoints (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "sys.soap_endpoints (Transact-SQL)"
+description: sys.soap_endpoints (Transact-SQL)
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: "06/10/2016"
 ms.prod: sql
 ms.prod_service: "database-engine"
-ms.reviewer: ""
 ms.technology: system-objects
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "soap_endpoints_TSQL"
   - "sys.soap_endpoints"
   - "soap_endpoints"
   - "sys.soap_endpoints_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sys.soap_endpoints catalog view"
+dev_langs:
+  - "TSQL"
 ms.assetid: f50dcbfc-02ed-4a19-9c07-c78a5a1b3224
-author: WilliamDAssafMSFT
-ms.author: wiassaf
 ---
 # sys.soap_endpoints (Transact-SQL)
 [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -41,7 +39,7 @@ ms.author: wiassaf
 |**is_xml_charset_enforced**|**bit**|0 = CHARACTER_SET = SQL option was specified.<br /><br /> 1 = CHARACTER_SET = XML option was specified.|  
 |**is_session_enabled**|**bit**|0 = SESSION = DISABLE option was specified.<br /><br /> 1 = SESSION = ENABLED option was specified.|  
 |**session_timeout**|**int**|Value specified in SESSION_TIMEOUT = option.|  
-|**login_type**|**nvarchar(60)**|Kind of authentication allowed on this endpoint.<br /><br /> WINDOWS<br /><br /> MIXED|  
+|**login_type**|**nvarchar(60)**|Kind of authentication allowed on this endpoint.<br /><br /> `WINDOWS` <br /><br /> `MIXED`|  
 |**header_limit**|**int**|Maximum allowable size of the SOAP header.|  
   
 ## Permissions  

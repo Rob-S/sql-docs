@@ -1,24 +1,22 @@
 ---
-description: "sys.dm_db_index_operational_stats (Transact-SQL)"
 title: "sys.dm_db_index_operational_stats (Transact-SQL)"
-ms.custom: ""
+description: sys.dm_db_index_operational_stats (Transact-SQL)
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: "06/10/2016"
 ms.prod: sql
 ms.prod_service: "synapse-analytics, database-engine, pdw, sql-database"
-ms.reviewer: ""
 ms.technology: system-objects
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "dm_db_index_operational_stats"
   - "sys.dm_db_index_operational_stats_TSQL"
   - "sys.dm_db_index_operational_stats"
   - "dm_db_index_operational_stats_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "sys.dm_db_index_operational_stats dynamic management function"
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+dev_langs:
+  - "TSQL"
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # sys.dm_db_index_operational_stats (Transact-SQL)
@@ -125,7 +123,9 @@ sys.dm_db_index_operational_stats (
 |**tree_page_io_latch_wait_in_ms**|**bigint**|Subset of **page_io_latch_wait_in_ms** that includes only the upper-level B-tree pages. Always 0 for a heap or columnstore index.|    
 |**page_compression_attempt_count**|**bigint**|Number of pages that were evaluated for PAGE level compression for specific partitions of a table, index, or indexed view. Includes pages that were not compressed because significant savings could not be achieved. Always 0 for  columnstore index.|    
 |**page_compression_success_count**|**bigint**|Number of data pages that were compressed by using PAGE compression for specific partitions of a table, index, or indexed view. Always 0 for  columnstore index.|    
-    
+
+[!INCLUDE [sql-b-tree](../../includes/sql-b-tree.md)]
+  
 ## Remarks    
  This dynamic management object does not accept correlated parameters from `CROSS APPLY` and `OUTER APPLY`.    
     

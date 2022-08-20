@@ -1,26 +1,24 @@
 ---
-description: "sys.dm_os_dispatcher_pools (Transact-SQL)"
-title: "sys.dm_os_dispatcher_pools (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "sys.dm_os_dispatcher_pools (Transact-SQL)"
+description: sys.dm_os_dispatcher_pools (Transact-SQL)
+author: rwestMSFT
+ms.author: randolphwest
 ms.date: "08/18/2017"
 ms.prod: sql
-ms.reviewer: ""
 ms.technology: system-objects
 ms.topic: "reference"
-f1_keywords: 
+f1_keywords:
   - "dm_os_dispatcher_pools_TSQL"
   - "dm_os_dispatcher_pools"
   - "sys.dm_os_dispatcher_pools"
   - "sys.dm_os_dispatcher_pools_TSQL"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "extended events [SQL Server], views"
   - "sys.dm_os_dispatcher_pools DMV"
+dev_langs:
+  - "TSQL"
 ms.assetid: b9edbc83-c6bc-4753-9bb5-a454cfe7d6bf
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-monikerRange: ">= sql-server-2016 || >= sql-server-linux-2017|| >= aps-pdw-2016 || = azure-sqldw-latest"
+monikerRange: ">=sql-server-2016||>=sql-server-linux-2017||>=aps-pdw-2016||=azure-sqldw-latest"
 ---
 # sys.dm_os_dispatcher_pools (Transact-SQL)
 [!INCLUDE [sql-asa-pdw](../../includes/applies-to-version/sql-asa-pdw.md)]
@@ -44,8 +42,9 @@ Returns information about session dispatcher pools. Dispatcher pools are thread 
   
 ## Permissions
 
-On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.   
-On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account or the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account is required. On all other SQL Database service objectives, the `VIEW DATABASE STATE` permission is required in the database.   
+On [!INCLUDE[ssNoVersion_md](../../includes/ssnoversion-md.md)] and SQL Managed Instance, requires `VIEW SERVER STATE` permission.
+
+On SQL Database **Basic**, **S0**, and **S1** service objectives, and for databases in **elastic pools**, the [server admin](/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database) account, the [Azure Active Directory admin](/azure/azure-sql/database/authentication-aad-overview#administrator-structure) account, or membership in the `##MS_ServerStateReader##` [server role](/azure/azure-sql/database/security-server-roles) is required. On all other SQL Database service objectives, either the `VIEW DATABASE STATE` permission on the database, or membership in the `##MS_ServerStateReader##` server role is required.   
 
 ## See Also  
   

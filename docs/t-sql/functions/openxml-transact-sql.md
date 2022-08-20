@@ -1,28 +1,27 @@
 ---
+title: "OPENXML (Transact-SQL)"
 description: "OPENXML (Transact-SQL)"
-title: "OPENXML (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: ""
 ms.date: "03/20/2018"
 ms.prod: sql
 ms.prod_service: "sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "OPENXML_TSQL"
   - "OPENXML"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "OPENXML statement"
   - "rowsets [SQL Server], XML documents"
   - "XML [SQL Server], rowset views"
-ms.assetid: 8088b114-7d01-435a-8e0d-b81abacc86d6
-author: julieMSFT
-ms.author: jrasnick
+dev_langs:
+  - "TSQL"
 ---
 # OPENXML (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
   OPENXML provides a rowset view over an XML document. Because OPENXML is a rowset provider, OPENXML can be used in [!INCLUDE[tsql](../../includes/tsql-md.md)] statements in which rowset providers such as a table, view, or the OPENROWSET function can appear.  
   

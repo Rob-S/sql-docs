@@ -15,7 +15,7 @@ apilocation:
 apitype: "Assembly"
 ms.assetid: c19e9ca6-2a53-4a0c-91ab-80090c3f7229
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # getBestRowIdentifier Method (SQLServerDatabaseMetaData)
 [!INCLUDE[Driver_JDBC_Download](../../../includes/driver_jdbc_download.md)]
@@ -83,7 +83,7 @@ public java.sql.ResultSet getBestRowIdentifier(java.lang.String catalog,
 |PSEUDO_COLUMN|short|Indicates if the column is a pseudo column. It can be one of the following values:<br /><br /> bestRowUnknown (0)<br /><br /> bestRowNotPseudo (1)<br /><br /> bestRowPseudo (2)|  
   
 ## Example  
- The following example demonstrates how to use the getBestRowIdentifier method to return information about the best row identifier for the Person.Contact table in the [!INCLUDE[ssSampleDBnormal](../../../includes/sssampledbnormal_md.md)] sample database.  
+ The following example demonstrates how to use the getBestRowIdentifier method to return information about the best row identifier for the Person.Contact table in the [!INCLUDE[ssSampleDBnormal](../../../includes/sssampledbnormal-md.md)] sample database.  
   
 ```  
 public static void executeGetBestRowIdentifier(Connection con) {  

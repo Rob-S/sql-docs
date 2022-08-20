@@ -1,19 +1,19 @@
 ---
+title: "UPDATE() (Transact-SQL)"
 description: "UPDATE - Trigger Functions (Transact-SQL)"
-title: "UPDATE() (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: MikeRayMSFT
+ms.author: mikeray
+ms.reviewer: ""
 ms.date: "03/15/2017"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-f1_keywords: 
+ms.custom: ""
+f1_keywords:
   - "UPDATE()_TSQL"
   - "UPDATE()"
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "INSERT statement [SQL Server], UPDATE function"
   - "testing column updates"
   - "UPDATE function"
@@ -23,12 +23,11 @@ helpviewer_keywords:
   - "UPDATE statement [SQL Server], UPDATE function"
   - "verifying column updates"
   - "checking column updates"
-ms.assetid: 8e3be25b-2e3b-4d1f-a610-dcbbd8d72084
-author: julieMSFT
-ms.author: jrasnick
+dev_langs:
+  - "TSQL"
 ---
 # UPDATE - Trigger Functions (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
   Returns a Boolean value that indicates whether an INSERT or UPDATE attempt was made on a specified column of a table or view. UPDATE() is used anywhere inside the body of a [!INCLUDE[tsql](../../includes/tsql-md.md)] INSERT or UPDATE trigger to test whether the trigger should execute certain actions.  
   

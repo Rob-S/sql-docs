@@ -10,7 +10,7 @@ ms.technology: connectivity
 ms.topic: conceptual
 ms.assetid: 76326eeb-1144-4b9f-85db-50524c655d30
 author: David-Engel
-ms.author: v-daenge
+ms.author: v-davidengel
 ---
 # Data Source Wizard Screen 3
 
@@ -62,7 +62,7 @@ Declares the application workload type when connecting to a server. Possible val
 
 ### Multi-subnet failover
 
-If your application is connecting to a high-availability, disaster recovery (AlwaysOn Availability Groups) availability group (AG) on different subnets, enabling **Multi-subnet failover.** configures ODBC Driver for SQL Server to provide faster detection of and connection to the (currently) active server.
+If your application is connecting to a high-availability, disaster recovery (Always On Availability Groups) availability group (AG) on different subnets, enabling **Multi-subnet failover.** configures ODBC Driver for SQL Server to provide faster detection of and connection to the (currently) active server.
 
 ### Transparent Network IP Resolution
 

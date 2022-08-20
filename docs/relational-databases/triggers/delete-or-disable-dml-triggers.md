@@ -15,12 +15,12 @@ helpviewer_keywords:
   - "deleting DML triggers"
   - "DML triggers, removing"
 ms.assetid: 0f97f953-33c5-4b26-afeb-db2a26ce38b4
-author: rothja
-ms.author: jroth
+author: MikeRayMSFT
+ms.author: mikeray
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # Delete or Disable DML Triggers
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
   This topic describes how to delete or disable a DML trigger in [!INCLUDE[ssnoversion](../../includes/ssnoversion-md.md)] by using [!INCLUDE[ssManStudioFull](../../includes/ssmanstudiofull-md.md)] or [!INCLUDE[tsql](../../includes/tsql-md.md)].  
   
  **In This Topic**  

@@ -1,18 +1,16 @@
 ---
-description: "sys.dm_pdw_dms_external_work (Transact-SQL)"
-title: "sys.dm_pdw_dms_external_work (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+title: "sys.dm_pdw_dms_external_work (Transact-SQL)"
+description: sys.dm_pdw_dms_external_work (Transact-SQL)
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: "03/06/2017"
 ms.prod: sql
 ms.technology: data-warehouse
-ms.reviewer: ""
 ms.topic: "reference"
-dev_langs: 
+dev_langs:
   - "TSQL"
 ms.assetid: 47345015-f861-451e-97c4-6e1cb81d1922
-author: ronortloff
-ms.author: rortloff
-monikerRange: ">= aps-pdw-2016 || = azure-sqldw-latest"
+monikerRange: ">=aps-pdw-2016||=azure-sqldw-latest"
 ---
 # sys.dm_pdw_dms_external_work (Transact-SQL)
 [!INCLUDE[applies-to-version/asa-pdw](../../includes/applies-to-version/asa-pdw.md)]
@@ -32,7 +30,7 @@ monikerRange: ">= aps-pdw-2016 || = azure-sqldw-latest"
 |work_id|**int**|The file split ID.|Greater than or equal to 0.<br /><br /> Unique per Compute node.|  
 |input_name|**nvarchar(60)**|String name for the input being read.|For a Hadoop file, this is the Hadoop file name.|  
 |read_location|**bigint**|Offset of read location.||  
-|estimated_bytes_processed|**bigint**|Number of bytes processed by this worker.|Greater than or equal to 0.|  
+|bytes_processed|**bigint**|Number of bytes processed by this worker.|Greater than or equal to 0.|  
 |length|**bigint**|Number of bytes in the file split.<br /><br /> For Hadoop, this is the size of the HDFS block.|User-defined. The default is 64 MB.|  
 |status|**nvarchar(32)**|State of the worker.|Pending, Processing, Done, Failed, Aborted|  
 |start_time|**datetime**|Time at which execution of this worker started.|Greater than or equal to start time of the query step this worker belongs to. See [sys.dm_pdw_request_steps &#40;Transact-SQL&#41;](../../relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql.md).|  

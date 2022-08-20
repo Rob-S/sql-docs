@@ -1,26 +1,26 @@
 ---
+title: "String Operators (Transact-SQL)"
 description: "String Operators (Transact-SQL)"
-title: "String Operators (Transact-SQL) | Microsoft Docs"
-ms.custom: ""
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: ""
 ms.date: "03/14/2017"
 ms.prod: sql
 ms.prod_service: "sql-database"
-ms.reviewer: ""
 ms.technology: t-sql
 ms.topic: reference
-dev_langs: 
-  - "TSQL"
-helpviewer_keywords: 
+ms.custom: ""
+helpviewer_keywords:
   - "operators [Transact-SQL], string concatenation"
   - "plus sign (+)"
   - "string concatenation operators"
   - "+ (string concatenation)"
-ms.assetid: ee4e715d-d8f1-4d0e-81b3-04573ec9f13c
-author: cawrites
-ms.author: chadam
+dev_langs:
+  - "TSQL"
 ---
 # String Operators (Transact-SQL)
-[!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
+[!INCLUDE [SQL Server Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdbmi.md)]
+
 
 [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] provides the following string operators. String concatenation operators can combine two or more of the following data types into one expression: 
 * character or binary strings

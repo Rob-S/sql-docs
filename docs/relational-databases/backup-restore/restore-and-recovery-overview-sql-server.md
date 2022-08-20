@@ -1,7 +1,8 @@
 ---
 title: "Restore and Recovery Overview (SQL Server) | Microsoft Docs"
 description: This article is an overview of the operations involved in recovering a SQL Server database from a failure by restoring a set of SQL Server backups in sequence.
-ms.custom: ""
+ms.custom:
+- event-tier1-build-2022
 ms.date: 04/23/2019
 ms.prod: sql
 ms.prod_service: backup-restore
@@ -20,8 +21,8 @@ helpviewer_keywords:
   - "database restores [SQL Server], scenarios"
   - "accelerated database recovery"
 ms.assetid: e985c9a6-4230-4087-9fdb-de8571ba5a5f
-author: cawrites
-ms.author: chadam
+author: MashaMSFT
+ms.author: mathoma
 ---
 # Restore and Recovery Overview (SQL Server)
  [!INCLUDE [SQL Server](../../includes/applies-to-version/sqlserver.md)]
@@ -38,7 +39,7 @@ ms.author: chadam
   
 -   The data page (a *page restore*)  
   
-     Under the full recovery model or bulk-logged recovery model, you can restore individual databases. Page restores can be performed on any database, regardless of the number of filegroups.  
+     Under the full recovery model or bulk-logged recovery model, you can restore individual pages. Page restores can be performed on any database, regardless of the number of filegroups.  
   
  [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] backup and restore work across all supported operating systems. For information about the supported operating systems, see [Hardware and Software Requirements for Installing SQL Server 2016](../../sql-server/install/hardware-and-software-requirements-for-installing-sql-server.md). For information about support for backups from earlier versions of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)], see the "Compatibility Support" section of [RESTORE &#40;Transact-SQL&#41;](../../t-sql/statements/restore-statements-transact-sql.md).  
   
@@ -173,12 +174,12 @@ For more information, see about the Database Recovery Advisor, see the following
 -   [Recovery Advisor: Using SSMS to create/restore split backups](/archive/blogs/managingsql/recovery-advisor-using-ssms-to-createrestore-split-backups)  
 
 ## <a name="adr"></a> Accelerated database recovery
-[Accelerated database recovery](/azure/sql-database/sql-database-accelerated-database-recovery/) is available in [!INCLUDE[sql-server-2019](../../includes/sssql19-md.md)] and [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]. Accelerated database recovery greatly improves database availability, especially in the presence of long-running transactions, by redesigning the [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] [recovery process](#TlogAndRecovery). A database for which accelerated database recovery was enabled completes the recovery process significantly faster after a failover or other non-clean shut down. When enabled, Accelerated database recovery also completes rollback of canceled long-running transactions significantly faster.
+[Accelerated database recovery](/azure/sql-database/sql-database-accelerated-database-recovery/) is available beginning in [!INCLUDE[sql-server-2019](../../includes/sssql19-md.md)] and in [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]. Accelerated database recovery greatly improves database availability, especially in the presence of long-running transactions, by redesigning the [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] [recovery process](#TlogAndRecovery). A database for which accelerated database recovery was enabled completes the recovery process significantly faster after a failover or other non-clean shut down. When enabled, Accelerated database recovery also completes rollback of canceled long-running transactions significantly faster.
 
 You can enable accelerated database recovery per-database on [!INCLUDE[sql-server-2019](../../includes/sssql19-md.md)] using the following syntax:
 
 ```sql
-ALTER DATABASE <db_name> SET ACCELERATED_DATABASE_RECOVERY = ON;
+ALTER DATABASE [<db_name>] SET ACCELERATED_DATABASE_RECOVERY = ON;
 ```
 
 > [!NOTE]

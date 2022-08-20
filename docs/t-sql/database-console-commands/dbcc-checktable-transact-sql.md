@@ -25,11 +25,11 @@ helpviewer_keywords:
   - "low overhead checks"
   - "table integrity checks [SQL Server]"
 ms.assetid: 0d6cb620-eb58-4745-8587-4133a1b16994
-author: pmasl
+author: rwestMSFT
 ms.author: umajay
 ---
 # DBCC CHECKTABLE (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
 Checks the integrity of all the pages and structures that make up the table or indexed view.
 
@@ -109,7 +109,9 @@ PHYSICAL_ONLY
  -   The logical checks are more comprehensive.  
  -   Some of the underlying structures to be checked are more complex.  
  -   Many new checks have been introduced to include the new features.  
-   
+
+[!INCLUDE [sql-b-tree](../../includes/sql-b-tree.md)]
+
 Therefore, using the PHYSICAL_ONLY option may cause a much shorter run-time for DBCC CHECKTABLE on large tables and is therefore recommended for frequent use on production systems. We still recommend that a full run of DBCC CHECKTABLE be performed periodically. The frequency of these runs depends on factors specific to individual businesses and production environments. PHYSICAL_ONLY always implies NO_INFOMSGS and is not allowed with any one of the repair options.  
     
  > [!NOTE]  
@@ -177,7 +179,7 @@ Parallel checking can be disabled by using trace flag 2528. For more information
 > During a DBCC CHECKTABLE operation, the bytes that are stored in a byte-ordered user-defined type column must be equal to the computed serialization of the user-defined type value. If this is not true, the DBCC CHECKTABLE routine will report a consistency error. 
 
 > [!NOTE]
-> This feature is not available in every edition of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. For more information, see parallel consistency check in the RDBMS Manageability section of [Features Supported by the Editions of SQL Server](../../sql-server/editions-and-components-of-sql-server-version-15.md#RDBMSM). 
+> This feature is not available in every edition of [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)]. For more information, see parallel consistency check in the RDBMS Manageability section of [Features Supported by the Editions of SQL Server](../../sql-server/editions-and-components-of-sql-server-2019.md#RDBMSM). 
 
     
 ## Understanding DBCC Error Messages    
@@ -256,4 +258,3 @@ DBCC CHECKTABLE ('Production.Product',@indid);
 [DBCC &#40;Transact-SQL&#41;](../../t-sql/database-console-commands/dbcc-transact-sql.md)     
 [DBCC CHECKDB &#40;Transact-SQL&#41;](../../t-sql/database-console-commands/dbcc-checkdb-transact-sql.md)    
     
-  

@@ -22,7 +22,7 @@ ms.author: chugu
 
 SQL Server Integration Services (SSIS) Feature Pack for Azure is an extension that provides the components listed on this page for SSIS to connect to Azure services, transfer data between Azure and on-premises data sources, and process data stored in Azure.
 
-[![Download SSIS Feature Pack for Azure](/analysis-services/analysis-services/media/download.png)](https://www.microsoft.com/download/details.aspx?id=100430) **Download**
+:::image type="icon" source="../includes/media/download.svg" border="false"::: **[Download SSIS Feature Pack for Azure](https://www.microsoft.com/download/details.aspx?id=100430)**
 
 - For SQL Server 2019 - [Microsoft SQL Server 2019 Integration Services Feature Pack for Azure](https://www.microsoft.com/download/details.aspx?id=100430)
 - For SQL Server 2017 - [Microsoft SQL Server 2017 Integration Services Feature Pack for Azure](https://www.microsoft.com/download/details.aspx?id=54798)
@@ -188,6 +188,12 @@ Expand-Archive zulu8.33.0.1-jdk8.0.192-win_x64.zip -DestinationPath C:\
 ![Screenshot showing the control flow Foreach Loop container.](../integration-services/media/ssis-azureconnector-cloudarchive-3.png)
 
 ## Release Notes
+
+### Version 1.21.0
+
+#### Improvements
+
+1. Upgraded log4j from version 1.2.17 to 2.17.1.
 
 ### Version 1.20.0
 

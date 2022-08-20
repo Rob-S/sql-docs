@@ -15,7 +15,7 @@ author: "markingmyname"
 ms.author: "maghan"
 ---
 # Use Custom Reports with Object Explorer Node Properties
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 Custom reports can execute in the context of a selected Object Explorer node if the custom reports reference the report parameters of that node. This enables a custom report to use the current context, for example the current database, or a database or server object.  
   
 ## Object Explorer Node Report Parameters  
@@ -50,8 +50,8 @@ To run the example, use the following procedure.
 The report that is created by using the following code will use the parameters that are associated with an Object Explorer node.  
   
 ```  
-<pre><?xml version="1.0" encoding="utf-8"?>  
-<Report xmlns="https://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="https://schemas.microsoft.com/SQLServer/reporting/reportdesigner">  
+<?xml version="1.0" encoding="utf-8"?>  
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2005/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">  
 <ReportParameters>  
 <ReportParameter Name="ObjectName">  
 <DataType>String</DataType>  
@@ -521,7 +521,7 @@ The report that is created by using the following code will use the parameters t
 <InteractiveHeight>11in</InteractiveHeight>  
 <Language>en-US</Language>  
 <TopMargin>1in</TopMargin>  
-</Report></pre>  
+</Report>  
 ```
 
 ## See Also  

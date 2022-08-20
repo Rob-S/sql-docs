@@ -1,8 +1,10 @@
 ---
 title: "Automatic tuning"
 description: Learn about automatic tuning in SQL Server and Azure SQL Database
-ms.custom: "fasttrack-edit"
-ms.date: "03/12/2021"
+ms.custom:
+- fasttrack-edit
+- event-tier1-build-2022
+ms.date: "09/20/2021"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database"
 ms.reviewer: ""
@@ -27,7 +29,7 @@ Automatic tuning, introduced in [!INCLUDE[sssql17-md](../../includes/sssql17-md.
 
 The [!INCLUDE[ssDEnoversion](../../includes/ssdenoversion-md.md)] monitors the queries that are executed on the database and automatically improves performance of the workload. The [!INCLUDE[ssde_md](../../includes/ssde_md.md)] has a built-in intelligence mechanism that can automatically tune and improve performance of your queries by dynamically adapting the database to your workload. There are two automatic tuning features that are available:
 
--    **Automatic plan correction** identifies problematic query execution plans, such as a [parameter sensitivity or parameter sniffing](../../relational-databases/query-processing-architecture-guide.md#ParamSniffing) issues, and fixes query execution plan-related performance problems by forcing the last known good plan before the regression occurred. **Applies to**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Starting with [!INCLUDE[sssql17-md](../../includes/sssql17-md.md)]) and [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]
+-    **Automatic plan correction** identifies problematic query execution plans, such as a [parameter sensitivity or parameter sniffing](../../relational-databases/query-processing-architecture-guide.md#parameter-sensitivity) issues, and fixes query execution plan-related performance problems by forcing the last known good plan before the regression occurred. **Applies to**: [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] (Starting with [!INCLUDE[sssql17-md](../../includes/sssql17-md.md)]) and [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]
 
 -    **Automatic index management** identifies indexes that should be added in your database, and indexes that should be removed. **Applies to**: [!INCLUDE[ssSDSfull](../../includes/sssdsfull-md.md)]
 
@@ -52,7 +54,7 @@ Automatic plan correction is an automatic tuning feature that identifies **execu
 
 ### What is execution plan choice regression?
 
-The [!INCLUDE[ssdenoversion_md](../../includes/ssdenoversion_md.md)] may use different execution plans to execute the [!INCLUDE[tsql_md](../../includes/tsql-md.md)] queries. Query plans depend on the statistics, indexes, and other factors. The optimal plan that should be used to execute a [!INCLUDE[tsql_md](../../includes/tsql-md.md)] query might change over time depending on changes in these factors. In some cases, the new plan might not be better than the previous one, and the new plan might cause a performance regression, such as a [parameter sensitivity or parameter sniffing](../../relational-databases/query-processing-architecture-guide.md#ParamSniffing) related issue. 
+The [!INCLUDE[ssdenoversion_md](../../includes/ssdenoversion-md.md)] may use different execution plans to execute the [!INCLUDE[tsql_md](../../includes/tsql-md.md)] queries. Query plans depend on the statistics, indexes, and other factors. The optimal plan that should be used to execute a [!INCLUDE[tsql_md](../../includes/tsql-md.md)] query might change over time depending on changes in these factors. In some cases, the new plan might not be better than the previous one, and the new plan might cause a performance regression, such as a [parameter sensitivity or parameter sniffing](../../relational-databases/query-processing-architecture-guide.md#parameter-sensitivity) related issue. 
 
  ![Query execution plan choice regression](media/plan-choice-regression.png "Query execution plan choice regression") 
 
@@ -67,7 +69,9 @@ The [!INCLUDE[ssde_md](../../includes/ssde_md.md)] can automatically switch to t
 
 ![Query execution plan choice correction](media/force-last-good-plan.png "Query execution plan choice correction") 
 
-The [!INCLUDE[ssde_md](../../includes/ssde_md.md)] automatically detects any potential plan choice regression, including the plan that should be used instead of the wrong plan. When the [!INCLUDE[ssde_md](../../includes/ssde_md.md)] applies the last known good plan before the regression occurred, it automatically monitors the performance of the forced plan. If the forced plan is not better than the regressed plan, the new plan will be unforced and the [!INCLUDE[ssde_md](../../includes/ssde_md.md)] will compile a new plan. If the [!INCLUDE[ssde_md](../../includes/ssde_md.md)] verifies that the forced plan is better than the regressed plan, the forced plan will be retained. It will be retained until a recompile occurs (for example, on the next statistics update or schema change). For more information about plan forcing and types of plans that can be forced, see [Plan forcing limitations](../../relational-databases/system-catalog-views/sys-query-store-plan-transact-sql.md#plan-forcing-limitations).
+The [!INCLUDE[ssde_md](../../includes/ssde_md.md)] automatically detects any potential plan choice regression, including the plan that should be used instead of the wrong plan. The resulting execution plan forced by automatic plan correction will be the same or similar to the last known good plan. Because the resulting plan may not be identical to the last know good plan, the performance of forced plan may vary. In rare cases, the performance difference may be significant and negative; in this case, automatic plan correction will automatically stop attempting to force the replacement plan.
+
+When the [!INCLUDE[ssde_md](../../includes/ssde_md.md)] applies the last known good plan before the regression occurred, it automatically monitors the performance of the forced plan. If the forced plan is not better than the regressed plan, the new plan will be unforced and the [!INCLUDE[ssde_md](../../includes/ssde_md.md)] will compile a new plan. If the [!INCLUDE[ssde_md](../../includes/ssde_md.md)] verifies that the forced plan is better than the regressed plan, the forced plan will be retained. It will be retained until a recompile occurs (for example, on the next statistics update or schema change). For more information about plan forcing and types of plans that can be forced, see [Plan forcing limitations](../../relational-databases/system-catalog-views/sys-query-store-plan-transact-sql.md#plan-forcing-limitations).
 
 > [!NOTE]
 > If the [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] instance is restarted before a plan forcing action is verified, that plan will be automatically unforced. Otherwise, plan forcing is persisted on [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] restarts.

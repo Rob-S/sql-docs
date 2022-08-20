@@ -21,7 +21,7 @@ ms.author: maghan
 monikerRange: "=azuresqldb-current||>=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-mi-current"
 ---
 # sp_help (Transact-SQL)
-[!INCLUDE [SQL Server SQL Database](../../includes/applies-to-version/sql-asdb.md)]
+[!INCLUDE [SQL Server Azure SQL Database Azure SQL Managed Instance](../../includes/applies-to-version/sql-asdb-asdbmi.md)]
 
   Reports information about a database object (any object listed in the **sys.sysobjects** compatibility view), a user-defined data type, or a data type.  
   
@@ -37,7 +37,7 @@ sp_help [ [ @objname = ] 'name' ]
   
 ## Arguments  
 `[ @objname = ] 'name'`
- Is the name of any object, in **sysobjects** or any user-defined data type in the **systypes** table. *name* is **nvarchar(**776**)**, with a default of NULL. Database names are not acceptable.  Two or three part names must be delimited, such as 'Person.AddressType' or [Person.AddressType].   
+ Is the name of any object, in **sysobjects** or any user-defined data type in the **systypes** table. *name* is **nvarchar(**776**)**, with a default of NULL. Database names are not acceptable.  Two or three part names may be delimited, such as 'Person.AddressType' or '[Person].[AddressType]'.   
    
   
 ## Return Code Values  

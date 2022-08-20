@@ -1,17 +1,18 @@
 ---
-title: "Maintaining indexes optimally to improve performance and reduce resource utilization | Microsoft Docs"
+title: "Maintaining indexes optimally to improve performance and reduce resource utilization"
 description: This article describes index maintenance concepts, and a recommended strategy to maintain indexes.
-ms.custom: ""
+author: dimitri-furman
+ms.author: dfurman
 ms.date: "04/16/2021"
 ms.prod: sql
 ms.prod_service: "database-engine, sql-database, pdw"
 ms.technology: table-view-index
 ms.topic: conceptual
-f1_keywords: 
+f1_keywords:
   - "sql13.swb.index.rebuild.f1"
   - "sql13.swb.indexproperties.fragmentation.f1"
   - "sql13.swb.index.reorg.f1"
-helpviewer_keywords: 
+helpviewer_keywords:
   - "large object defragmenting"
   - "indexes [SQL Server], reorganizing"
   - "index reorganization [SQL Server]"
@@ -27,8 +28,6 @@ helpviewer_keywords:
   - "index defragmenting [SQL Server]"
   - "LOB data [SQL Server], defragmenting"
   - "clustered indexes, defragmenting"
-author: dimitri-furman
-ms.author: dfurman
 monikerRange: ">=sql-server-2016||>=sql-server-linux-2017||=azuresqldb-current||=azuresqldb-mi-current||>=aps-pdw-2016"
 ---
 # Optimize index maintenance to improve query performance and reduce resource consumption
@@ -45,6 +44,9 @@ This article helps you decide when and how to perform index maintenance. It cove
 What is **index fragmentation** and how it impacts performance:
 
 - In B-tree (rowstore) indexes, fragmentation exists when indexes have pages in which the logical ordering within the index, based on the key values of the index, does not match the physical ordering of index pages.
+
+   [!INCLUDE [sql-b-tree](../../includes/sql-b-tree.md)]
+
 - The [!INCLUDE[ssde_md](../../includes/ssde_md.md)] automatically modifies indexes whenever insert, update, or delete operations are made to the underlying data. For example, the addition of rows in a table may cause existing pages in [rowstore indexes](clustered-and-nonclustered-indexes-described.md) to split, making room for the insertion of new rows. Over time these modifications can cause the data in the index to become scattered in the database (fragmented).
 - For queries that read many pages using full or range index scans, heavily fragmented indexes can degrade query performance because additional I/O may be required to read the data required by the query. Instead of a small number of large I/O requests, the query would require a larger number of small I/O requests to read the same amount of data.
 - When the storage subsystem provides better sequential I/O performance than random I/O performance, index fragmentation can degrade performance because more random I/O is required to read fragmented indexes.

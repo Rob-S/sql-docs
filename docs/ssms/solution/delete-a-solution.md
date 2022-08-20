@@ -17,7 +17,7 @@ author: "markingmyname"
 ms.author: "maghan"
 ---
 # Delete a Solution
-[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW ](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
+[!INCLUDE[SQL Server Azure SQL Database Synapse Analytics PDW](../../includes/applies-to-version/sql-asdb-asdbmi-asa-pdw.md)]
 Deleting a solution permanently erases files from physical storage as well as the file items in the solution.  
   
 > [!NOTE]  
@@ -29,7 +29,7 @@ Deleting a solution permanently erases files from physical storage as well as th
   
 2.  On the **File** menu, click **Close Solution**.  
   
-3.  In [!INCLUDE[msCoName](../../includes/msconame_md.md)] Windows Explorer, locate and select the files associated with the solution you want to delete.  
+3.  In [!INCLUDE[msCoName](../../includes/msconame-md.md)] Windows Explorer, locate and select the files associated with the solution you want to delete.  
   
 4.  On the **File** menu, click **Delete**.  
   

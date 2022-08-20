@@ -1,7 +1,7 @@
 ---
 title: "Configure PolyBase scale-out groups on Windows"
 description: Set up a PolyBase scale-out group to create a cluster of SQL Server instances. This improves query performance for large data sets from external sources.
-ms.date: 07/07/2021
+ms.date: 02/22/2022
 ms.prod: sql
 ms.technology: polybase
 ms.topic: "tutorial"
@@ -15,6 +15,8 @@ monikerRange: ">= sql-server-2016"
 [!INCLUDE [SQL Server Windows Only - ASDBMI ](../../includes/applies-to-version/sql-windows-only-asdbmi.md)]
 
 This article describes how to set up a [PolyBase scale-out group](polybase-scale-out-groups.md) on Windows. This creates a cluster of SQL Server instances to process large data sets from external data sources, such as Hadoop or Azure Blob Storage, in a scale-out fashion for better query performance.
+
+[!INCLUDE[polybase-scaleout-banner-retirement](../../includes/polybase-scaleout-banner-retirement.md)]
 
 ## Prerequisites
   
@@ -83,7 +85,7 @@ After setup is complete, both machines can function as PolyBase Group head nodes
 4. Shutdown the PolyBase engine and restart the PolyBase data movement service.
 
 > [!NOTE] 
-> When the Polybase Engine service gets restarted or stopped in the head node, the Data Movement Service (DMS) services gets stopped as soon as the communication channel is closed between DMS and Polybase Engine Service (DW). If the DW engine gets restarted more than two times, the DMS goes to a quiet period for 90 minutes and it must wait 90 minutes for the next auto start attempt. In such situation, you should start this service manually on all nodes.
+> When the PolyBase Engine service gets restarted or stopped in the head node, the Data Movement Service (DMS) services gets stopped as soon as the communication channel is closed between DMS and PolyBase Engine Service (DW). If the DW engine gets restarted more than two times, the DMS goes to a quiet period for 90 minutes and it must wait 90 minutes for the next auto start attempt. In such situation, you should start this service manually on all nodes.
 
 ## Optional: Remove a compute node  
   
@@ -100,7 +102,10 @@ After setup is complete, both machines can function as PolyBase Group head nodes
 4. Start PolyBase Engine. Restart PolyBase data movement service.
   
 5. Verify that the node has been removed by running the DMV sys.dm_exec_compute_nodes on PQTH4A-CMP01. Now, PQTH4A-CMP02 will function as a standalone head node  
-  
+
+## Known limitations
+If you have a default SQL Server instance that is configured to listen on TCP port other than 1433, you cannot use it as a head node in a PolyBase scale-out group. When executing `sp_polybase_join_group`, if you pass 'MSSQLSERVER' as the instance name, SQL Server will assume port 1433 is the listener port, so the Data Movement service will be unable to connect to the head node when starting.
+
 ## Next steps  
 
 For troubleshooting, see [PolyBase troubleshooting with dynamic management views](/previous-versions/sql/sql-server-2016/mt146389(v=sql.130)).
