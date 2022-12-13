@@ -8,7 +8,7 @@ ms.date: 07/14/2021
 ms.service: sql-database
 ms.subservice: security
 ms.topic: how-to
-ms.custom: "devx-track-azurepowershell"
+ms.custom: devx-track-azurepowershell
 keywords:
   - "encrypt data"
   - "sql encryption"
@@ -52,7 +52,7 @@ authorizationrules
 {
        [ type=="x-ms-sgx-is-debuggable", value==false ]
         && [ type=="x-ms-sgx-product-id", value==4639 ]
-        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-svn", value>= 2 ]
         && [ type=="x-ms-sgx-mrsigner", value=="e31c9e505f37a58de09335075fc8591254313eb20bb1a27e5443cc450b6e33e5"] 
     => permit();
 };

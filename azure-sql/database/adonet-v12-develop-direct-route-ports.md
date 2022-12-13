@@ -8,7 +8,9 @@ ms.date: 06/11/2020
 ms.service: sql-database
 ms.subservice: development
 ms.topic: reference
-ms.custom: "sqldbrb=1, devx-track-dotnet"
+ms.custom:
+  - sqldbrb=1
+  - devx-track-dotnet
 ---
 # Ports beyond 1433 for ADO.NET 4.5
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -61,7 +63,7 @@ This section clarifies the monikers that refer to product versions. It also list
 
 ### JDBC
 
-* Microsoft SQL Server JDBC 4.2 or above (JDBC 4.0 actually supports TDS 7.4 but does not implement “redirection”)
+* Microsoft SQL Server JDBC 4.2 or above (JDBC 4.0 actually supports TDS 7.4 but does not implement "redirection")
 
 ## Related links
 
