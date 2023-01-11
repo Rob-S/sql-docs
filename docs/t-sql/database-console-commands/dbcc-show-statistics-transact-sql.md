@@ -50,7 +50,7 @@ Important updates in past versions of SQL Server:
 
 - Starting in [!INCLUDE[sssql16-md](../../includes/sssql16-md.md)] Service Pack 1 CU 2, the [sys.dm_db_stats_histogram](../../relational-databases/system-dynamic-management-views/sys-dm-db-stats-histogram-transact-sql.md) dynamic management view is available to programmatically retrieve histogram information contained in the statistics object.
 
-:::image type="icon" source="../../database-engine/configure-windows/media/topic-link.gif" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
+:::image type="icon" source="../../includes/media/topic-link-icon.svg" border="false"::: [Transact-SQL syntax conventions](../../t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)
 
 ## Syntax
 
@@ -63,7 +63,7 @@ DBCC SHOW_STATISTICS ( table_or_indexed_view_name , target )
     STAT_HEADER | DENSITY_VECTOR | HISTOGRAM | STATS_STREAM
 ```
 
-Syntax for [!INCLUDE[ssSDW](../../includes/sssdw-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]:
+Syntax for [!INCLUDEssazuresynapse-md(../../includes/ssazuresynapse-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]:
 
 ```syntaxsql
 DBCC SHOW_STATISTICS ( table_name , target )
@@ -90,7 +90,7 @@ Name of the table that contains the statistics to display. The table cannot be a
 
 Name of the index, statistics, or column for which to display statistics information. *target* is enclosed in brackets, single quotes, double quotes, or no quotes. If *target* is a name of an existing index or statistics on a table or indexed view, the statistics information about this target is returned. If *target* is the name of an existing column, and an automatically created statistics object on this column exists, information about that auto-created statistic is returned. If an automatically created statistic does not exist for a column target, error message 2767 is returned.  
 
-In [!INCLUDE[ssSDW](../../includes/sssdw-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)], *target* cannot be a column name.
+In [!INCLUDEssazuresynapse-md(../../includes/ssazuresynapse-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)], *target* cannot be a column name.
 
 #### NO_INFOMSGS
 
@@ -113,7 +113,7 @@ The following table describes the columns returned in the result set when STAT_H
 | Rows | Total number of rows in the table or indexed view when the statistics were last updated. If the statistics are filtered or correspond to a filtered index, the number of rows might be less than the number of rows in the table. For more information, see [Statistics](../../relational-databases/statistics/statistics.md). |
 | Rows Sampled | Total number of rows sampled for statistics calculations. If Rows Sampled < Rows, the displayed histogram and density results are estimates based on the sampled rows. |
 | Steps | Number of steps in the histogram. Each step spans a range of column values followed by an upper bound column value. The histogram steps are defined on the first key column in the statistics. The maximum number of steps is 200. |
-| Density | Calculated as 1 / *distinct values* for all values in the first key column of the statistics object, excluding the histogram boundary values. This Density value is not used by the Query Optimizer and is displayed for backward compatibility with versions before [!INCLUDE[ssKatmai](../../includes/sskatmai-md.md)]. |
+| Density | Calculated as 1 / *distinct values* for all values in the first key column of the statistics object, excluding the histogram boundary values. This Density value is not used by the Query Optimizer and is displayed for backward compatibility with versions before [!INCLUDE[sql2008-md](../../includes/sql2008-md.md)]. |
 | Average Key Length | Average number of bytes per value for all of the key columns in the statistics object. |
 | String Index | Yes indicates the statistics object contains string summary statistics to improve the cardinality estimates for query predicates that use the LIKE operator; for example, `WHERE ProductName LIKE '%Bike'`. String summary statistics are stored separately from the histogram and are created on the first key column of the statistics object when it is of type **char**, **varchar**, **nchar**, **nvarchar**, **varchar(max)**, **nvarchar(max)**, **text**, or **ntext.**. |
 | Filter Expression | Predicate for the subset of table rows included in the statistics object. `NULL` = non-filtered statistics. For more information about filtered predicates, see [Create Filtered Indexes](../../relational-databases/indexes/create-filtered-indexes.md). For more information about filtered statistics, see [Statistics](../../relational-databases/statistics/statistics.md). |
@@ -190,11 +190,11 @@ In versions before [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] Service Pac
  > [!NOTE]  
  > To change the behavior back to the pre [!INCLUDE[ssSQL11](../../includes/sssql11-md.md)] Service Pack 1 behavior, use Trace Flag 9485.
 
-## Permissions for [!INCLUDE[ssSDW](../../includes/sssdw-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
+## Permissions for [!INCLUDEssazuresynapse-md(../../includes/ssazuresynapse-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
 
 `DBCC SHOW_STATISTICS` requires `SELECT` permission on the table or membership in the `sysadmin` fixed server role, the `db_owner` fixed database role, or the `db_ddladmin` fixed database role.
 
-## Limitations and Restrictions for [!INCLUDE[ssSDW](../../includes/sssdw-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
+## Limitations and Restrictions for [!INCLUDEssazuresynapse-md(../../includes/ssazuresynapse-md.md)] and [!INCLUDE[ssPDW](../../includes/sspdw-md.md)]
 
 `DBCC SHOW_STATISTICS` shows statistics stored in the `Shell` database at the Control node level. It does not show statistics that are auto-created by [!INCLUDE[ssNoVersion](../../includes/ssnoversion-md.md)] on the Compute nodes.
 
